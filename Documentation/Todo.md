@@ -6,7 +6,10 @@
 - [x] Create Conventions.md
 - [x] Ensure DocFx is installed and latest version.
 - [x] Initialize/run DocFx Project
-- [ ] Editorconfig
-- [ ] CodeMaid Config
-- [ ] global.json
-- [ ] Update Readme
+- [x] Editorconfig
+- [x] CodeMaid Config
+- [x] global.json
+- [x] Update Readme
+- [ ] Create default template application
+- [ ] Configure Continuous Integration
+- [ ] Configuar Continuous Deployment
