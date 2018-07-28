@@ -10,6 +10,6 @@
 - [x] CodeMaid Config
 - [x] global.json
 - [x] Update Readme
-- [ ] Create default template application
+- [x] Create default template application
 - [ ] Configure Continuous Integration
 - [ ] Configuar Continuous Deployment
