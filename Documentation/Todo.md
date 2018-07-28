@@ -1,8 +1,9 @@
 - [x] Create Developer Notebook
 - [x] Choose Source repository host
 - [x] Create new repo HercPwa
-- [X] Create a Todo.md file 
-- [ ] Pick License
+- [x] Create a Todo.md file 
+- [x] Pick License
+- [x] Create Conventions.md
 - [ ] DocFx project
 - [ ] Editorconfig
 - [ ] CodeMaid Config
