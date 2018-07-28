@@ -4,7 +4,8 @@
 - [x] Create a Todo.md file 
 - [x] Pick License
 - [x] Create Conventions.md
-- [ ] DocFx project
+- [x] Ensure DocFx is installed and latest version.
+- [x] Initialize/run DocFx Project
 - [ ] Editorconfig
 - [ ] CodeMaid Config
 - [ ] global.json
