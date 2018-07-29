@@ -1,0 +1,15 @@
+- [x] Create Developer Notebook
+- [x] Choose Source repository host
+- [x] Create new repo HercPwa
+- [x] Create a Todo.md file 
+- [x] Pick License
+- [x] Create Conventions.md
+- [x] Ensure DocFx is installed and latest version.
+- [x] Initialize/run DocFx Project
+- [x] Editorconfig
+- [x] CodeMaid Config
+- [x] global.json
+- [x] Update Readme
+- [x] Create default template application
+- [ ] Configure Continuous Integration
+- [ ] Configuar Continuous Deployment
