@@ -9,7 +9,10 @@
 - [x] Editorconfig
 - [x] CodeMaid Config
 - [x] global.json
-- [x] Update Readme
 - [x] Create default template application
-- [ ] Configure Continuous Integration
-- [ ] Configuar Continuous Deployment
+- [ ] Configure Continuous Integration for App
+  - [x] Create initial yaml
+- [ ] Configure Continuous Integration for Docs
+- [ ] Configure Continuous Deployment for App
+- [ ] Configure Continuous Deployment for Docs
+- [ ] Update Readme
