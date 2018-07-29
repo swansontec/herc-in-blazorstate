@@ -12,6 +12,7 @@
 - [x] Create default template application
 - [ ] Configure Continuous Integration for App
   - [x] Create initial yaml
+  - [x] Add local VSTS Agent
 - [ ] Configure Continuous Integration for Docs
 - [ ] Configure Continuous Deployment for App
 - [ ] Configure Continuous Deployment for Docs
