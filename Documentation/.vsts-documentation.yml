@@ -13,7 +13,7 @@ steps:
     solution: 'documentation/docfx.json'
   enabled: true
 
-  - task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
