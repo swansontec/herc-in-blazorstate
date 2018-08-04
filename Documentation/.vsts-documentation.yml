@@ -16,6 +16,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-    ArtifactName: docSite
-    publishLocation: Container
+    PathtoPublish: 'Documentation\_site'
+    ArtifactName: 'docs-herc-pwa-site'
