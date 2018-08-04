@@ -13,7 +13,19 @@
 - [ ] Configure Continuous Integration for App
   - [x] Create initial yaml
   - [x] Add local VSTS Agent
+  - [ ] Configure Service Endpoint in VSTS to point to newly create Azure Endpoint
 - [ ] Configure Continuous Integration for Docs
 - [ ] Configure Continuous Deployment for App
 - [ ] Configure Continuous Deployment for Docs
+- [ ] Add DeveloperNotebook to DocFx
+- [ ] Add Todo to DocFx
+- [ ] Add Process Documentation and Templates
+  - [ ] Add Definition of Ready.md
+  - [ ] Add Definition of Done.md
+  - [ ] Add User Story Template.md
+  - [ ] Add User Story Grooming Process.md
+  - [ ] Add User Story Grooming Process Checklist.md
 - [ ] Update Readme
+- [ ] Add Dependency Update Policy.md
+   > So many tools and packages we need to have a way to track and keep them up to date.
+- [ ] 
