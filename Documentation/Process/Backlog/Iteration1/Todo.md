@@ -17,6 +17,7 @@
 - [ ] Configure Continuous Integration for Docs
 - [ ] Configure Continuous Deployment for App
 - [ ] Configure Continuous Deployment for Docs
+  - [x] Create a new App Service in Azure for the docs.  
 - [ ] Add DeveloperNotebook to DocFx
 - [ ] Add Todo to DocFx
 - [ ] Add Process Documentation and Templates
@@ -28,4 +29,3 @@
 - [ ] Update Readme
 - [ ] Add Dependency Update Policy.md
    > So many tools and packages we need to have a way to track and keep them up to date.
-- [ ] 
