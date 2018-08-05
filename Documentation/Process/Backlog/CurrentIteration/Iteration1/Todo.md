@@ -10,19 +10,19 @@
 - [x] CodeMaid Config
 - [x] global.json
 - [x] Create default template application
-- [ ] Configure Continuous Integration for App
+- [x] Configure Continuous Integration for App
   - [x] Create initial yaml
   - [x] Add local VSTS Agent
-  - [ ] Configure Service Endpoint in VSTS to point to newly create Azure Endpoint
-- [ ] Configure Continuous Integration for Docs
-- [ ] Configure Continuous Deployment for App
-- [ ] Configure Continuous Deployment for Docs
+  - [x] Configure Service Endpoint in VSTS to point to newly create Azure Endpoint
+- [x] Configure Continuous Integration for Docs
+- [x] Configure Continuous Deployment for App
+- [x] Configure Continuous Deployment for Docs
   - [x] Create a new App Service in Azure for the docs.  
-- [ ] Add DeveloperNotebook to DocFx
-- [ ] Add Todo to DocFx
+- [x] Add DeveloperNotebook to DocFx
+- [x] Add Todo to DocFx
 - [ ] Add Process Documentation and Templates
-  - [ ] Add Definition of Ready.md
-  - [ ] Add Definition of Done.md
+  - [x] Add Definition of Ready.md
+  - [x] Add Definition of Done.md
   - [ ] Add User Story Template.md
   - [ ] Add User Story Grooming Process.md
   - [ ] Add User Story Grooming Process Checklist.md

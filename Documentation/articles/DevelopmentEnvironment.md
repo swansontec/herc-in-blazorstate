@@ -5,6 +5,7 @@
 * Visual Studio 2017 Preview
 * DocFx
 * git
+* CodeMaid
 
 # Optional
 

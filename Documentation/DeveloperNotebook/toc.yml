@@ -1,10 +1,5 @@
 - name: Developer Notebook
-  href: intro.md
-- name: Cramer-2018-08-02
-  href: Cramer-2018-08-02.md
-- name: Cramer-2018-07-31 
-  href: Cramer-2018-07-31.md
-- name: Cramer-2018-07-29 
-  href: Cramer-2018-07-29.md
-- name: Cramer-2018-07-28
-  href: Cramer-2018-07-28.md
+  href: DeveloperNotebookIntroduction.md
+  name: Cramer Notes
+  href: Cramer/toc.yml
+ 

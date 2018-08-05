@@ -1,2 +1,6 @@
 - name: Introduction
-  href: intro.md
+  href: ArticlesIntroduction.md
+- name: Conventions
+  href: Conventions.md
+- name: Development Environment
+  href: DevelopmentEnvironment.md

@@ -1,12 +1,8 @@
 - name: Backlog
-  href: intro.md
+  href: BacklogIntroduction.md
 - name: Current Iteration
-  href: Iteration1/
+  href: CurrentIteration/Iteration1/toc.yml
 - name: New
-  href: New/
+  href: New/toc.yml
 - name: Ready
-  href: Ready/
-- name: Past
-  href: Past/
-- name: Future
-  href: Future/
+  href: Ready/toc.yml
