@@ -1,4 +1,9 @@
-# This is the **HOMEPAGE**.
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
-## Quick Start Notes:
-1. Add images to the *images* folder if the file is referencing an image.
+# Hercules Progressive Web Application Documentation.
+
+The Hercules Progressive Web Application is a Web Assembly application written using Blazor.net.
+
+Technologies used:
+Blazor-State for client side state managment.
+Edge UI -
+dotnet Core 2.1 
+MediatR

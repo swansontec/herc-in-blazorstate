@@ -25,6 +25,10 @@
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
+          "DeveloperNotebook/**.md",
+          "DeveloperNotebook/**/toc.yml",
+          "Process/**.md",
+          "Process/**/toc.yml",
           "toc.yml",
           "*.md"
         ]
@@ -33,7 +37,8 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "DeveloperNotebook/Cramer/images/**"
         ]
       }
     ],
