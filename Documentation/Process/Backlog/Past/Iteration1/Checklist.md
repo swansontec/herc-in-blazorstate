@@ -20,12 +20,12 @@
   - [x] Create a new App Service in Azure for the docs.  
 - [x] Add DeveloperNotebook to DocFx
 - [x] Add Todo to DocFx
-- [ ] Add Process Documentation and Templates
-  - [x] Add Definition of Ready.md
-  - [x] Add Definition of Done.md
-  - [ ] Add User Story Template.md
-  - [ ] Add User Story Grooming Process.md
-  - [ ] Add User Story Grooming Process Checklist.md
-- [ ] Update Readme
-- [ ] Add Dependency Update Policy.md
+- [x] Add Process Documentation and Templates
+  - [x] Add placeholder for Definition of Ready.md
+  - [x] Add placeholder for Definition of Done.md
+  - [x] Add placeholder for User Story Template.md
+  - [x] Add placeholder for User Story Grooming Process.md
+  - [x] Add placeholder for User Story Grooming Process Checklist.md
+- [x] Add placholder for Dependency Update Policy.md
    > So many tools and packages we need to have a way to track and keep them up to date.
+- [ ] Update Readme
