@@ -11,15 +11,16 @@ Developers can access a documentation portal consisting of conceptual documents 
 
 # Acceptance Criteria
 
-- [ ] Developers have access to an effective source of technical information that they will need to be productive as the project increases in complexity
-- [ ] Developers have a starting point with some templates that point the way towards how they should maintain the documentation as the project evolves
+- [ ] Developers have access to an effective source of technical 
+information that they will need to be productive as the project increases in complexity
+- [ ] Developers have a starting point with some templates 
+that point the way towards how they should maintain the documentation as the project evolves
 - [ ] Documentation is baked into the normal developer workflow (CI builds and deploy)
 
 # Tasks
 - [x] Ensure DocFx is installed and latest version.
 - [x] Add DocFx to the Development Environment document.
 - [x] Initialize/run DocFx Project
-- [ ] Add DocFx build to build scripts
-- [ ] Add DocFx build to CI
-- [ ] Add DocFx build to CD
-- [ ] 
+- [x] Add DocFx build to build scripts
+- [x] Add DocFx build to CI
+- [x] Add DocFx build to CD
