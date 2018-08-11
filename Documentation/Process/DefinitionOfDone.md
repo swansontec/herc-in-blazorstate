@@ -16,6 +16,7 @@ Api Feature
 - [ ] Documentation
   - [ ] *Request class and properties
   - [ ] *Response class and properties
+  - [ ] *Update Model
 
 `*` indicates required.
 
