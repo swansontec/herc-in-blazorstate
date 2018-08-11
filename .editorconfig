@@ -177,6 +177,15 @@ dotnet_naming_symbols.parameters.applicable_kinds = parameter
 dotnet_naming_style.parameter_style.required_prefix = a
 dotnet_naming_style.parameter_style.capitalization = pascal_case
 
+# Local functions are PascalCase
+dotnet_naming_rule.local_functions_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.local_functions_should_be_pascal_case.symbols = local_functions
+dotnet_naming_rule.local_functions_should_be_pascal_case.style = local_function_style
+
+dotnet_naming_symbols.local_functions.applicable_kinds = local_function
+
+dotnet_naming_style.local_function_style.capitalization = pascal_case
+
 # By default, name items with PascalCase
 dotnet_naming_rule.members_should_be_pascal_case.severity = suggestion
 dotnet_naming_rule.members_should_be_pascal_case.symbols = all_members
