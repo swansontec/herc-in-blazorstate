@@ -20,3 +20,5 @@
   - [ ] T4 templates 
   >https://docs.microsoft.com/en-us/visualstudio/modeling/code-generation-and-t4-text-templates
 
+ - [ ] Look at StarUml Code gen https://github.com/staruml/mdgen
+

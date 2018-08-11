@@ -15,12 +15,12 @@
     }
 
     /// <summary>
-    /// Used to correlate request and response
+    /// The RequestId. Used to correlate request and response
     /// </summary>
     public Guid RequestId { get; set; }
 
     /// <summary>
-    /// Used to correlate request and response
+    /// The ResponseId. Used to correlate request and response
     /// </summary>
     public Guid ResponseId { get; }
   }

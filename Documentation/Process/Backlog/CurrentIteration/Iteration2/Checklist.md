@@ -45,21 +45,24 @@ CreateAssetDefinition
     - [x] *Response class and properties
 
 ### Feature GetAssetDefinition
-- [ ] Feature GetAssetDefinition
-  - [ ] Implementation
+- [x] Feature GetAssetDefinition
+  - [x] Implementation
     - [x] *Controller
     - [x] *Request
     - [x] *Response
     - [x] *Handler 
     - [x] Mapper 
     - [x] Validator 
-  - [ ] Integration Tests
+  - [x] Integration Tests
     - [x] *Sunny Day Scenario
-    - [ ] *Validation Test
-    - [ ] Negative Testing
-  - [ ] Documentation
-    - [ ] *Request class and properties
-    - [ ] *Response class and properties
+    - [x] *Validation Test
+    - [x] Negative Testing 
+        > Check for when ID not found.
+  - [x] Documentation
+    - [x] *Request class and properties
+    - [x] *Response class and properties
+    - [x] *Update Model
+      > Just reverse engineered the model from source.
 
 ### Feature CreateAssetDefinition
 
@@ -77,3 +80,7 @@ CreateAssetDefinition
 - [ ] Documentation
   - [ ] *Request class and properties
   - [ ] *Response class and properties
+
+### Refactor
+  - [ ] Use GUID for ID vs Int.  Better to do early than late. Given blockchain and distributed DBs probably wise to have Unique across more than just the one DB.  
+  - [ ] 

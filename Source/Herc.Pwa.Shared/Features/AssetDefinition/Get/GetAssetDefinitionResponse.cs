@@ -10,6 +10,10 @@
   {
     public GetAssetDefinitionResponse() { }
     public GetAssetDefinitionResponse(Guid aRequestId) : base(aRequestId) { }
+
+    /// <summary>
+    /// The AssetDefintion requested if found else null.
+    /// </summary>
     public AssetDefinitionDto AssetDefinition { get; set; }
   }
 }
