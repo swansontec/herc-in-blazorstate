@@ -1,5 +1,6 @@
 ﻿namespace Herc.Pwa.Server.Integration.Tests.Features.AssetDefinition.Create
 {
+  using System.Collections.Generic;
   using System.Threading.Tasks;
   using Herc.Pwa.Shared.Features.AssetDefinition;
   using Shouldly;
@@ -15,19 +16,17 @@
       //Arrange
       var createAssetDefinitionRequest = new CreateAssetDefinitionRequest()
       {
-        AssetDefinition = new AssetDefinitionDto
+        AssetDefinitionDto = new AssetDefinitionDto
         {
           Name = AssetDefinitionName,
           Url = AssetDefinitionUrl,
+          MetricDefinitions = new List<MetricDefinitionDto>
+            {
+              new MetricDefinitionDto { Name = "Assay", Default = "0.9999", UnitOfMeasure = "Fineness", Description="A Bar of Gold", SampleValue="0.9999", Regex= @"^0([.,])\d+" },
+              new MetricDefinitionDto { Name = "Bar Serial #", Description="The serial number of the bar of gold", SampleValue="123456", UnitOfMeasure="Identifier" }
+            }
         }
       };
-
-      var metricDefinitions = new MetricDefinitionDto[]
-      {
-        new MetricDefinitionDto { Name = "Assay", Default = "0.9999", UnitOfMeasure = "Fineness", Description="A Bar of Gold", SampleValue="0.9999", Regex= @"^0([.,])\d+" },
-        new MetricDefinitionDto { Name = "Bar Serial #", Description="The serial number of the bar of gold", SampleValue="123456", UnitOfMeasure="Identifier" }
-      };
-      createAssetDefinitionRequest.AssetDefinition.MetricDefinitions.AddRange(metricDefinitions);
 
       //Act
       CreateAssetDefinitionResponse createAssetDefinitionResponse = await SendAsync(createAssetDefinitionRequest);

@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Features.AssetDefinition.Get
+﻿namespace Herc.Pwa.Server.Features.AssetDefinition
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Server.Features.Base;

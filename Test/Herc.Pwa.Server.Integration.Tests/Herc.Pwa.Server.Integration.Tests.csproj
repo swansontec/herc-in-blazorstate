@@ -35,4 +35,10 @@
     <ProjectReference Include="..\..\Source\Herc.Pwa.Shared\Herc.Pwa.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\Logos\toast.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

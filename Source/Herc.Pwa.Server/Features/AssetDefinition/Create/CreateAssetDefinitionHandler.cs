@@ -22,7 +22,7 @@
       CreateAssetDefinitionRequest aCreateAssetDefinitionRequest,
       CancellationToken aCancellationToken)
     {
-      AssetDefinition assetDefintion = Mapper.Map<AssetDefinitionDto, AssetDefinition>(aCreateAssetDefinitionRequest.AssetDefinition);
+      AssetDefinition assetDefintion = Mapper.Map<AssetDefinitionDto, AssetDefinition>(aCreateAssetDefinitionRequest.AssetDefinitionDto);
       HercPwaDbContext.AssetDefinitions.Add(assetDefintion);
       await HercPwaDbContext.SaveChangesAsync(aCancellationToken);
       var createAssetDefinitionResponse = new CreateAssetDefinitionResponse(aCreateAssetDefinitionRequest.Id)

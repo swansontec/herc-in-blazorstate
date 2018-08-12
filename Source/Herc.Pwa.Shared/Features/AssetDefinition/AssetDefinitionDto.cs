@@ -18,14 +18,34 @@
 
       foreach (MetricDefinitionDto metricDefinition in aAssetDefinition.MetricDefinitions)
       {
-        MetricDefinitions.Add((MetricDefinitionDto) metricDefinition.Clone());
+        MetricDefinitions.Add((MetricDefinitionDto)metricDefinition.Clone());
       }
     }
 
-    public List<MetricDefinitionDto> MetricDefinitions { get; set; }
-    public string Name { get; set; }
-    public string Url { get; set; }
+    /// <summary>
+    /// Contains the Logo/image that is to represent the AssetDefintion
+    /// and the associated Assets 
+    /// </summary>
     public byte[] Logo { get; set; }
+    /// <summary>
+    /// The collection of Metrics used to describe `Assest`s associated 
+    /// to this AssetDefinition
+    /// </summary>
+    public List<MetricDefinitionDto> MetricDefinitions { get; set; }
+
+    /// <summary>
+    /// The Name of the AssetDefinition
+    /// </summary>
+    /// <example>Rice</example>
+    /// <example>Gold</example>
+    /// <example>Televisions</example>
+    public string Name { get; set; }
+
+    /// <summary>
+    /// TODO: 
+    /// </summary>
+    public string Url { get; set; }
+
     public object Clone() => new AssetDefinitionDto(this);
   }
 }

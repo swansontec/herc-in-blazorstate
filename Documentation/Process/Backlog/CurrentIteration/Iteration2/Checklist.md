@@ -66,21 +66,23 @@ CreateAssetDefinition
 
 ### Feature CreateAssetDefinition
 
-- [ ] Implementation
+- [x] Implementation
   - [x] *Controller
   - [x] *Request
   - [x] *Response
   - [x] *Handler 
   - [x] Mapper 
-  - [ ] Validation
-- [ ] Integration Tests
+  - [x] Validation
+- [x] Integration Tests
   - [x] *Sunny Day Scenario
-  - [ ] *Validation Test
+  - [x] *Validation Test
   - [ ] Negative Testing
-- [ ] Documentation
-  - [ ] *Request class and properties
-  - [ ] *Response class and properties
+    > Not sure other than validation tests what is a good negative test?
+- [x] Documentation
+  - [x] *Request class and properties
+  - [x] *Response class and properties
 
 ### Refactor
   - [ ] Use GUID for ID vs Int.  Better to do early than late. Given blockchain and distributed DBs probably wise to have Unique across more than just the one DB.  
-  - [ ] 
+  - [ ] Investigate: file upload for images and refactor appropriately with validation on client and server.
+

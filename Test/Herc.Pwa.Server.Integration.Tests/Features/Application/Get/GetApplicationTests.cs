@@ -8,7 +8,7 @@
 
   class GetApplicationTests : IntegrationTestBase
   {
-    public async Task Should_get_ApplicationObject()
+    public async Task Should_get_Application_object()
     {
       // Arrange
       var getApplicationRequest = new GetApplicationRequest();

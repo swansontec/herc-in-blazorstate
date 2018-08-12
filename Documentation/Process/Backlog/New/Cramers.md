@@ -22,3 +22,12 @@
 
  - [ ] Look at StarUml Code gen https://github.com/staruml/mdgen
 
+
+## Herc.Pwa Model 
+
+- [ ] Unit of Measure needs vetted.  Maybe look at "Enterprise Applications MDA book"
+
+### Add Share button to UI 
+  - [ ] Social Media Share
+    > See Stacks UI for details.
+    > https://github.com/HERCone/NUI-UI-Layer/blob/b9113fe645b998d0f295ad44e241425617c3e49c/components/TxSwiper.js#L184

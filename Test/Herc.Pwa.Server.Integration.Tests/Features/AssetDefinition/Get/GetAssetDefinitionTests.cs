@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Server.Integration.Tests.Features.AssetDefinition.Create
+﻿namespace Herc.Pwa.Server.Integration.Tests.Features.AssetDefinition.Get
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Server.Entities;
@@ -47,7 +47,7 @@
       assetDefinitionDto.MetricDefinitions[0].Description.ShouldBe(assetDefinition.MetricDefinitions[0].Description);
     }
 
-    public async Task Should_not_get_AssetDefinition()
+    public async Task Should_NOT_get_AssetDefinition()
     {
       //Arrange
       // Build the AssetDefinition
