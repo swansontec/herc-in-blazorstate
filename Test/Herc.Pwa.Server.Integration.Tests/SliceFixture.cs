@@ -189,10 +189,5 @@ namespace Herc.Pwa.Server.Integration.Tests
         return mediator.Send(request);
       });
     }
-
-    private static int CourseNumber = 1;
-
-    public static int NextCourseNumber() => Interlocked.Increment(ref CourseNumber);
-
   }
 }
