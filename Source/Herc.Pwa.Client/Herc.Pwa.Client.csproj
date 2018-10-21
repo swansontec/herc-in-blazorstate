@@ -15,4 +15,10 @@
     <ProjectReference Include="..\Herc.Pwa.Shared\Herc.Pwa.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\Home\Home.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
