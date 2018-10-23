@@ -5,6 +5,8 @@
   using BlazorState.Behaviors.ReduxDevTools;
   using HercPwa2.Client.Features.Application;
   using HercPwa2.Client.Features.Counter;
+  using HercPwa2.Client.Features.Edge;
+  using HercPwa2.Client.Features.Idology;
   using HercPwa2.Client.Features.WeatherForecast;
 
   /// <summary>
@@ -44,6 +46,8 @@
     public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
     public CounterState CounterState => Store.GetState<CounterState>();
     public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
+    public EdgeState EdgeState => Store.GetState<EdgeState>();
+    public IdologyState IdologyState => Store.GetState<IdologyState>();
 
   }
 }

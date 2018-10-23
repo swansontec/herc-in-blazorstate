@@ -16,6 +16,7 @@
       {
         Console.WriteLine($"onLoginRequest.UserName:{onLoginRequest.UserName}");
         EdgeState.UserName = onLoginRequest.UserName;
+        EdgeState.IsLoggedIn = true;
         return Task.FromResult(EdgeState);
       }
     }
