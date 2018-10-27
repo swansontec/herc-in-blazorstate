@@ -2,7 +2,6 @@
 import { BlazorState } from './BlazorState';
 import { BlazorStateName } from './Constants';
 
-
 export const EdgeInteropName: string = 'EdgeInterop';
 
 export class EdgeInterop {
@@ -50,15 +49,15 @@ export class EdgeInterop {
     console.log('The user has dismissed the login window');
   }
 
-  GetFirstWalletInfo = (type: string): string => {
+  GetFirstWalletInfo = (aType: string): string => {
     if (!this.EdgeUiAccount) throw "EdgeUiAccount required ensure logged in before calling.";
-    this.EdgeWalletInfo = this.EdgeUiAccount.getFirstWalletInfo(type);
+    this.EdgeWalletInfo = this.EdgeUiAccount.getFirstWalletInfo(aType);
     return JSON.stringify(this.EdgeWalletInfo);
   }
-  
-  CreateCurrencyWallet = async (type: string, edgeCreateCurrencyWalletOptions?: EdgeCreateCurrencyWalletOptions): Promise<string> => {
+
+  CreateCurrencyWallet = async (aType: string, edgeCreateCurrencyWalletOptions?: EdgeCreateCurrencyWalletOptions): Promise<string> => {
     if (!this.EdgeUiAccount) throw "EdgeUiAccount required ensure logged in before calling.";
-    this.EdgeCurrencyWallet = await this.EdgeUiAccount.createCurrencyWallet(type, edgeCreateCurrencyWalletOptions);
+    this.EdgeCurrencyWallet = await this.EdgeUiAccount.createCurrencyWallet(aType, edgeCreateCurrencyWalletOptions);
     return JSON.stringify(this.EdgeCurrencyWallet);
   };
 

@@ -19,13 +19,14 @@
       }
       else if (!IdologyState.IsValid)
       {
-        // Route them to Idology Page to verify 
+        // Route them to Idology Page to verify
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = IdologyModel.Route });
       }
-      else if (EdgeState.WalletId)
+      else if (EdgeState.Wallet == null)
       {
+        const string EtheriumWalletType = "wallet:ethereum";
         // Fetch the acccount information we want.
-        await Mediator.Send(new Features.Edge.Get{});
+        await Mediator.Send(new Features.Edge.GetFirstWalletInfoAction { Type = EtheriumWalletType });
       }
     }
   }
