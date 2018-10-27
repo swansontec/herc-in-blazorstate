@@ -20,7 +20,6 @@
         Console.WriteLine($"Invoke the JavaScript method: {jsFunctionName}");
         await JSRuntime.Current.InvokeAsync<bool>(jsFunctionName);
         
-        
         return EdgeState;
       }
     }

@@ -12,10 +12,10 @@
     {
       public OnLoginActionHandler(IStore aStore) : base(aStore) { }
 
-      public override Task<EdgeState> Handle(OnLoginAction onLoginRequest, CancellationToken cancellationToken)
+      public override Task<EdgeState> Handle(OnLoginAction aOnLoginRequest, CancellationToken aCancellationToken)
       {
-        Console.WriteLine($"onLoginRequest.UserName:{onLoginRequest.UserName}");
-        EdgeState.UserName = onLoginRequest.UserName;
+        Console.WriteLine($"onLoginRequest.UserName:{aOnLoginRequest.UserName}");
+        EdgeState.UserName = aOnLoginRequest.UserName;
         EdgeState.IsLoggedIn = true;
         return Task.FromResult(EdgeState);
       }

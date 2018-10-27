@@ -7,6 +7,7 @@
 
   public class EdgeModel : BaseComponent
   {
+    public const string Route = "edge";
     public EdgeModel()
     {
       Console.WriteLine("EdgeModel constructor");
@@ -28,8 +29,17 @@
       await Mediator.Send(new OpenLoginWindowEdgeAction());
     }
 
+    protected override async Task OnInitAsync()
+    {
+      Console.WriteLine("EdgeModel.OnInitAsync");
+      Console.WriteLine(typeof(OnLoginAction).AssemblyQualifiedName);
+      await InitializeEdge();
+      await OpenLoginWindow();
+    }
+
     protected override void OnInit()
     {
+      Console.WriteLine("EdgeModel.OnInit");
       StaticMediator = Mediator;
       if (StaticMediator != null)
         Console.WriteLine("StaticMediator assigned");
@@ -40,19 +50,19 @@
     /// Call back from Edge
     /// </summary>
     /// <returns></returns>
-    public static async Task OnLogin(string aUserName)
-    {
-      Console.WriteLine($"On Login: {aUserName}");
+    //public static async Task OnLogin(string aUserName)
+    //{
+    //  Console.WriteLine($"On Login: {aUserName}");
 
-      var onLoginRequest = new OnLoginAction
-      {
-        UserName = aUserName
-      };
-      Console.WriteLine($"onLoginRequest.UserName: {onLoginRequest.UserName}");
-      if (StaticMediator == null)
-        Console.WriteLine("StaticMediator == null");
-      await StaticMediator.Send(onLoginRequest);
-      Console.WriteLine($"On Login: {aUserName} complete");
-    }
+    //  var onLoginRequest = new OnLoginAction
+    //  {
+    //    UserName = aUserName
+    //  };
+    //  Console.WriteLine($"onLoginRequest.UserName: {onLoginRequest.UserName}");
+    //  if (StaticMediator == null)
+    //    Console.WriteLine("StaticMediator == null");
+    //  await StaticMediator.Send(onLoginRequest);
+    //  Console.WriteLine($"On Login: {aUserName} complete");
+    //}
   }
 }

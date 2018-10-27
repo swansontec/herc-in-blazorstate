@@ -1,17 +1,23 @@
-using Microsoft.AspNetCore.Blazor.Builder;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Herc.Pwa.Client
+﻿namespace Herc.Pwa.Client
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
+  using Blazor.Extensions.Logging;
+  using BlazorState;
+  using Microsoft.AspNetCore.Blazor.Builder;
+  using Microsoft.Extensions.DependencyInjection;
+  using Microsoft.Extensions.Logging;
 
-        public void Configure(IBlazorApplicationBuilder app)
-        {
-            app.AddComponent<App>("app");
-        }
+  public class Startup
+  {
+    public void Configure(IBlazorApplicationBuilder aBlazorApplicationBuilder) =>
+      aBlazorApplicationBuilder.AddComponent<App>("app");
+
+    public void ConfigureServices(IServiceCollection aServiceCollection)
+    {
+      aServiceCollection.AddLogging(aLoggingBuilder => aLoggingBuilder
+          .AddBrowserConsole()
+          .SetMinimumLevel(LogLevel.Trace)
+      );
+      aServiceCollection.AddBlazorState();
     }
+  }
 }

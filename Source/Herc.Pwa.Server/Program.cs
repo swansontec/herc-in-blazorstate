@@ -10,6 +10,14 @@
 
   public class Program
   {
+    public static IWebHost BuildWebHost(string[] aArgumentArray) =>
+        WebHost.CreateDefaultBuilder(aArgumentArray)
+                .UseConfiguration(new ConfigurationBuilder()
+              .AddCommandLine(aArgumentArray)
+                    .Build())
+                .UseStartup<Startup>()
+                .Build();
+
     public static void Main(string[] args)
     {
       IWebHost host = BuildWebHost(args);
@@ -30,13 +38,5 @@
       }
       host.Run();
     }
-
-    public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseConfiguration(new ConfigurationBuilder()
-                    .AddCommandLine(args)
-                    .Build())
-                .UseStartup<Startup>()
-                .Build();
   }
 }

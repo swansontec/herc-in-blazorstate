@@ -40,48 +40,9 @@ export class EdgeInterop {
 
   // Not a fat arrow function 
   OnLogin(edgeUiAccount: EdgeUiAccount) {
-    console.log(edgeUiAccount);
-    console.log(edgeUiAccount.username);
-
     const blazorState: BlazorState = window[BlazorStateName] as BlazorState;
-    const assemblyQualifiedName = "BlazorHerc.Client.Features.Edge.OpenLoginWindow.OnLogin.OnLoginRequest, BlazorHerc.Client";
-    blazorState.DispatchRequest({
-      RequestType: assemblyQualifiedName,
-      Payload: {} // TODO: actually send something in the Payload.
-    });
-    console.log('The user logged in, so save the account somewhere');
-
-    //const blazorMethod = Blazor.platform.findMethod(
-    //  "BlazorHerc.Client",
-    //  "BlazorHerc.Client.Features.Edge",
-    //  "EdgeModel",
-    //  "OnLogin");
-
-
-    //const username = Blazor.platform.toDotNetString(edgeUiAccount.username);
-
-    //const assemblyName = 'HercPwa2.Client';
-    //const methodName = 'Handle';
-    //DotNet.invokeMethod(assemblyName, methodName, requestAsJson)
-    //Blazor.platform.callMethod(blazorMethod, null,
-    //  [
-    //    username
-    //  ]);
-
-
-
-
-    //const blazorState = new BlazorState();
-    //// Call back into C# 
-    //console.log("Pre DispatchRequest");
-    ////const assemblyQualifiedName = "BlazorHerc.Client.Features.Edge.OpenLoginWindow.OnLogin.OnLoginRequest, BlazorHerc.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
-    //const assemblyQualifiedName = "BlazorHerc.Client.Features.Edge.OpenLoginWindow.OnLogin.OnLoginRequest, BlazorHerc.Client";
-    //const fullname = "BlazorHerc.Client.Features.Edge.OpenLoginWindow.OnLogin.OnLoginRequest";
-    //blazorState.DispatchRequest({
-    //  RequestType: assemblyQualifiedName,
-    //  Payload: {}
-    //})
-
+    const assemblyQualifiedName = "HercPwa2.Client.Features.Edge.OnLoginAction, HercPwa2.Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null"
+    blazorState.DispatchRequest(assemblyQualifiedName, { userName: edgeUiAccount.username});
   }
 
   OnClose() {
