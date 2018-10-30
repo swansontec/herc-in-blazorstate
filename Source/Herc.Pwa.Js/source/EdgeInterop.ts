@@ -5,36 +5,38 @@ import { BlazorStateName } from './Constants';
 export const EdgeInteropName: string = 'EdgeInterop';
 
 export class EdgeInterop {
-  private EdgeUiContext: any;
+  private EdgeUiContext?: EdgeUiContext;
   private EdgeUiAccount?: EdgeUiAccount;
   private EdgeWalletInfo?: EdgeWalletInfo;
   private EdgeCurrencyWallet?: EdgeCurrencyWallet;
 
   constructor() {
-    console.log('Constructing EdgeInterop');
+    console.log('EdgeInterop constructor');
   }
 
   InitializeEdge = async (): Promise<boolean> => {
-    console.log('initializeEdge js');
-    const edgeUiContextOptions = {
-      apiKey: 'a9ef0e4134410268a37d833e49990a1b90ec79dc',
-      appId: 'com.mydomain.myapp',
-      assetsPath: './edge/index.html',
-      frameTimeout: 30000, // Give the asset bundler more time
-      vendorName: 'My Awesome Project',
-      vendorImageUrl: 'https://airbitz.co/go/wp-content/uploads/2016/10/GenericEdgeLoginIcon.png'
-    };
-    console.log('initializeEdge 2 js');
-    this.EdgeUiContext = await makeEdgeUiContext(edgeUiContextOptions);
-    console.log('initializeEdge 3 js');
+    if (!this.EdgeUiContext) {
+      console.log('initializeEdge js');
+      const edgeUiContextOptions = {
+        apiKey: 'a9ef0e4134410268a37d833e49990a1b90ec79dc',
+        appId: 'com.mydomain.myapp',
+        assetsPath: './edge/index.html',
+        vendorName: 'Herc.One',
+        vendorImageUrl: 'https://airbitz.co/go/wp-content/uploads/2016/10/GenericEdgeLoginIcon.png'
+      };
+      console.log(`EdgeInterop.edgeUiContextOptions: ${edgeUiContextOptions}`);
+      console.log(`EdgeInterop.makeEdgeUiContext: ${makeEdgeUiContext}`);
+      this.EdgeUiContext = await makeEdgeUiContext(edgeUiContextOptions);
+      if (!this.EdgeUiContext) throw "Failed to create EdgeUiContext!";
+      console.log(`EdgeInterop.EdgeUiContext: ${this.EdgeUiContext}`);
+      this.EdgeUiContext.on('login', this.OnLogin);
+    }
     return true;
   }
 
-  OpenLoginWindow = () => {
-    this.EdgeUiContext.openLoginWindow({
-      onLogin: this.OnLogin,
-      onClose: this.OnClose
-    })
+  ShowLoginWindow = () => {
+    if (!this.EdgeUiContext) throw "EdgeUiContext is unassigned";
+    this.EdgeUiContext.showLoginWindow();
     return true;
   }
 
@@ -56,14 +58,30 @@ export class EdgeInterop {
   }
 
   CreateCurrencyWallet = async (aType: string, edgeCreateCurrencyWalletOptions?: EdgeCreateCurrencyWalletOptions): Promise<string> => {
+    console.log(`CreateCurrencyWallet with aType:${aType}`);
     if (!this.EdgeUiAccount) throw "EdgeUiAccount required ensure logged in before calling.";
     this.EdgeCurrencyWallet = await this.EdgeUiAccount.createCurrencyWallet(aType, edgeCreateCurrencyWalletOptions);
-    return JSON.stringify(this.EdgeCurrencyWallet);
+    console.log(this.EdgeCurrencyWallet);
+    this.EdgeCurrencyWallet.balances;
+    const json = JSON.stringify(this.EdgeCurrencyWallet.balances);
+    console.log(json);
+    return json;
   };
 
   WaitForCurrencyWallet = async (walletId: string): Promise<string> => {
+    console.log(`WaitForCurrencyWallet with walletId:${walletId}`);
     if (!this.EdgeUiAccount) throw "EdgeUiAccount required ensure logged in before calling.";
     this.EdgeCurrencyWallet = await this.EdgeUiAccount.waitForCurrencyWallet(walletId);
-    return JSON.stringify(this.EdgeCurrencyWallet);
+    console.log({ EdgeCurrencyWallet: this.EdgeCurrencyWallet });
+    const wallet: EdgeCurrencyWallet = {
+      id: this.EdgeCurrencyWallet.id,
+      keys: this.EdgeCurrencyWallet.keys,
+      balances: this.EdgeCurrencyWallet.balances,
+      fiatCurrencyCode: this.EdgeCurrencyWallet.fiatCurrencyCode
+    };
+    const json = JSON.stringify(wallet);
+    console.log({json});
+
+    return json;
   };
 }

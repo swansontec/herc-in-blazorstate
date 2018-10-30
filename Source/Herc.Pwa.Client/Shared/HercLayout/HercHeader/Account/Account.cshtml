@@ -1,14 +1,43 @@
 ﻿@inherits BaseComponent
 
-<div id="@Id">
-  Account Stuff
-  <Avatar/>
-  <div>Welcome!</div>
-  <div>Login or Create Account</div>
+<div id="@Id" class="row mt-1">
+  <div class="col-auto ">
+    <span style="font-size:xx-large" class="oi oi-person" aria-hidden="true"></span>
+    @*<IconicPerson Size="64" FillColor="@ColorPalette.HercSanMarino" />*@
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <h6>Welcome Back: @EdgeState.UserName</h6>
+        </div>
+        <div class="row">
+          <span class="my-1">lorem ipsum</span>
+        </div>
+        <div class="row">
+          <span class="my-1">lorem ipsum</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <style>
-  #@Id {
+  #@Id  {
+    font-size: 1em;
+    font-weight: bold;
+    color: @ColorPalette.HercSapphire;
   }
+
+  #@Id h6{
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: @ColorPalette.HercSanMarino;
+  }
+  #@Id span{
+    font-size: small;
+    background-color: @ColorPalette.HercSanMarino;
+  }
+
 </style>

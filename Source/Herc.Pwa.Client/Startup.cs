@@ -2,6 +2,7 @@
 {
   using Blazor.Extensions.Logging;
   using BlazorState;
+  using Herc.Pwa.Client.Shared;
   using Microsoft.AspNetCore.Blazor.Builder;
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.Extensions.Logging;
@@ -13,6 +14,7 @@
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
     {
+      aServiceCollection.AddSingleton<ColorPalette>();
       aServiceCollection.AddLogging(aLoggingBuilder => aLoggingBuilder
           .AddBrowserConsole()
           .SetMinimumLevel(LogLevel.Trace)

@@ -1,11 +1,15 @@
 ﻿@inherits BaseComponent
-<div id="HercLogo">
-  <img src="/images/HercLogo.svg" />
+<div id="@Id">
+  <img src="/images/HercLogo2.svg" class="m-2"/>
 </div>
 
+@functions {
+  [Parameter] public string width { get; set; } = "200px";
+}
+
 <style>
-  #HercLogo img {
-    width: 200px;
+  #@Id img {
+    width: @width;
     height: auto;
   }
 </style>

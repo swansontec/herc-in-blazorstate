@@ -1,9 +1,19 @@
 ﻿@inherits BlazorLayoutComponent
-
-<div class="container-fluid">
-  <HercHeader/>
-  <div class="content px-4">
-    @Body
+  <div id="HercLayout" class="container-fluid">
+    <HercHeader />
+    <main class="content px-4">
+      @Body
+    </main>
+    <HercFooter />
   </div>
-  <HercFooter/>
-</div>
+
+  <style>
+    #HercLayout {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+  </style>

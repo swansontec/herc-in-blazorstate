@@ -1,12 +1,11 @@
-﻿@page "/home"
-@layout Herc.Pwa.Client.Shared.HercLayout.HercLayout
+﻿@page "/"
 @inherits HomeModel
 
-<h1>@ApplicationState.Name</h1>
-
-<Store />
-<Hipr />
-<BlockChain />
-<IconBar/>
-<IconBar IconFillColor="blue"/>
-<IconBar IconFillColor="green" IconSize="32"/>
+<div class="container-fluid">
+  <h1>@ApplicationState.Name</h1>
+  <Wallet />
+  <Store />
+  <Hipr />
+  <BlockChain />
+</div>
+<style></style>

@@ -8,6 +8,8 @@
   using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Features.Idology;
   using Herc.Pwa.Client.Features.WeatherForecast;
+  using Herc.Pwa.Client.Shared;
+  using Microsoft.AspNetCore.Blazor.Components;
 
   /// <summary>
   /// Makes access to the State a little easier and by inheriting from
@@ -25,22 +27,24 @@
     {
       string name = GetType().Name;
       int count = s_InstanceCounts.AddOrUpdate(name, 1, (aKey, aValue) => aValue + 1);
-      
+
       Id = $"{name}-{count}";
-      Console.WriteLine(Id);
     }
 
 
     ~BaseComponent()
     {
-      Console.WriteLine("Destroying something");
       string name = GetType().Name;
+      Console.WriteLine($"Destroying a {name}");
       s_InstanceCounts[name]--;
     }
 
     public string Id { get; }
 
     public string TestId { get; set; }
+
+    [Inject]
+    public ColorPalette ColorPalette { get; set; }
 
     public Guid Guid { get; } = Guid.NewGuid();
     public ApplicationState ApplicationState => Store.GetState<ApplicationState>();

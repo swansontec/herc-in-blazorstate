@@ -15,6 +15,6 @@
 
     public override object Clone() => new ApplicationState(this);
 
-    protected override void Initialize() => Name = "Blazor State Demo Application";
+    protected override void Initialize() => Name = "Herc Progressive Web Application";
   }
 }

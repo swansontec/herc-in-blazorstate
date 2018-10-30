@@ -1,5 +1,6 @@
 ﻿namespace Herc.Pwa.Client.Pages.Home
 {
+  using System;
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge;
@@ -7,7 +8,7 @@
 
   public class HomeModel : BaseComponent
   {
-    public const string Route = "Home";
+    public const string Route = "";
 
     protected async override Task OnInitAsync()
     {
@@ -22,12 +23,13 @@
         // Route them to Idology Page to verify
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = IdologyModel.Route });
       }
-      else if (EdgeState.Wallet == null)
-      {
-        const string EtheriumWalletType = "wallet:ethereum";
-        // Fetch the acccount information we want.
-        await Mediator.Send(new Features.Edge.GetFirstWalletInfoAction { Type = EtheriumWalletType });
-      }
+      //else if (EdgeState.EdgeWalletInfo == null)
+      //{
+      //  const string EtheriumWalletType = "wallet:ethereum";
+      //  // Fetch the acccount information we want.
+      //  Console.WriteLine("Sending GetFirstWalletInfoAction");
+      //  await Mediator.Send(new Features.Edge.GetFirstWalletInfoAction { Type = EtheriumWalletType });
+      //}
     }
   }
 }

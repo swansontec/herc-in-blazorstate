@@ -21,9 +21,8 @@
 
       public override async Task<EdgeState> Handle(GetFirstWalletInfoAction aGetWalletAction, CancellationToken aCancellationToken)
       {
-        Console.WriteLine($"onLoginRequest.UserName:{aGetWalletAction.Type}");
         string result = await JSRuntime.Current.InvokeAsync<string>("EdgeInterop.GetFirstWalletInfo", aGetWalletAction.Type);
-        Console.WriteLine($"GetFirstWalletInfo result: {result}");
+        EdgeState.EdgeWalletInfo = Json.Deserialize<EdgeWalletInfo>(result);
 
         return EdgeState;
       }

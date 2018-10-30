@@ -1,17 +1,17 @@
 ﻿@inherits BaseComponent
-<header id="GlobalHeader" class="row px-4">
-  <div class="col">
+<header id="@Id" class="row px-4">
+  <div class="col-3">
     <Account />
   </div>
-  <div class="col mx-auto">
-    <NavLink class="nav-link" href="/" Match=NavLinkMatch.All>
+  <div class="col mx-auto text-center">
+    <NavLink class="nav-link mt-0" href="/" Match=NavLinkMatch.All>
       <HercLogo />
     </NavLink>
   </div>
-  <div class="col">
+  <div class="col-3">
     <div class="row">
       <div class="ml-auto">
-        <IconBar IconFillColor="#5677A4" />
+        <IconBar IconFillColor="@ColorPalette.HercSanMarino" />
       </div>
     </div>
     <div class="row">
@@ -23,8 +23,9 @@
 </header>
 
 <style>
-  #GlobalHeader {
-    background-color: #072F55;
-    border-bottom: 1px solid #d6d5d5;
+  #@Id {
+    background-color: @ColorPalette.HercPrussianBlue;
+    border-bottom: 1px solid @ColorPalette.HercLightGray;
+    color: white;
   }
 </style>

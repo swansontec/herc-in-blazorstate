@@ -3,26 +3,27 @@
   using System;
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using MediatR;
 
   public class EdgeModel : BaseComponent
   {
     public const string Route = "edge";
+
     public EdgeModel()
     {
       Console.WriteLine("EdgeModel constructor");
     }
+
     public async Task InitializeEdge()
     {
-      Console.WriteLine("InitializeEdge Page.cs");
+      Console.WriteLine("InitializeEdge");
       await Mediator.Send(new InitailizeEdgeAction());
       Console.WriteLine("Edge Initialized");
     }
 
-    public async Task OpenLoginWindow()
+    public async Task ShowLoginWindow()
     {
-      Console.WriteLine("OpenLoginWindow Page.cs");
-      await Mediator.Send(new OpenLoginWindowEdgeAction());
+      Console.WriteLine("ShowLoginWindow Page.cs");
+      await Mediator.Send(new ShowLoginWindowEdgeAction());
     }
 
     protected override async Task OnInitAsync()
@@ -30,13 +31,8 @@
       Console.WriteLine("EdgeModel.OnInitAsync");
       Console.WriteLine(typeof(OnLoginAction).AssemblyQualifiedName);
       await InitializeEdge();
-      await OpenLoginWindow();
-      Console.WriteLine("After OpenLoginWindow");
-    }
-
-    protected override void OnInit()
-    {
-      Console.WriteLine("EdgeModel.OnInit");
+      await ShowLoginWindow();
+      Console.WriteLine("After ShowLoginWindow");
     }
   }
 }
