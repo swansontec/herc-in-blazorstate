@@ -1,0 +1,21 @@
+﻿@inherits BaseComponent
+
+<div class="d-flex flex-row">
+  <div class="bg-info">
+    @Balance
+  </div>
+  <div class="bg-warning">
+    @CurrencyCode
+  </div>
+  <div class="bg-secondary">
+    <HercButtonIcon Size="32" FillColor="@ColorPalette.HercSaffron" />
+  </div>
+</div>
+
+<style></style>
+
+@functions {
+  public string Balance { get; set; } = "500";
+  public string CurrencyCode { get; set; } = "HERC";
+  public BlazorComponent Component { get; set; }
+}

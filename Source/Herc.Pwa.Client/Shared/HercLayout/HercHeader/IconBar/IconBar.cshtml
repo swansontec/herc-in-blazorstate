@@ -1,0 +1,24 @@
+﻿@inherits IconBarModel
+<img src="https://cdn.jsdelivr.net/open-iconic/1.1.0/sprite/open-iconic.min.svg" class="iconic-sprite" style="display:none;" />
+
+@*<div id="IconBar" class="d-flex flex-row-reverse">
+    <NavLink class="nav-link nav-item" href="#">
+      <span class="oi oi-cog" aria-hidden="true"></span>
+    </NavLink>
+    <HamburgerMenu />
+    <MiniBalance />
+  </div>*@
+
+<div class="d-flex flex-row-reverse bg-secondary">
+  <div class="p-2 bg-info">
+    <NavLink class="nav-link nav-item" href="#">
+      <span class="oi oi-cog" aria-hidden="true"></span>
+    </NavLink>
+  </div>
+  <div class="p-2 bg-warning">
+    <HamburgerMenu />
+  </div>
+  <div class="p-2 bg-primary">
+    <MiniBalance />
+  </div>
+</div>
