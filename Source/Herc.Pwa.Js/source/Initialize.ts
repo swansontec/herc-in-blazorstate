@@ -1,4 +1,4 @@
-import { EdgeInterop, EdgeInteropName } from './EdgeInterop';
+import { EdgeInterop, EdgeInteropName } from './Edge/Interop/EdgeInterop';
 
 function initialize() {
   console.log('Initialize Blazor-Herc');

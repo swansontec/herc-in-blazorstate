@@ -4,6 +4,7 @@
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge;
+  using Herc.Pwa.Client.Pages.Edge;
   using Herc.Pwa.Client.Pages.Idology;
 
   public class HomeModel : BaseComponent
@@ -16,7 +17,7 @@
       if (!EdgeState.IsLoggedIn)
       {
         // Route to Edge to Login
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = EdgeModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = EdgePageModel.Route });
       }
       else if (!IdologyState.IsValid)
       {

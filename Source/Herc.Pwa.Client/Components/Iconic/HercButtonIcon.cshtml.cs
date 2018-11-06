@@ -6,6 +6,6 @@
 
     [Parameter] protected string FillColor { get; set; } = "purple";
 
-    [Parameter] protected int Size { get; set; } = 16;
+    [Parameter] protected string Size { get; set; } = "1em";
   }
 }

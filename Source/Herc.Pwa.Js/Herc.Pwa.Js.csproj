@@ -26,6 +26,43 @@
     <WebpackInputs Remove="source\Constants.ts" />
     <WebpackInputs Remove="source\DotNet.ts" />
     <WebpackInputs Remove="source\edge-login-ui-web.d.ts" />
+    <WebpackInputs Remove="source\Edge\Actions\OnLoginAction.ts" />
+    <WebpackInputs Remove="source\Edge\Actions\UpdateEdgeAccount.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\UpdateEdgeCurrencyWalletAction.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeAccount.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeBalances.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCoinExchangeQuote.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCreateCurrencyWalletOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCurrencyCodeOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCurrencyInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeCurrencyWallet.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeDataDump.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeDenomination.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeEncodeUri.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeGetTransactionsOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeMetadata.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeMetaToken.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeParsedUri.ts" />
+    <WebpackInputs Remove="source\Edge\EdgePaymentProtocolInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeReceiveAddress.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeSpendInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeTokenInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeTransaction.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUiAccount.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUiContext.d.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUiContextOptions.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeUserInfo.ts" />
+    <WebpackInputs Remove="source\Edge\EdgeWalletInfo.ts" />
+    <WebpackInputs Remove="source\Edge\Interop\EdgeAccountInterop.ts" />
+    <WebpackInputs Remove="source\Edge\Interop\EdgeCurrencyWalletInterop.ts" />
+    <WebpackInputs Remove="source\Edge\Interop\EdgeUiContextInterop.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeCurrencyConfig.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeCurrencyWalletEvents.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\Subscriber.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="source\Edge\Dtos\" />
   </ItemGroup>
 
   <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">

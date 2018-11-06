@@ -103,10 +103,12 @@
     <Content Update="Shared\HercLayout\HercLayout.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Shared\NoLayout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Edge\EdgeCurrencyWallet\" />
     <Folder Include="Styles\bootstrap\" />
   </ItemGroup>
 

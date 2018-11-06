@@ -6,6 +6,7 @@
   using Herc.Pwa.Client.Features.Application;
   using Herc.Pwa.Client.Features.Counter;
   using Herc.Pwa.Client.Features.Edge;
+  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Features.Idology;
   using Herc.Pwa.Client.Features.WeatherForecast;
   using Herc.Pwa.Client.Shared;
@@ -51,6 +52,7 @@
     public CounterState CounterState => Store.GetState<CounterState>();
     public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
     public EdgeState EdgeState => Store.GetState<EdgeState>();
+    public EdgeCurrencyWalletState EdgeCurrencyWalletState => Store.GetState<EdgeCurrencyWalletState>();
     public IdologyState IdologyState => Store.GetState<IdologyState>();
 
   }

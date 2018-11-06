@@ -4,6 +4,8 @@
   using Herc.Pwa.Client.Features.Application;
   using Herc.Pwa.Client.Features.Counter;
   using Herc.Pwa.Client.Features.Edge;
+  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
+  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Features.WeatherForecast;
   using MediatR;
 
@@ -22,5 +24,7 @@
     public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
     public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
     public EdgeState EdgeState => Store.GetState<EdgeState>();
+    public EdgeCurrencyWalletState EdgeCurrencyWalletState => Store.GetState<EdgeCurrencyWalletState>();
+    public EdgeAccountState EdgeAccountState => Store.GetState<EdgeAccountState>();
   }
 }

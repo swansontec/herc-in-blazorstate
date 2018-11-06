@@ -2,7 +2,7 @@
 const webpack = require("webpack");
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   resolve: {
     extensions: [".ts", ".js"]
   },

@@ -24,6 +24,6 @@
 
       // Regex expression.. we would need to validate it is a valid Regex.
       // Should we request type (int string etc)...
-  }
+    }
   }
 }
