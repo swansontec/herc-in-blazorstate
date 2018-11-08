@@ -13,7 +13,7 @@ export class EdgeInterop {
 
   private EdgeUiContextOptions: EdgeUiContextOptions = {
     apiKey: 'a9ef0e4134410268a37d833e49990a1b90ec79dc',
-    appId: 'com.mydomain.myapp',
+    appId: 'net.azurewebsites.hercpwa',
     assetsPath: './edge/index.html',
     vendorName: 'Hercules',
     vendorImageUrl: '/images/HercLogo2.svg'
