@@ -1,3 +1,1 @@
-﻿export interface OnLoginAction {
-  userName: string;
-}
+﻿export interface OnLoginAction {}

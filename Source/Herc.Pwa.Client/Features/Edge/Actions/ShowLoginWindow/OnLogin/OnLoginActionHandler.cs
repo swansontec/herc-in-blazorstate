@@ -23,39 +23,9 @@
       public override async Task<EdgeState> Handle(OnLoginAction aOnLoginRequest, CancellationToken aCancellationToken)
       {
         Console.WriteLine($"OnLoginActionHandler");
-        EdgeState.UserName = aOnLoginRequest.UserName;
-        EdgeState.IsLoggedIn = true;
         Console.WriteLine($"Redirecting back to Login");
-        await FetchEdgeCurrencyWallet();
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = LoginModel.Route });
         return EdgeState;
-      }
-
-      private async Task FetchEdgeCurrencyWallet()
-      {
-        const string EtheriumWalletType = "wallet:ethereum";
-        if (EdgeState.EdgeWalletInfo == null)
-        {
-          string result = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_GetFirstWalletInfo, EtheriumWalletType);
-          Console.WriteLine($"GetFirstWalletInfo:{result}");
-          EdgeState.EdgeWalletInfo = Json.Deserialize<EdgeWalletInfo>(result);
-          Console.WriteLine($"EdgeState.EdgeWalletInfo:{EdgeState.EdgeWalletInfo}");
-        }
-
-        //if (EdgeState.EdgeWalletInfo != null)
-        //{
-        //  string result = await JSRuntime.Current.InvokeAsync<string>("EdgeInterop.WaitForCurrencyWallet", EdgeState.EdgeWalletInfo.Id);
-        //  Console.WriteLine($"WaitForCurrencyWallet:{result}");
-        //  //EdgeState.EdgeCurrencyWallet = Json.Deserialize<EdgeCurrencyWallet>(result);
-        //}
-        //else
-        //{
-        //  Console.WriteLine($"EdgeState.EdgeWalletInfo == null");
-        //  //EdgeCreateCurrencyWalletOptions EdgeCreateCurrencyWalletOptions = new EdgeCreateCurrencyWalletOptions;
-        //  string result = await JSRuntime.Current.InvokeAsync<string>("EdgeInterop.CreateCurrencyWallet", EtheriumWalletType);
-        //  Console.WriteLine($"CreateCurrencyWallet:{result}");
-        //  //EdgeState.EdgeCurrencyWallet = Json.Deserialize<EdgeCurrencyWallet>(result);
-        //}
       }
     }
   }

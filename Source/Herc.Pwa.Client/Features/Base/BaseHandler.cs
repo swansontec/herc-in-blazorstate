@@ -24,7 +24,7 @@
     public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
     public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
     public EdgeState EdgeState => Store.GetState<EdgeState>();
-    public EdgeCurrencyWalletState EdgeCurrencyWalletState => Store.GetState<EdgeCurrencyWalletState>();
+    public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();
     public EdgeAccountState EdgeAccountState => Store.GetState<EdgeAccountState>();
   }
 }

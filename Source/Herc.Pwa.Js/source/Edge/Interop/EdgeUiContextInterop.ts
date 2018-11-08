@@ -1,5 +1,5 @@
 ﻿import { BlazorState } from '../../BlazorState';
-import { BlazorStateName } from '../../Constants';
+import { BlazorStateName, DotNetActionQualifiedNames } from '../../Constants';
 import { EdgeUiContext } from '../TypeDefinitions/EdgeUiContext';
 import { EdgeAccount } from '../TypeDefinitions/EdgeAccount';
 import { EdgeAccountInterop } from './EdgeAccountInterop';
@@ -26,12 +26,9 @@ export class EdgeUiContextInterop {
     this.EdgeAccountInterop.Initialize();
     console.log('OnLogin');
 
-    //const blazorState: BlazorState = window[BlazorStateName] as BlazorState;
-    //const assemblyQualifiedName = "Herc.Pwa.Client.Features.Edge.OnLoginAction, Herc.Pwa.Client, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null"
-    //const onLoginAction: OnLoginAction = {
-    //  userName: edgeAccount.username,
-    //}
-    //blazorState.DispatchRequest(assemblyQualifiedName, onLoginAction);
+    const blazorState: BlazorState = window[BlazorStateName] as BlazorState;
+    const onLoginAction: OnLoginAction = {}
+    blazorState.DispatchRequest(DotNetActionQualifiedNames.OnLoginAction, onLoginAction);
   }
 
   OnClose = () => {

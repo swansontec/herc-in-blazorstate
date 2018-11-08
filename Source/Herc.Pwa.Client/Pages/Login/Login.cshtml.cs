@@ -14,8 +14,9 @@
 
     protected override async Task OnInitAsync()
     {
+      
       // Are we in the proper state for this page?
-      if (EdgeState.IsLoggedIn)
+      if (EdgeAccountState.LoggedIn)
       {
         if (IdologyState.IsValid)
         {

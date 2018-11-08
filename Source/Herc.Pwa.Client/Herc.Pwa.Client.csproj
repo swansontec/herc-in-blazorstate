@@ -64,6 +64,9 @@
     <Content Update="Pages\Validate\ValidatePage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\Wallet\WalletsPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\Wallet\WalletPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

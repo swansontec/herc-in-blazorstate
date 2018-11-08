@@ -12,9 +12,14 @@
     }
 
     public string Name { get; private set; }
+    public string Version { get; set; }
 
     public override object Clone() => new ApplicationState(this);
 
-    protected override void Initialize() => Name = "Herc Progressive Web Application";
+    protected override void Initialize()
+    {
+      Name = "Herc Progressive Web Application";
+      Version = "0.0.1";
+    }
   }
 }

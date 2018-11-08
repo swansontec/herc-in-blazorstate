@@ -2,13 +2,6 @@
 import { EdgeCurrencyConfig } from "./EdgeCurrencyConfig";
 import { Subscriber } from "./Subscriber";
 
-export interface EdgeAccount2 {
-  readonly username: string;
-  getFirstWalletInfo(type: string): EdgeWalletInfo | undefined;
-  waitForCurrencyWallet(walletId: string): Promise<EdgeCurrencyWallet>;
-  createCurrencyWallet(type: string, opts?: EdgeCreateCurrencyWalletOptions): Promise<EdgeCurrencyWallet>;
-}
-
 export type EdgeAccountEvents = {}
 
 export interface EdgeAccount {

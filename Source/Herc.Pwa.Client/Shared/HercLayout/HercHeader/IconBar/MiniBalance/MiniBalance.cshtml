@@ -1,8 +1,8 @@
-﻿@inherits BaseComponent
+﻿@inherits MiniBalanceModel
 
 <div class="d-flex flex-row">
   <div>
-    <span>@Balance:</span>
+    <span>@DisplayBalance:</span>
   </div>
   <div>
     @CurrencyCode
@@ -13,9 +13,3 @@
 </div>
 
 <style></style>
-
-@functions {
-  public string Balance { get; set; } = "500";
-  public string CurrencyCode { get; set; } = "HERC";
-  public BlazorComponent Component { get; set; }
-}

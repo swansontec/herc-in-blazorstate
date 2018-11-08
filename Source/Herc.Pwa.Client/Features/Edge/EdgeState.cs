@@ -10,14 +10,14 @@
 
     protected EdgeState(EdgeState aState) : this()
     {
-      UserName = aState.UserName;
-      IsLoggedIn = aState.IsLoggedIn;
+      //UserName = aState.UserName;
+      //IsLoggedIn = aState.IsLoggedIn;
       EdgeWalletInfo = EdgeWalletInfo?.Clone() as EdgeWalletInfo;
     }
 
     public EdgeWalletInfo EdgeWalletInfo { get; set; }
-    public bool IsLoggedIn { get; set; }
-    public string UserName { get; set; }
+    //public bool IsLoggedIn { get; set; }
+    //public string UserName { get; set; }
 
     public override object Clone() => new EdgeState(this);
 

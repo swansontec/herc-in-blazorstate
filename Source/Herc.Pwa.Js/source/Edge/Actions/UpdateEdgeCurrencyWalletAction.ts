@@ -7,4 +7,5 @@ export interface UpdateEdgeCurrencyWalletAction {
   keys: any;
   balances: EdgeBalances;
   enabledTokens: Array<string>;
+  name: string|null;
 }

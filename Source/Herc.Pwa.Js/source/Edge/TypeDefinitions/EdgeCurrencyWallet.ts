@@ -42,14 +42,14 @@ export interface EdgeCurrencyWallet {
   // Currency info:
   readonly currencyInfo: EdgeCurrencyInfo;
   // TODO these two methods dissapear on from the object.  I have no idea why.
-  //nativeToDenomination(
-  //  nativeAmount: string,
-  //  currencyCode: string
-  //): Promise<string>;
-  //denominationToNative(
-  //  denominatedAmount: string,
-  //  currencyCode: string
-  //): Promise<string>;
+  nativeToDenomination(
+    nativeAmount: string,
+    currencyCode: string
+  ): Promise<string>;
+  denominationToNative(
+    denominatedAmount: string,
+    currencyCode: string
+  ): Promise<string>;
 
   // Chain state:
   readonly balances: EdgeBalances;

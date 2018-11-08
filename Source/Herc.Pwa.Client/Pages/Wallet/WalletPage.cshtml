@@ -1,9 +1,9 @@
-﻿@page "/Wallet"
-@inherits BaseComponent
+﻿@page "/wallet/{EdgeCurrencyWalletEncodedId}"
+@inherits WalletPageModel
 
 <h1>Wallet</h1>
 
-<Wallet />
+<Wallet EdgeCurrencyWallet="@EdgeCurrencyWallet"/>
 
 <style>
 

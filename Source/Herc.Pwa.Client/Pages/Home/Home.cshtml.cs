@@ -14,7 +14,7 @@
     protected async override Task OnInitAsync()
     {
       // Are we in the proper state for this page?
-      if (!EdgeState.IsLoggedIn)
+      if (!EdgeAccountState.LoggedIn)
       {
         // Route to Edge to Login
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = EdgePageModel.Route });

@@ -1,17 +1,13 @@
 ﻿
 namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
   using MediatR;
-  using Microsoft.JSInterop;
 
-  public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletState>
+  public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>
   {
     public UpdateEdgeCurrencyWalletHandler(IStore aStore, IMediator aMediator) : base(aStore)
     {
@@ -20,35 +16,25 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     private IMediator Mediator { get; }
 
-    public override async Task<EdgeCurrencyWalletState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
+    public override async Task<EdgeCurrencyWalletsState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
     {
       MapActionToState(aUpdateEdgeCurrencyWalletAction);
 
-      return EdgeCurrencyWalletState;
+      return await Task.Run(() => EdgeCurrencyWalletsState);
     }
 
     private void MapActionToState(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
-
-      var edgeBalances = new List<EdgeBalance>();
-
-      aUpdateEdgeCurrencyWalletAction.Balances.ToList().ForEach(aKvp =>
+      if (!EdgeCurrencyWalletsState.EdgeCurrencyWallets.ContainsKey(aUpdateEdgeCurrencyWalletAction.Id))
       {
-        var edgeBalance = new EdgeBalance()
-        {
-          Balance = aKvp.Value,
-          CurrencyCode = aKvp.Key
-        };
-        edgeBalances.Add(edgeBalance);
-      });
-
-      EdgeCurrencyWalletState.EdgeCurrencyWallet = new EdgeCurrencyWallet
-      {
-        Id = aUpdateEdgeCurrencyWalletAction.Id,
-        FiatCurrencyCode = aUpdateEdgeCurrencyWalletAction.FiatCurrencyCode,
-        Keys = aUpdateEdgeCurrencyWalletAction.Keys,
-        EdgeBalances = edgeBalances
-      };
+        EdgeCurrencyWalletsState.EdgeCurrencyWallets[aUpdateEdgeCurrencyWalletAction.Id] = new EdgeCurrencyWallet();
+      }
+      EdgeCurrencyWallet edgeCurrencyWallet = EdgeCurrencyWalletsState.EdgeCurrencyWallets[aUpdateEdgeCurrencyWalletAction.Id];
+      edgeCurrencyWallet.Id = aUpdateEdgeCurrencyWalletAction.Id;
+      edgeCurrencyWallet.FiatCurrencyCode = aUpdateEdgeCurrencyWalletAction.FiatCurrencyCode;
+      edgeCurrencyWallet.Keys = aUpdateEdgeCurrencyWalletAction.Keys;
+      edgeCurrencyWallet.Balances = aUpdateEdgeCurrencyWalletAction.Balances;
+      edgeCurrencyWallet.Name = aUpdateEdgeCurrencyWalletAction.Name;
     }
   }
 }

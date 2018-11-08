@@ -7,6 +7,7 @@
   using BlazorState;
   using Microsoft.AspNetCore.Blazor.Hosting;
   using Microsoft.Extensions.DependencyInjection;
+  using Herc.Pwa.Client.Services;
 
   /// <summary>
   /// A known starting state(baseline) for all tests.
@@ -38,6 +39,7 @@
     /// <param name="aServiceCollection"></param>
     private void ConfigureServices(IServiceCollection aServiceCollection)
     {
+      aServiceCollection.AddSingleton<BalanceFormater>();
       aServiceCollection.AddSingleton(BlazorStateTestServer.CreateClient());
       aServiceCollection.AddBlazorState(aOptions => aOptions.Assemblies =
         new Assembly[] { typeof(Startup).GetTypeInfo().Assembly });

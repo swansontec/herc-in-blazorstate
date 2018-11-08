@@ -1,4 +1,5 @@
 ﻿@inherits BaseComponent
+@using  Herc.Pwa.Client.Pages.Wallet
 
 <div id="@Id" class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -18,8 +19,8 @@
     <NavLink class="nav-link nav-item" href="Validate">
       <span class="oi oi-pulse" aria-hidden="true"></span> Validate
     </NavLink>
-    <NavLink class="nav-link nav-item" href="Wallet">
-      <span class="oi oi-dollar" aria-hidden="true"></span> Wallet
+    <NavLink class="nav-link nav-item" href="@WalletsPageModel.Route">
+      <span class="oi oi-dollar" aria-hidden="true"></span> Wallets
     </NavLink>
   </div>
 </div>
@@ -34,39 +35,39 @@
 
 @*<style>
 
-  #@Id .nav-item {
-    .nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
-  }
+    #@Id .nav-item {
+      .nav-item {
+      font-size: 0.9rem;
+      padding-bottom: 0.5rem;
+    }
 
-  #@Id .nav-item:first-of-type {
-    padding-top: 1rem;
-  }
+    #@Id .nav-item:first-of-type {
+      padding-top: 1rem;
+    }
 
-  #@Id .nav-item:last-of-type {
-    padding-bottom: 1rem;
-  }
+    #@Id .nav-item:last-of-type {
+      padding-bottom: 1rem;
+    }
 
-  #@Id .nav-item a {
-    color: #d7d7d7;
-    border-radius: 4px;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    line-height: 3rem;
-  }
+    #@Id .nav-item a {
+      color: #d7d7d7;
+      border-radius: 4px;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      line-height: 3rem;
+    }
 
-  #@Id .nav-item a.active {
-    background-color: rgba(255,255,255,0.25);
-    color: white;
-  }
+    #@Id .nav-item a.active {
+      background-color: rgba(255,255,255,0.25);
+      color: white;
+    }
 
-  #@Id .nav-item a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-  }
-</style>*@
+    #@Id .nav-item a:hover {
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+    }
+  </style>*@
 
 
 @functions {
