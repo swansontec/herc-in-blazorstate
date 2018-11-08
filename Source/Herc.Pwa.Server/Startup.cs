@@ -2,6 +2,7 @@
 {
   using System.Linq;
   using System.Net.Mime;
+  using System.Reflection;
   using AutoMapper;
   using Herc.Pwa.Server.Data;
   using MediatR;
@@ -12,60 +13,67 @@
   using Microsoft.EntityFrameworkCore;
   using Microsoft.Extensions.Configuration;
   using Microsoft.Extensions.DependencyInjection;
+  using Newtonsoft.Json.Serialization;
 
   public class Startup
   {
-
-    public Startup(IConfiguration configuration)
+    public Startup(IConfiguration aConfiguration)
     {
-      Configuration = configuration;
+      Configuration = aConfiguration;
     }
 
     public IConfiguration Configuration { get; }
 
-    public void ConfigureServices(IServiceCollection services)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder aApplicationBuilder, IHostingEnvironment aHostingEnvironment)
     {
-      services.AddAutoMapper();
+      aApplicationBuilder.UseStaticFiles();
+      aApplicationBuilder.UseResponseCompression();
+
+      if (aHostingEnvironment.IsDevelopment())
+      {
+        aApplicationBuilder.UseDeveloperExceptionPage();
+      }
+
+      aApplicationBuilder.UseMvc(aRouteBuilder =>
+      {
+        aRouteBuilder.MapRoute(name: "default", template: "{controller}/{action}/{id?}");
+      });
+
+      aApplicationBuilder.UseBlazor<Client.Program>();
+    }
+
+    public void ConfigureServices(IServiceCollection aServiceCollection)
+    {
+      var assemblies = new Assembly[] { typeof(Startup).Assembly };
+      aServiceCollection.AddAutoMapper(assemblies);
 
       string connectionString = Configuration.GetConnectionString(nameof(HercPwaDbContext));
-      services.AddDbContext<HercPwaDbContext>(options =>
+      aServiceCollection.AddDbContext<HercPwaDbContext>(options =>
         options.UseSqlServer(connectionString)
       );
 
-      services.AddMvc();
+      aServiceCollection.AddMvc()
+        .AddJsonOptions(aMvcJsonOptions =>
+        {
+          aMvcJsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver();
+        });
 
-      services.AddResponseCompression(options =>
+      aServiceCollection.AddResponseCompression(aResponseCompressionOptions =>
       {
-        options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[]
-              {
-                    MediaTypeNames.Application.Octet,
-                    WasmMediaTypeNames.Application.Wasm,
+        aResponseCompressionOptions.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+          new[]
+          {
+            MediaTypeNames.Application.Octet,
+            WasmMediaTypeNames.Application.Wasm,
           });
       });
-      services.AddMediatR();
-      services.Scan(scan => scan
+      aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+      aServiceCollection.Scan(aTypeSourceSelector => aTypeSourceSelector
         .FromAssemblyOf<Startup>()
         .AddClasses()
         .AsSelf()
         .WithScopedLifetime());
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-      app.UseResponseCompression();
-
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-      }
-
-      app.UseMvc(routes =>
-      {
-        routes.MapRoute(name: "default", template: "{controller}/{action}/{id?}");
-      });
-
-      app.UseBlazor<Client.Program>();
     }
   }
 }

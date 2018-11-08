@@ -2,7 +2,6 @@
 {
   using Herc.Pwa.Shared.Features.Base;
   using MediatR;
-  using Microsoft.AspNetCore.Http;
 
   public class CreateAssetDefinitionRequest : BaseRequest, IRequest<CreateAssetDefinitionResponse>
   {

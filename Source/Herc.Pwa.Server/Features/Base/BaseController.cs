@@ -1,9 +1,9 @@
 ﻿namespace Herc.Pwa.Server.Features.Base
 {
+  using System.Threading.Tasks;
   using Herc.Pwa.Shared.Features.Base;
   using MediatR;
   using Microsoft.AspNetCore.Mvc;
-  using System.Threading.Tasks;
 
   public class BaseController<TRequest, TResponse> : Controller
     where TRequest : IRequest<TResponse>

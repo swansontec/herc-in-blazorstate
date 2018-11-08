@@ -1,16 +1,13 @@
-﻿using Microsoft.AspNetCore.Blazor.Hosting;
-
-namespace Herc.Pwa.Client
+﻿namespace Herc.Pwa.Client
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
+  using Microsoft.AspNetCore.Blazor.Hosting;
 
-        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
-            BlazorWebAssemblyHost.CreateDefaultBuilder()
-                .UseBlazorStartup<Startup>();
-    }
+  public class Program
+  {
+    private static IWebAssemblyHostBuilder CreateHostBuilder(string[] aArgumentArray) =>
+        BlazorWebAssemblyHost.CreateDefaultBuilder()
+            .UseBlazorStartup<Startup>();
+
+    private static void Main(string[] aArgumentArray) => CreateHostBuilder(aArgumentArray).Build().Run();
+  }
 }

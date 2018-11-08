@@ -1,0 +1,9 @@
+﻿@inherits WalletModel
+
+<div>EdgeCurrencyWallet Component</div>
+<div>@EdgeCurrencyWallet.SelectedCurrencyCode</div>
+
+  @foreach (var b in EdgeCurrencyWallet.Balances)
+  {
+    <Balance Balance="@b.Value" CurrencyCode="@b.Key"/>
+  }

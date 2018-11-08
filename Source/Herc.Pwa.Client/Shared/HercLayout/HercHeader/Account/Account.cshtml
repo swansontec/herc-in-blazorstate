@@ -1,0 +1,31 @@
+﻿@inherits BaseComponent
+
+<div id="@Id" class="row mt-1">
+  <div class="col-auto ">
+    <span style="font-size:xx-large" class="oi oi-person" aria-hidden="true"></span>
+    @*<IconicPerson Size="64" FillColor="@ColorPalette.HercSanMarino" />*@
+  </div>
+  <div class="col">
+    <h6>Welcome Back: @EdgeAccountState.Username</h6>
+  </div>
+</div>
+
+
+<style>
+  #@Id  {
+    font-size: 1em;
+    font-weight: bold;
+    color: @ColorPalette.HercSapphire;
+  }
+
+  #@Id h6{
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: @ColorPalette.HercSanMarino;
+  }
+  #@Id span{
+    font-size: small;
+    background-color: @ColorPalette.HercSanMarino;
+  }
+
+</style>
