@@ -24,9 +24,10 @@ export class EdgeCurrencyWalletInterop {
 
   public async Initialize(): Promise<void> {
     console.log(`Initialize EdgeCurrencyWalletInterop for ${this.EdgeCurrencyWallet.id}`);
+    await this.EdgeCurrencyWallet.addCustomToken(this.HercTokenInfo);
+
     const enabledTokens: Array<string> = await this.EdgeCurrencyWallet.getEnabledTokens();
-    if (!enabledTokens.includes(this.HercTokenInfo.currencyCode)) {
-      await this.EdgeCurrencyWallet.addCustomToken(this.HercTokenInfo);
+    if (!enabledTokens.includes(this.HercTokenInfo.currencyCode)) {      
       await this.EdgeCurrencyWallet.enableTokens([this.HercTokenInfo.currencyCode]);
     }
     this.ConfigureSubscriptions();
