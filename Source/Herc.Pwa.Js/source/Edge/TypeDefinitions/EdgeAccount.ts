@@ -68,7 +68,7 @@ export interface EdgeAccount {
   //fetchLobby(lobbyId: string): Promise<EdgeLobby>,
 
   // Login management:
-  //logout(): Promise<mixed>,
+  logout(): Promise<any>,
 
   // Master wallet list:
   //readonly allKeys: Array<EdgeWalletInfoFull>,

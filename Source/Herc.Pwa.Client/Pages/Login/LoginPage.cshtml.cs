@@ -2,19 +2,18 @@
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Pages.Edge;
   using Herc.Pwa.Client.Pages.Home;
   using Herc.Pwa.Client.Pages.Idology;
 
-  public class LoginModel : BaseComponent
+  public class LoginPageModel : BaseComponent
   {
     public const string Route = "Login";
 
 
     protected override async Task OnInitAsync()
     {
-      
+
       // Are we in the proper state for this page?
       if (EdgeAccountState.LoggedIn)
       {

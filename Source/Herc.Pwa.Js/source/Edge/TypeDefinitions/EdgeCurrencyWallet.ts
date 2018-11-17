@@ -79,7 +79,7 @@ export interface EdgeCurrencyWallet {
   makeSpend(spendInfo: EdgeSpendInfo): Promise<EdgeTransaction>;
   signTx(tx: EdgeTransaction): Promise<EdgeTransaction>;
   broadcastTx(tx: EdgeTransaction): Promise<EdgeTransaction>;
-  //saveTx(tx: EdgeTransaction): Promise<mixed>;
+  saveTx(tx: EdgeTransaction): Promise<any>;
   sweepPrivateKeys(edgeSpendInfo: EdgeSpendInfo): Promise<EdgeTransaction>;
   //saveTxMetadata(
   //  txid: string,

@@ -24,7 +24,7 @@
       {
         Console.WriteLine($"OnLoginActionHandler");
         Console.WriteLine($"Redirecting back to Login");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = LoginModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = LoginPageModel.Route });
         return EdgeState;
       }
     }

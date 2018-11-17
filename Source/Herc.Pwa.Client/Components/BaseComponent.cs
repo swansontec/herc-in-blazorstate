@@ -45,17 +45,25 @@
 
     public string TestId { get; set; }
 
-    [Inject]
-    public ColorPalette ColorPalette { get; set; }
+    [Inject] public ColorPalette ColorPalette { get; set; }
+
+    [Inject] public Subscriptions Subscriptions { get; set; }
 
     public Guid Guid { get; } = Guid.NewGuid();
-    public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
-    public CounterState CounterState => Store.GetState<CounterState>();
-    public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
-    public EdgeState EdgeState => Store.GetState<EdgeState>();
-    public EdgeAccountState EdgeAccountState => Store.GetState<EdgeAccountState>();
-    public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();
-    public IdologyState IdologyState => Store.GetState<IdologyState>();
+    public ApplicationState ApplicationState => GetState<ApplicationState>();
+    public CounterState CounterState => GetState<CounterState>();
+    public WeatherForecastsState WeatherForecastsState => GetState<WeatherForecastsState>();
+    public EdgeState EdgeState => GetState<EdgeState>();
+    public EdgeAccountState EdgeAccountState => GetState<EdgeAccountState>();
+    public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => GetState<EdgeCurrencyWalletsState>();
+    
+    public IdologyState IdologyState => GetState<IdologyState>();
 
+    private T GetState<T>()
+    {
+      Type stateType = typeof(T);
+      Subscriptions.Add(stateType, this);
+      return Store.GetState<T>();
+    }
   }
 }

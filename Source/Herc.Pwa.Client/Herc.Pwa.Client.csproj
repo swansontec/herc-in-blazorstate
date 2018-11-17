@@ -10,15 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <BlazorLinkerDescriptor Include="Linker.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..wwwroot\css\bootstrap\custom-bootstrap.min.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Blazor-State" Version="0.2.6" />
+    <PackageReference Include="Blazor-State" Version="0.2.11" />
     <PackageReference Include="Blazor.Extensions.Logging" Version="0.1.9" />
     <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.6.0" />
@@ -43,6 +43,9 @@
     <Content Update="Pages\Assets\AssetsPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\LogoutPage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\Home\BlockChain\BlockChain.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -62,6 +65,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\Validate\ValidatePage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Pages\WalletRecievePage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\Wallet\WalletsPage.cshtml">
