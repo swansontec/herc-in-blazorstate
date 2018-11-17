@@ -15,7 +15,7 @@
   public class WalletReceivePageModel : BaseComponent
   {
     [Inject] public AmountConverter AmountConverter { get; set; }
-    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";
+    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Receive";
 
     [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
 

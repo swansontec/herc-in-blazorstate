@@ -15,7 +15,7 @@ namespace Herc.Pwa.Client.Pages
   public class WalletSendPageModel : BaseComponent
   {
     [Inject] public AmountConverter AmountConverter { get; set; }
-    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Receive";
+    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";
 
     [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
 
