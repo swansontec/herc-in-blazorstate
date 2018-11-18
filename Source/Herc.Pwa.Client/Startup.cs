@@ -17,7 +17,6 @@
     {
       aServiceCollection.AddSingleton<ColorPalette>();
       aServiceCollection.AddSingleton<AmountConverter>();
-      aServiceCollection.AddSingleton<Subscriptions>();
       aServiceCollection.AddLogging(aLoggingBuilder => aLoggingBuilder
           .AddBrowserConsole()
           .SetMinimumLevel(LogLevel.Trace)
