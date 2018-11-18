@@ -1,0 +1,33 @@
+﻿@page "/wallet/{EdgeCurrencyWalletEncodedId}/Send"
+@inherits WalletSendPageModel
+
+<h1>Wallet Name @EdgeCurrencyWalletEncodedId</h1>
+
+<form onsubmit="@Send">
+  <div class="form-group">
+    <label for="CurrencyCode" class="custom-control-label">CurrencyCode</label>
+    <select id="CurrencyCode" bind="@CurrencyCode">
+      @foreach (string c in EdgeCurrencyWallet.Balances.Keys)
+      {
+        <option value="@c">@c</option>
+      }
+    </select>
+  </div>
+  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="18" />
+  <div class="form-group">
+    <label for="DestinationAddress" class="custom-control-label">DestinationAddress</label>
+    <input id="DestinationAddress" bind="@DestinationAddress" />
+  </div>
+  <div class="form-group">
+    <label for="Amount" class="custom-control-label">Amount(@CurrencyCode)</label>
+    <input id="Amount" type="text" pattern="@Pattern" bind="@Amount" />
+  </div>
+  <button type="submit" class="btn">Send</button>
+</form>
+
+<br />
+
+<div>Fee: In the wallets base currency ETH @Fee</div>
+<style>
+</style>
+

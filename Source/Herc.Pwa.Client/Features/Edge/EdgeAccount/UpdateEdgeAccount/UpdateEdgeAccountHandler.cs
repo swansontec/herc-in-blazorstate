@@ -8,18 +8,23 @@
 
   public class UpdateEdgeAccountHandler : BaseHandler<UpdateEdgeAccountAction, EdgeAccountState>
   {
-    public UpdateEdgeAccountHandler(IStore aStore, IMediator aMediator) : base(aStore)
+    public UpdateEdgeAccountHandler(
+      IStore aStore, 
+      IMediator aMediator,
+      Subscriptions aSubscriptions) : base(aStore)
     {
       Mediator = aMediator;
+      Subscriptions = aSubscriptions;
     }
 
     private IMediator Mediator { get; }
+    private Subscriptions Subscriptions { get; }
 
     public override async Task<EdgeAccountState> Handle(UpdateEdgeAccountAction aUpdateEdgeAccountAction, CancellationToken aCancellationToken)
     {
       MapActionToState(aUpdateEdgeAccountAction);
-
-      return await Task.Run(() => EdgeAccountState);
+      Subscriptions.ReRenderSubscribers<EdgeAccountState>();
+      return await Task.FromResult(EdgeAccountState);
     }
 
     private void MapActionToState(UpdateEdgeAccountAction aUpdateEdgeAccountAction)

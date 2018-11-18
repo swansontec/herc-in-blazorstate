@@ -1,6 +1,7 @@
 ﻿namespace Herc.Pwa.Client.Shared.HercLayout.HercHeader.IconBar.MiniBalance
 {
-  using Herc.Pwa.Client.Components;
+    using System.Collections.Generic;
+    using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Services;
   using Microsoft.AspNetCore.Blazor.Components;
 
@@ -8,17 +9,18 @@
   {
 
     [Inject]
-    public BalanceFormater BalanceFormater { get; set; }
+    public AmountConverter BalanceFormater { get; set; }
     private string Balance
     {
       get
       {
-        string result = EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet?.Balances[CurrencyCode];
-        if (result == null)
+        Dictionary<string, string> balances = EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet?.Balances;
+        if (balances?.ContainsKey(CurrencyCode) ?? false)
         {
-          result = "";
+          return balances[CurrencyCode];
         }
-        return result;
+
+        return "";
       }
     }
     public string CurrencyCode => "HERC";
@@ -28,13 +30,13 @@
     {
       get
       {
-        var balanceFormaterRequest = new BalanceFormaterRequest()
+        var balanceFormaterRequest = new FormatAmountRequest()
         {
-          Balance = Balance,
+          Amount = Balance,
           Granularity = Granularity,
           DecimalPlacesToDisplay = DecimalPlacesToDisplay,
         };
-        return BalanceFormater.GetBalanceDisplay(balanceFormaterRequest);
+        return BalanceFormater.GetFormatedAmount(balanceFormaterRequest);
       }
     }
   }

@@ -15,7 +15,7 @@
       if (!EdgeAccountState.LoggedIn)
       {
         // Route them to Login Page
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = LoginModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = LoginPageModel.Route });
       }
       else if (IdologyState.IsValid)
       {

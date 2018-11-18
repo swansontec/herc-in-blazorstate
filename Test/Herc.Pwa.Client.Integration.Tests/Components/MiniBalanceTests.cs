@@ -19,7 +19,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Components
       ServiceProvider = aTestFixture.ServiceProvider;
       Mediator = ServiceProvider.GetService<IMediator>();
       Store = ServiceProvider.GetService<IStore>();
-      BalanceFormater = ServiceProvider.GetService<BalanceFormater>();
+      BalanceFormater = ServiceProvider.GetService<AmountConverter>();
       EdgeCurrencyWalletsState = Store.GetState<EdgeCurrencyWalletsState>();
     }
 
@@ -27,7 +27,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Components
     private IMediator Mediator { get; }
     private IServiceProvider ServiceProvider { get; }
     private IStore Store { get; }
-    private BalanceFormater BalanceFormater { get; }
+    private AmountConverter BalanceFormater { get; }
 
     public async Task Should_Display_Proper_Decimals()
     {

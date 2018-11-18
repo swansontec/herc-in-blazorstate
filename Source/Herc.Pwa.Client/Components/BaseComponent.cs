@@ -2,6 +2,7 @@
 {
   using System;
   using System.Collections.Concurrent;
+  using BlazorState;
   using BlazorState.Behaviors.ReduxDevTools;
   using Herc.Pwa.Client.Features.Application;
   using Herc.Pwa.Client.Features.Counter;
@@ -18,9 +19,9 @@
   /// BlazorStateDevToolsComponent it allows for ReduxDevTools operation.
   /// </summary>
   /// <remarks>
-  /// In production one would NOT be required to use these base components
+  /// In production one would NOT be required to use BlazorStateDevToolsComponent or BlazorStateComponent
   /// But would be required to properly implement the required interfaces.
-  /// one could conditionally inherit from BlazorComponent for production build.
+  /// one could conditionally inherit from BlazorComponent or BlazorStateComponent for production build.
   /// </remarks>
   public class BaseComponent : BlazorStateDevToolsComponent
   {
@@ -45,17 +46,23 @@
 
     public string TestId { get; set; }
 
-    [Inject]
-    public ColorPalette ColorPalette { get; set; }
+    [Inject] public ColorPalette ColorPalette { get; set; }
 
     public Guid Guid { get; } = Guid.NewGuid();
-    public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
-    public CounterState CounterState => Store.GetState<CounterState>();
-    public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
-    public EdgeState EdgeState => Store.GetState<EdgeState>();
-    public EdgeAccountState EdgeAccountState => Store.GetState<EdgeAccountState>();
-    public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();
-    public IdologyState IdologyState => Store.GetState<IdologyState>();
+    public ApplicationState ApplicationState => GetState<ApplicationState>();
+    public CounterState CounterState => GetState<CounterState>();
+    public WeatherForecastsState WeatherForecastsState => GetState<WeatherForecastsState>();
+    public EdgeState EdgeState => GetState<EdgeState>();
+    public EdgeAccountState EdgeAccountState => GetState<EdgeAccountState>();
+    public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => GetState<EdgeCurrencyWalletsState>();
+    
+    public IdologyState IdologyState => GetState<IdologyState>();
 
+    private T GetState<T>()
+    {
+      Type stateType = typeof(T);
+      Subscriptions.Add(stateType, this);
+      return Store.GetState<T>();
+    }
   }
 }

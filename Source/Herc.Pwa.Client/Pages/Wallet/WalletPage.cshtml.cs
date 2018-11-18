@@ -11,8 +11,6 @@
 
     private string EdgeCurrencyWalletId => WebUtility.UrlDecode(EdgeCurrencyWalletEncodedId);
     public EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
-
-    [Parameter]
-    public string EdgeCurrencyWalletEncodedId { get; set; }
+    [Parameter]  public string EdgeCurrencyWalletEncodedId { get; set; }
   }
 }

@@ -6,27 +6,24 @@
 
   public class BalanceModel : BaseComponent
   {
-    [Parameter]
-    protected string Balance { get; set; }
+    [Parameter] protected string Balance { get; set; }
 
-    [Parameter]
-    protected string CurrencyCode { get; set; }
+    [Parameter] protected string CurrencyCode { get; set; }
 
-    [Inject]
-    public BalanceFormater BalanceFormater { get; set; }
+    [Inject] public AmountConverter BalanceFormater { get; set; }
     private int Granularity => 18; // multiplier is 10^18 18 places 
-    private int DecimalPlacesToDisplay => 18;
+    [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 18;
     public string DisplayBalance
     {
       get
       {
-        var balanceFormaterRequest = new BalanceFormaterRequest()
+        var balanceFormaterRequest = new FormatAmountRequest()
         {
-          Balance = Balance,
+          Amount = Balance,
           Granularity = Granularity,
           DecimalPlacesToDisplay = DecimalPlacesToDisplay,
         };
-        return BalanceFormater.GetBalanceDisplay(balanceFormaterRequest);
+        return BalanceFormater.GetFormatedAmount(balanceFormaterRequest);
       }
     }
 

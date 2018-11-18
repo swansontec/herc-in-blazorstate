@@ -9,18 +9,24 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
   public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>
   {
-    public UpdateEdgeCurrencyWalletHandler(IStore aStore, IMediator aMediator) : base(aStore)
+    public UpdateEdgeCurrencyWalletHandler(
+      IStore aStore, 
+      IMediator aMediator,
+      Subscriptions aSubscriptions) : base(aStore)
     {
       Mediator = aMediator;
+      Subscriptions = aSubscriptions;
     }
 
     private IMediator Mediator { get; }
+    private Subscriptions Subscriptions { get; }
 
     public override async Task<EdgeCurrencyWalletsState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
     {
       MapActionToState(aUpdateEdgeCurrencyWalletAction);
+      Subscriptions.ReRenderSubscribers<EdgeCurrencyWalletsState>();
 
-      return await Task.Run(() => EdgeCurrencyWalletsState);
+      return await Task.FromResult(EdgeCurrencyWalletsState);
     }
 
     private void MapActionToState(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)

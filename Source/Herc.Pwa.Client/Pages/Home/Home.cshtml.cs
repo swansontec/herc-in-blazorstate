@@ -1,15 +1,13 @@
 ﻿namespace Herc.Pwa.Client.Pages.Home
 {
-  using System;
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Pages.Edge;
   using Herc.Pwa.Client.Pages.Idology;
 
   public class HomeModel : BaseComponent
   {
-    public const string Route = "";
+    public const string Route = "/";
 
     protected async override Task OnInitAsync()
     {

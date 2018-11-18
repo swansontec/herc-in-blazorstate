@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.7.0" />
     <WebpackInputs Include="**\*.ts" Exclude="dist\**;node_modules\**" />
   </ItemGroup>
 
@@ -28,6 +28,7 @@
     <WebpackInputs Remove="source\edge-login-ui-web.d.ts" />
     <WebpackInputs Remove="source\Edge\Actions\OnLoginAction.ts" />
     <WebpackInputs Remove="source\Edge\Actions\UpdateEdgeAccount.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\SendDto.ts" />
     <WebpackInputs Remove="source\Edge\Dtos\UpdateEdgeCurrencyWalletAction.ts" />
     <WebpackInputs Remove="source\Edge\EdgeAccount.ts" />
     <WebpackInputs Remove="source\Edge\EdgeBalances.ts" />
@@ -58,11 +59,8 @@
     <WebpackInputs Remove="source\Edge\Interop\EdgeUiContextInterop.ts" />
     <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeCurrencyConfig.ts" />
     <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeCurrencyWalletEvents.ts" />
+    <WebpackInputs Remove="source\Edge\TypeDefinitions\EdgeSpendTarget.ts" />
     <WebpackInputs Remove="source\Edge\TypeDefinitions\Subscriber.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="source\Edge\Dtos\" />
   </ItemGroup>
 
   <Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">

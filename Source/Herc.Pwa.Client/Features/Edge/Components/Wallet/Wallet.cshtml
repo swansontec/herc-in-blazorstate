@@ -1,9 +1,19 @@
 ﻿@inherits WalletModel
+@using  Herc.Pwa.Client.Pages
 
 <div>EdgeCurrencyWallet Component</div>
 <div>@EdgeCurrencyWallet.SelectedCurrencyCode</div>
 
-  @foreach (var b in EdgeCurrencyWallet.Balances)
-  {
-    <Balance Balance="@b.Value" CurrencyCode="@b.Key"/>
-  }
+@foreach (var b in EdgeCurrencyWallet.Balances)
+{
+  <Balance Balance="@b.Value" CurrencyCode="@b.Key" />
+}
+
+  <div>
+    <NavLink class="btn btn-primary" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
+      <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Receive
+    </NavLink>
+    <NavLink class="btn btn-primary" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
+      <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
+    </NavLink>
+  </div>
