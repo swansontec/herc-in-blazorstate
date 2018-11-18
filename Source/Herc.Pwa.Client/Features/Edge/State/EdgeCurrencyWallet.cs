@@ -2,6 +2,7 @@
 {
   using System;
   using System.Collections.Generic;
+  using System.Net;
 
   public class EdgeCurrencyWallet : ICloneable
   {
@@ -11,7 +12,7 @@
     public Dictionary<string, string> Keys { get; set; }
     public string Name { get; set; }
     public string SelectedCurrencyCode { get; set; }
-
+    public string EncodedId => WebUtility.UrlEncode(Id);
     public object Clone()
     {
       var clone = MemberwiseClone() as EdgeCurrencyWallet;

@@ -4,6 +4,9 @@ import { EdgeCurrencyWallet } from "../TypeDefinitions/EdgeCurrencyWallet";
 import { EdgeTokenInfo } from "../TypeDefinitions/EdgeTokenInfo";
 import { EdgeCurrencyInfo } from "../TypeDefinitions/EdgeCurrencyInfo";
 import { UpdateEdgeCurrencyWalletAction } from '../Actions/UpdateEdgeCurrencyWalletAction';
+import { EdgeTransaction } from '../TypeDefinitions/EdgeTransaction';
+import { EdgeSpendInfo } from '../TypeDefinitions/EdgeSpendInfo';
+import { SendDto, FeeOption } from '../Dtos/SendDto';
 
 export class EdgeCurrencyWalletInterop {
   private EdgeCurrencyWallet: EdgeCurrencyWallet;
@@ -20,9 +23,11 @@ export class EdgeCurrencyWalletInterop {
   }
 
   public async Initialize(): Promise<void> {
+    console.log(`Initialize EdgeCurrencyWalletInterop for ${this.EdgeCurrencyWallet.id}`);
+    await this.EdgeCurrencyWallet.addCustomToken(this.HercTokenInfo);
+
     const enabledTokens: Array<string> = await this.EdgeCurrencyWallet.getEnabledTokens();
-    if (!enabledTokens.includes(this.HercTokenInfo.currencyCode)) {
-      await this.EdgeCurrencyWallet.addCustomToken(this.HercTokenInfo);
+    if (!enabledTokens.includes(this.HercTokenInfo.currencyCode)) {      
       await this.EdgeCurrencyWallet.enableTokens([this.HercTokenInfo.currencyCode]);
     }
     this.ConfigureSubscriptions();
@@ -63,5 +68,27 @@ export class EdgeCurrencyWalletInterop {
     blazorState.DispatchRequest(
       DotNetActionQualifiedNames.UpdateEdgeCurrencyWalletAction,
       updateEdgeCurrencyWalletAction);
+  }
+
+  public Send = async (aSendDto: SendDto): Promise<string> => {
+    console.log(FeeOption.Standard);
+    console.log(aSendDto.fee);
+    const edgeSpendInfo: EdgeSpendInfo = {
+      currencyCode: aSendDto.currencyCode,
+      networkFeeOption: <string> aSendDto.fee,
+      spendTargets: [
+        {
+          publicAddress: aSendDto.destinationAddress,
+          nativeAmount: aSendDto.nativeAmount
+        }
+      ]
+    }
+    debugger;
+    var edgeTransaction: EdgeTransaction = await this.EdgeCurrencyWallet.makeSpend(edgeSpendInfo);
+    edgeTransaction = await this.EdgeCurrencyWallet.signTx(edgeTransaction);
+    await this.EdgeCurrencyWallet.saveTx(edgeTransaction);
+    edgeTransaction = await this.EdgeCurrencyWallet.broadcastTx(edgeTransaction);
+
+    return edgeTransaction.txid;
   }
 }
