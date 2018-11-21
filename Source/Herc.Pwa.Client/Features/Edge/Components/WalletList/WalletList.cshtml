@@ -1,13 +1,9 @@
 ﻿@inherits WalletListModel
 <div id="@Id">
-  <ul>
-    @foreach (var w in EdgeCurrencyWallets)
-    {
-      <li>
-        <WalletItem EdgeCurrencyWallet="@w" />
-      </li>
-    }
-  </ul>
+  @foreach (var wallet in EdgeCurrencyWallets)
+  {
+    <WalletItem EdgeCurrencyWallet="@wallet" />
+  }
 </div>
 
 <style>

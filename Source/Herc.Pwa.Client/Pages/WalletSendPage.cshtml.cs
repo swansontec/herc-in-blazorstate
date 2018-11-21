@@ -1,41 +1,48 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Herc.Pwa.Client.Components;
-using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send;
-using Herc.Pwa.Client.Services;
-using Herc.Pwa.Shared;
-using Herc.Pwa.Shared.Enumerations.FeeOption;
-using Microsoft.AspNetCore.Blazor.Components;
-
-namespace Herc.Pwa.Client.Pages
+﻿namespace Herc.Pwa.Client.Pages
 {
+  using System;
+  using System.Linq;
+  using System.Net;
+  using System.Threading.Tasks;
+  using Herc.Pwa.Client.Components;
+  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send;
+  using Herc.Pwa.Client.Services;
+  using Herc.Pwa.Shared;
+  using Herc.Pwa.Shared.Enumerations.FeeOption;
+  using Microsoft.AspNetCore.Blazor.Components;
+
   public class WalletSendPageModel : BaseComponent
   {
-    [Inject] public AmountConverter AmountConverter { get; set; }
-    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";
-
-    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
-
+    [Inject] private AmountConverter AmountConverter { get; set; }
     private string EdgeCurrencyWalletId => WebUtility.UrlDecode(EdgeCurrencyWalletEncodedId);
-    public EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
-
-    public string DestinationAddress { get; set; }
+    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
 
     public string Amount { get; set; }
 
-    public FeeOption Fee { get; set; } = FeeOption.Standard;
-
     public string Balance => string.IsNullOrEmpty(CurrencyCode) ? "" : EdgeCurrencyWallet.Balances[CurrencyCode];
-    public string MaxAmount => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 18, DecimalSeperator = '.', Granularity = 18 });
-
-    //TODO calculate based off of multiplier.  Create service for all these type things in BalanceFormatter or similar.
-    
-    public string Pattern => RegularExpressions.FloatingPointNumberNoSign('.');
 
     public string CurrencyCode { get; set; }
+
+    public string DestinationAddress { get; set; }
+
+    public EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
+
+    public FeeOption Fee { get; set; } = FeeOption.Standard;
+
+    public string MaxAmount => AmountConverter.GetFormatedAmount(new FormatAmountRequest { Amount = Balance, DecimalPlacesToDisplay = 18, DecimalSeperator = '.', Granularity = 18 });
+
+    public string Pattern => RegularExpressions.FloatingPointNumberNoSign('.');
+
+    public string WalletName => EdgeCurrencyWallet.Name;
+
+    protected override void OnInit()
+    {
+      if (EdgeCurrencyWallet.Balances.Keys.Any())
+      {
+        CurrencyCode = EdgeCurrencyWallet.Balances.Keys.First();
+      }
+    }
 
     protected async Task Send()
     {
@@ -62,12 +69,6 @@ namespace Herc.Pwa.Client.Pages
       });
     }
 
-    protected override void OnInit()
-    {
-      if (EdgeCurrencyWallet.Balances.Keys.Any())
-      {
-        CurrencyCode = EdgeCurrencyWallet.Balances.Keys.First();
-      }
-    }
+    public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";
   }
 }
