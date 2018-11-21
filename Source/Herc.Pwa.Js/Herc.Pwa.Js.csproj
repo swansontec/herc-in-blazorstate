@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <WebpackInputs Remove="source\BlazorState.ts" />
+    <WebpackInputs Remove="source\Clipboard\ClipboardInterop.ts" />
     <WebpackInputs Remove="source\Constants.ts" />
     <WebpackInputs Remove="source\DotNet.ts" />
     <WebpackInputs Remove="source\edge-login-ui-web.d.ts" />
