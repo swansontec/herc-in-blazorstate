@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Pages.Wallet
+﻿namespace Herc.Pwa.Client.Pages
 {
   using System.Collections.Generic;
   using System.Linq;

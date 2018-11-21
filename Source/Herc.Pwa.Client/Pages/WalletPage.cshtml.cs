@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Pages.Wallet
+﻿namespace Herc.Pwa.Client.Pages
 {
   using System.Net;
   using Herc.Pwa.Client.Components;
@@ -10,7 +10,7 @@
     public const string Route = "wallet/{EdgeCurrencyWalletEncodedId}";
 
     private string EdgeCurrencyWalletId => WebUtility.UrlDecode(EdgeCurrencyWalletEncodedId);
+    [Parameter] protected string EdgeCurrencyWalletEncodedId { get; set; }
     public EdgeCurrencyWallet EdgeCurrencyWallet => EdgeCurrencyWalletsState.EdgeCurrencyWallets[EdgeCurrencyWalletId];
-    [Parameter]  public string EdgeCurrencyWalletEncodedId { get; set; }
   }
 }
