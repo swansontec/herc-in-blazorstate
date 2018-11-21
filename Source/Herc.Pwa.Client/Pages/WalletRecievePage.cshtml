@@ -7,11 +7,53 @@
   <QrCode Text="@ReceiveAddress" />
 
   <div>Your Receiving Wallet Address</div>
-  <div>@ReceiveAddress</div>
+  <div id="ReceiveAddress">@ReceiveAddress</div>
 
   <button class="btn btn-primary" onclick="@CopyToClipboardAsync"><span class="oi oi-clipboard">Copy to Clipboard</span></button>
 
 </div>
 
 <style>
+    /*
+  Bootstrap 4 breakpoints
+  */
+  @@media (min-width:1px) {
+    #ReceiveAddress {
+      font-size: smaller;
+    }
+    /*1rem = 16px*/
+  }
+    /* Small devices (landscape phones, 544px and up) */
+    @@media (min-width: 544px) {
+      #ReceiveAddress {
+        font-size: smaller;
+      }
+      /*1rem = 16px*/
+    }
+
+    /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+    @@media (min-width: 768px) {
+      #ReceiveAddress {
+        font-size: small;
+      }
+      /*1rem = 16px*/
+    }
+
+    /* Large devices (desktops, 992px and up) */
+    @@media (min-width: 992px) {
+      #ReceiveAddress {
+        font-size: initial
+      }
+      /*1rem = 16px*/
+    }
+
+    /* Extra large devices (large desktops, 1200px and up) */
+    @@media (min-width: 1200px) {
+      #ReceiveAddress {
+        font-size: initial
+      }
+      /*1rem = 16px*/
+    }
+
+    /*
 </style>
