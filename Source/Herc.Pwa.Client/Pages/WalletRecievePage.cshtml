@@ -1,10 +1,17 @@
 ﻿@page "/wallet/{EdgeCurrencyWalletEncodedId}/Receive"
 @inherits WalletReceivePageModel
 
-<h1>Wallet Name </h1>
+<div class="text-center">
+  <h1>Wallet Name </h1>
 
-<h2>Receive Page</h2>
+  <QrCode Text="@ReceiveAddress" />
+
+  <div>Your Receiving Wallet Address</div>
+  <div>@ReceiveAddress</div>
+
+  <button onclick="@CopyToClipboardAsync">Copy</button>
+
+</div>
 
 <style>
 </style>
-
