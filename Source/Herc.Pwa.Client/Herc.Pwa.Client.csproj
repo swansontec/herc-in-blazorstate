@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\TestFrame.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -119,10 +120,12 @@
 
   <ItemGroup>
     <Folder Include="Styles\bootstrap\" />
+    <Folder Include="wwwroot\javascript\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\TestFrame.html" />
   </ItemGroup>
 
 </Project>
