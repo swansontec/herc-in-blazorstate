@@ -1,0 +1,27 @@
+﻿@inherits BaseComponent
+
+<div id="@Id" class="row mt-1">
+  <div class="col-auto d-block">
+    <span style="font-size:xx-large" class="oi oi-person" aria-hidden="true"></span>
+  </div>
+  <div class="col d-none d-sm-block">
+    <h6>@EdgeAccountState.Username</h6>
+  </div>
+</div>
+
+
+<style>
+  #@Id  {
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  #@Id h6{
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  #@Id span{
+    font-size: small;
+  }
+
+</style>
