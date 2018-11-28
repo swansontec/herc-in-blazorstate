@@ -1,7 +1,7 @@
-﻿namespace Herc.Pwa.Client.Shared.HercLayout.HercHeader.IconBar.MiniBalance
+﻿namespace Herc.Pwa.Client.Layouts.HercLayout.HercHeader.IconBar.MiniBalance
 {
-    using System.Collections.Generic;
-    using Herc.Pwa.Client.Components;
+  using System.Collections.Generic;
+  using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Services;
   using Microsoft.AspNetCore.Blazor.Components;
 

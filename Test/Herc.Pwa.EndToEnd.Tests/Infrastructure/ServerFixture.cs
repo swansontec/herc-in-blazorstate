@@ -95,7 +95,9 @@
       while (true)
       {
         if (File.Exists(Path.Combine(directory, aFilename)))
+        {
           return directory;
+        }
 
         directory = Directory.GetParent(directory)?.FullName;
         if (string.IsNullOrEmpty(directory))

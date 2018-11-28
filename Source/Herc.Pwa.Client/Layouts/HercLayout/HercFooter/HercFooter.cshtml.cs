@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Shared.HercLayout.HercFooter
+﻿namespace Herc.Pwa.Client.Layouts.HercLayout.HercFooter
 {
   using Herc.Pwa.Client.Components;
 

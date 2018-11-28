@@ -23,7 +23,9 @@ namespace Herc.Pwa.EndToEnd.Tests
       var absoluteUrl = new Uri(ServerFixture.RootUri, aRelativeUrl);
 
       if (!aReload && string.Equals(WebDriver.Url, absoluteUrl.AbsoluteUri, StringComparison.Ordinal))
+      {
         return;
+      }
 
       WebDriver.Navigate().GoToUrl("about:blank");
       WebDriver.Navigate().GoToUrl(absoluteUrl);

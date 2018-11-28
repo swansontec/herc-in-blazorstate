@@ -5,7 +5,7 @@ using BlazorState;
 using BlazorState.Integration.Tests.Infrastructure;
 using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
 using Herc.Pwa.Client.Services;
-using Herc.Pwa.Client.Shared.HercLayout.HercHeader.IconBar.MiniBalance;
+using Herc.Pwa.Client.Layouts.HercLayout.HercHeader.IconBar.MiniBalance;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;

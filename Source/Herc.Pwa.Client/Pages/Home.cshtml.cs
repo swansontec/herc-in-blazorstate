@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Pages.Home
+﻿namespace Herc.Pwa.Client.Pages
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
@@ -9,7 +9,7 @@
   {
     public const string Route = "/";
 
-    protected async override Task OnInitAsync()
+    protected override async Task OnInitAsync()
     {
       // Are we in the proper state for this page?
       if (!EdgeAccountState.LoggedIn)

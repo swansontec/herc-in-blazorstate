@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Shared.HercLayout.HercHeader
+﻿namespace Herc.Pwa.Client.Layouts.HercLayout.HercHeader
 {
   using Herc.Pwa.Client.Components;
   using Microsoft.AspNetCore.Blazor.Components;
