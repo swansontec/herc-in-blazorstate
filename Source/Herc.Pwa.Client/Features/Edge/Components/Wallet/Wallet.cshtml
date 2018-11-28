@@ -1,18 +1,48 @@
 ﻿@inherits WalletModel
 @using  Herc.Pwa.Client.Pages
 
-<div>@EdgeCurrencyWallet.SelectedCurrencyCode</div>
+<div id="@Id">
+  <ul class="nav justify-content-center">
+    @foreach (var kvp in EdgeCurrencyWallet.Balances)
+    {
+      var isActive = kvp.Key == EdgeCurrencyWallet.SelectedCurrencyCode;
 
-@foreach (var b in EdgeCurrencyWallet.Balances)
-{
-  <Balance Balance="@b.Value" CurrencyCode="@b.Key" />
-}
+      <li class="nav-item">
+        <button onclick="@( () => OnClickHandler(kvp.Key))"
+                class="nav-link btn btn-link @(isActive ? "active":null)">
+          @kvp.Key
+          @if (isActive)
+          {
+            <span class="sr-only">(current)</span>
+          }
+        </button>
+        <span>xx%</span>
+      </li>
+    }
+  </ul>
 
-  <div>
-    <NavLink class="btn btn-primary" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
-      <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
-    </NavLink>
-    <NavLink class="btn btn-primary" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
+  <br />
+  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="6"/>
+  <br />
+
+  <div class="d-flex flex-column align-items-center">
+    <NavLink class="btn btn-primary btn-dark" href="@WalletSendPageModel.Route(EdgeCurrencyWallet.EncodedId)">
       <span class="oi oi-data-transfer-upload" aria-hidden="true"></span> Send
     </NavLink>
+    <div style="height: 1rem"></div>
+    <NavLink class="btn btn-primary btn-dark" href="@WalletReceivePageModel.Route(EdgeCurrencyWallet.EncodedId)">
+      <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
+    </NavLink>
   </div>
+</div>
+<style>
+  #@Id button {
+    border-bottom-color: grey;
+    border-bottom-width: 3px;
+    border-radius: unset;
+  }
+
+  #@Id .active {
+    border-bottom-color: gold;
+  }
+</style>

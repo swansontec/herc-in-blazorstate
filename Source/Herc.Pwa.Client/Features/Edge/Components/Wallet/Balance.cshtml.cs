@@ -10,7 +10,7 @@
 
     [Parameter] protected string CurrencyCode { get; set; }
 
-    [Inject] public AmountConverter BalanceFormater { get; set; }
+    [Inject] public AmountConverter AmountConverter { get; set; }
     private int Granularity => 18; // multiplier is 10^18 18 places 
     [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 18;
     public string DisplayBalance
@@ -23,7 +23,7 @@
           Granularity = Granularity,
           DecimalPlacesToDisplay = DecimalPlacesToDisplay,
         };
-        return BalanceFormater.GetFormatedAmount(balanceFormaterRequest);
+        return AmountConverter.GetFormatedAmount(balanceFormaterRequest);
       }
     }
 
