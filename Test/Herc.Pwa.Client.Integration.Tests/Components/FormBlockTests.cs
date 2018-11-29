@@ -10,9 +10,9 @@ using Shouldly;
 
 namespace Herc.Pwa.Client.Integration.Tests.Components
 {
-  public class FormBlockTests
+  public class FormBlockTestsSkip
   {
-    public FormBlockTests(TestFixture aTestFixture)
+    public FormBlockTestsSkip(TestFixture aTestFixture)
     {
       ServiceProvider = aTestFixture.ServiceProvider;
       Mediator = ServiceProvider.GetService<IMediator>();
@@ -27,7 +27,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Components
     private IStore Store { get; }
     private AmountConverter BalanceFormater { get; }
 
-    public void Should()
+    public void SkipShould()
     {
       var block = new FormBlock<SampleClass>()
       {
