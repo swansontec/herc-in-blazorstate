@@ -1,22 +1,26 @@
 ﻿@inherits BlazorLayoutComponent
 @using Herc.Pwa.Client.Layouts.HercLayout2.HercHeader
-  <div id="HercLayout" class="container-fluid">
-    <HercHeader2/>
-    <main class="content px-3 text-dark bg-white">
+<div id="HercLayout" class="container-fluid">
+  <HercHeader2 />
+  <div class="row flex-fill">
+    <SideBar />
+    <main class="content col px-3 text-dark bg-white">
       @Body
     </main>
   </div>
+</div>
 
-  <style>
-    body {
+<style>
+  body {
+  }
 
-    }
-    #HercLayout {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-    main {
-      flex: 1;
-    }
-  </style>
+  #HercLayout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+</style>

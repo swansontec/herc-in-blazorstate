@@ -41,6 +41,12 @@
     <Content Update="Components\Iconic\IconicCog.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\HamburgerMenu\MenuItems.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\SideBar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\Assets\AssetsPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
