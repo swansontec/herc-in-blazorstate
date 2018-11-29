@@ -140,7 +140,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Layouts\MainLayout\" />
     <Folder Include="Layouts\NoLayout\" />
     <Folder Include="Styles\bootstrap\" />
     <Folder Include="wwwroot\javascript\" />

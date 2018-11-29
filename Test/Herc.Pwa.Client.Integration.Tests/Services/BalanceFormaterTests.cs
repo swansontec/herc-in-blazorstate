@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Herc.Pwa.Client.Services;
+﻿using Herc.Pwa.Client.Services;
 using Shouldly;
 
 namespace Herc.Pwa.Client.Integration.Tests.Services

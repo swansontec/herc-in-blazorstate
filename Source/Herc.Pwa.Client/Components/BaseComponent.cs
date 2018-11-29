@@ -5,12 +5,10 @@
   using BlazorState;
   using BlazorState.Behaviors.ReduxDevTools;
   using Herc.Pwa.Client.Features.Application;
-  using Herc.Pwa.Client.Features.Counter;
   using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Features.Idology;
-  using Herc.Pwa.Client.Features.WeatherForecast;
   using Herc.Pwa.Client.Shared;
   using Microsoft.AspNetCore.Blazor.Components;
 
@@ -50,12 +48,10 @@
 
     public Guid Guid { get; } = Guid.NewGuid();
     public ApplicationState ApplicationState => GetState<ApplicationState>();
-    public CounterState CounterState => GetState<CounterState>();
-    public WeatherForecastsState WeatherForecastsState => GetState<WeatherForecastsState>();
     public EdgeState EdgeState => GetState<EdgeState>();
     public EdgeAccountState EdgeAccountState => GetState<EdgeAccountState>();
     public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => GetState<EdgeCurrencyWalletsState>();
-    
+
     public IdologyState IdologyState => GetState<IdologyState>();
 
     private T GetState<T>()
