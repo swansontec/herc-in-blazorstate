@@ -2,29 +2,30 @@
 @inherits WalletSendPageModel
 
 
-<div class="text-center">
-  <h1>@WalletName</h1>
-
+<div id="@Id" class="text-center">
+  <br />
   <form onsubmit="@Send">
     <div class="form-group">
       <label for="CurrencyCode">CurrencyCode</label>
-      <select id="CurrencyCode" bind="@CurrencyCode">
+      <select id="CurrencyCode" class="form-control-sm" bind="@CurrencyCode">
         @foreach (string currencyCode in EdgeCurrencyWallet.Balances.Keys)
         {
           <option value="@currencyCode">@currencyCode</option>
         }
       </select>
     </div>
-    <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="18" />
+    <br />
+    <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="6" />
+    <br />
     <div class="form-group">
-      <label for="DestinationAddress">DestinationAddress</label>
-      <input id="DestinationAddress" bind="@DestinationAddress" />
+      <label for="DestinationAddress">Destination Address</label>
+      <input class="form-control" id="DestinationAddress" bind="@DestinationAddress" placeholder="0x0000000000000000000000000000000000000000"/>
     </div>
     <div class="form-group">
       <label for="Amount">Amount(@CurrencyCode)</label>
-      <input id="Amount" type="text" pattern="@Pattern" bind="@Amount" />
+      <input class="form-control" id="Amount" type="text" pattern="@Pattern" bind="@Amount" placeholder="0.01234"/>
     </div>
-    <button type="submit" class="btn">Send</button>
+    <button type="submit" class="btn btn-dark">Send</button>
   </form>
 
   <br />
@@ -33,5 +34,9 @@
 </div>
 
 <style>
+  #CurrencyCode {
+    display: inline-block;
+    width: unset;
+  }
 </style>
 

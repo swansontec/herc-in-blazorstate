@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\TestFrame.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,13 +41,19 @@
     <Content Update="Components\Iconic\IconicCog.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\HamburgerMenu\MenuItems.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\SideBar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\Assets\AssetsPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\LogoutPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Pages\Home\BlockChain\BlockChain.cshtml">
+    <Content Update="Pages\HomeSHIT\BlockChain\BlockChain.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\Login\Login.cshtml">
@@ -76,6 +83,21 @@
     <Content Update="Pages\Wallet\WalletPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\Account\Account2.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\HercHeader2.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\HercLogo2.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Layouts\HercLayout2\HercHeader\HamburgerMenu\HamburgerMenu2.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Layouts\HercLayout2\HercLayout.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Shared\HercLayout\HercFooter\HercFooter.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -97,7 +119,7 @@
     <Content Update="Shared\HercLayout\HercHeader\Search\Search.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Pages\Home\Hipr\Hipr.cshtml">
+    <Content Update="Pages\HomeSHIT\Hipr\Hipr.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Pages\Home\Home.cshtml">
@@ -106,7 +128,7 @@
     <Content Update="Shared\HercLayout\HercHeader\HercHeader.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Pages\Home\Store\Store.cshtml">
+    <Content Update="Pages\HomeSHIT\Store\Store.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Shared\HercLayout\HercLayout.cshtml">
@@ -118,11 +140,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Layouts\NoLayout\" />
     <Folder Include="Styles\bootstrap\" />
+    <Folder Include="wwwroot\javascript\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\TestFrame.html" />
   </ItemGroup>
 
 </Project>

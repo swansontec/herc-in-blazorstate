@@ -9,5 +9,10 @@
   {
     [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
 
+    public string Balance => EdgeCurrencyWallet.Balances[EdgeCurrencyWallet.SelectedCurrencyCode];
+
+    public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode;
+
+    public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
   }
 } 

@@ -2,14 +2,14 @@
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Pages.Home;
+  using Herc.Pwa.Client.Pages;
   using Herc.Pwa.Client.Pages.Login;
 
   public class IdologyModel : BaseComponent
   {
     public const string Route = "Idology";
 
-    protected async override Task OnInitAsync()
+    protected override async Task OnInitAsync()
     {
       // Are we in the proper state for this page?
       if (!EdgeAccountState.LoggedIn)
