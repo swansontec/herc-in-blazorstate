@@ -2,11 +2,9 @@
 {
   using BlazorState;
   using Herc.Pwa.Client.Features.Application;
-  using Herc.Pwa.Client.Features.Counter;
   using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Features.WeatherForecast;
   using MediatR;
 
   /// <summary>
@@ -20,9 +18,7 @@
   {
     public BaseHandler(IStore aStore) : base(aStore) { }
 
-    public CounterState CounterState => Store.GetState<CounterState>();
     public ApplicationState ApplicationState => Store.GetState<ApplicationState>();
-    public WeatherForecastsState WeatherForecastsState => Store.GetState<WeatherForecastsState>();
     public EdgeState EdgeState => Store.GetState<EdgeState>();
     public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => Store.GetState<EdgeCurrencyWalletsState>();
     public EdgeAccountState EdgeAccountState => Store.GetState<EdgeAccountState>();

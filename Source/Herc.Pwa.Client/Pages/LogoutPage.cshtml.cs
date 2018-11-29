@@ -4,8 +4,6 @@
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
-  using Herc.Pwa.Client.Pages.Edge;
-  using Herc.Pwa.Client.Pages.Home;
 
   public class LogoutPageModel : BaseComponent
   {

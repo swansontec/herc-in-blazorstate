@@ -6,8 +6,8 @@ namespace Herc.Pwa.Client.Components
 {
   public class FormBlockModel<T> : BaseComponent
   {
-    [Parameter] public string Model { get; set; }
-    [Parameter] public Action<string> ModelChanged { get; set; }
+    [Parameter] protected string Model { get; set; }
+    [Parameter] protected Action<string> ModelChanged { get; set; }
     public string Label => MemberName;
     //{
     //  get
