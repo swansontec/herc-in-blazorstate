@@ -1,4 +1,4 @@
-namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send
+namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
 {
   using System;
   using System.Threading;
@@ -10,34 +10,40 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send
   using MediatR;
   using Microsoft.JSInterop;
 
-  public class ChangePasswordHandler : BaseHandler<ChangePasswordAction, EdgeAccountState>
-  {
-    public ChangePasswordHandler(
-      IStore aStore,
-      IMediator aMediator) : base(aStore)
+
+  // Can't seem to figure out this accessibility issue, seems like something straightforward that I am missing
+  
+    public class ChangePasswordHandler : BaseHandler<ChangePasswordAction, EdgeAccountState>
     {
-      Mediator = aMediator;
-    }
 
-    private IMediator Mediator { get; }
 
-    public override async Task<EdgeAccountState> Handle(ChangePasswordAction aSendAction, CancellationToken aCancellationToken)
-    {
-      var changePasswordDto = MapSendActionToChangePasswordDto(aSendAction);
-
-      Console.WriteLine("Call the jsinterop to send via Edge");
-      string transactionId = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeCurrencyWalletInterop_Send, changePasswordDto);
-      Console.WriteLine($"SendTransactionId:{transactionId}");
-
-      return await Task.FromResult(EdgeCurrencyWalletsState);
-    }
-
-    private ChangePasswordDto MapSendActionToChangePasswordDto(ChangePasswordAction aChangePasswordAction)
-    {
-      return new ChangePasswordDto
+      public ChangePasswordHandler(
+        IStore aStore,
+        IMediator aMediator) : base(aStore)
       {
-        NewPassord = aChangePasswordAction.Password
-      };
+        Mediator = aMediator;
+      }
+
+      private IMediator Mediator { get; }
+
+      public override async Task<EdgeAccountState> Handle(ChangePasswordAction aChangePasswordAction)
+      {
+        ChangePasswordDto changePasswordDto = MapSendActionToChangePasswordDto(aChangePasswordAction);
+
+        Console.WriteLine("Call the jsinterop to change PW via Edge");
+        string changePassResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePassword, changePasswordDto);
+        Console.WriteLine($"whatever Comes Back from ChangePass:{changePassResults}");
+
+        return await Task.FromResult(EdgeAccountState);
+      }
+
+      private ChangePasswordDto MapSendActionToChangePasswordDto(ChangePasswordAction aChangePasswordAction)
+      {
+        return new ChangePasswordDto
+        {
+          NewPassword = aChangePasswordAction.newPassword
+        };
+      }
     }
   }
-}
+

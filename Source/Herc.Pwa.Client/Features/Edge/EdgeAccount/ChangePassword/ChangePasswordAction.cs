@@ -1,3 +1,5 @@
 export interface ChangePasswordAction {
-  newPassword: string; 
- }
+    string newPassword { get; }
+  }
+  
+  

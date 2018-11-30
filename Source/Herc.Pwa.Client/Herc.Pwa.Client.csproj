@@ -151,4 +151,10 @@
     <None Include="wwwroot\TestFrame.html" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\system.composition.runtime\1.0.31\lib\netstandard1.0\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
