@@ -1,4 +1,6 @@
-export interface ChangePasswordAction {
+using System.Composition;
+
+Export interface ChangePasswordAction {
     string newPassword { get; }
   }
   

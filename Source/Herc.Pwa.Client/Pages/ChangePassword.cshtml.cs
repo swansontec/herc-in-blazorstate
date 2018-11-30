@@ -1,26 +1,28 @@
 namespace Herc.Pwa.Client.Pages
 {
+  using System;
+  using System.Linq;
+  using System.Net;
+  using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
+  using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword;
+  using Herc.Pwa.Client.Services;
+  using Herc.Pwa.Shared;
+  using Microsoft.AspNetCore.Blazor.Components;
+
   public class ChangePasswordModel : BaseComponent
   {
     public const string Route = "/changePassword";
     public string NewPassword { get; set; }
 
-  }
-} 
-// The change PW function from the edge docs, need to change "abcAccount" to whatever the context is called
-// I think this is the right place to put it but am not sure...    
-  
-  //    await abcAccount.changePassword(password)
-//- (void) changePassword:(NSString*) password
-//              callback:(void (^)(AbcError* error)) callback;
+    protected async Task ChangePassword()
+    {
+      Console.WriteLine("passwords a' changing", NewPassword);
 
-//// Example
-//[abcAccount changePassword:password callback:^(AbcError* error) {
-//    if (error) {
-//        // Oh no
-//    } else {
-//        // Yay, new password set
-//    }
-//}];
+      //await Mediator.ChangePassword(new ChangePasswordAction
+
+    }
+  }
+}
+
 
