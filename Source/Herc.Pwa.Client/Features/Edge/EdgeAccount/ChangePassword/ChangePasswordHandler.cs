@@ -10,41 +10,39 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
   using MediatR;
   using Microsoft.JSInterop;
 
+  public class ChangePasswordHandler : BaseHandler<ChangePasswordAction, EdgeAccountState>
+  {
 
-  // Can't seem to figure out this accessibility issue, seems like something straightforward that I am missing
-  
-    public class ChangePasswordHandler : BaseHandler<ChangePasswordAction, EdgeAccountState>
+
+    public ChangePasswordHandler(
+      IStore aStore,
+      IMediator aMediator) : base(aStore)
     {
+      Mediator = aMediator;
+    }
+
+    private IMediator Mediator { get; }
 
 
-      public ChangePasswordHandler(
-        IStore aStore,
-        IMediator aMediator) : base(aStore)
-      {
-        Mediator = aMediator;
-      }
+    public override async Task<EdgeAccountState> Handle(ChangePasswordAction aChangePasswordAction, CancellationToken aCancellationToken)
+    {
+      ChangePasswordDto changePasswordDto = MapSendActionToChangePasswordDto(aChangePasswordAction);
 
-      private IMediator Mediator { get; }
-
-      public override async Task<EdgeAccountState> Handle(ChangePasswordAction aChangePasswordAction)
-      {
-        ChangePasswordDto changePasswordDto = MapSendActionToChangePasswordDto(aChangePasswordAction);
-
-        Console.WriteLine("Call the jsinterop to change PW via Edge");
+      Console.WriteLine("Call the jsinterop to change PW via Edge");
       //  not sure about this line
-        string changePassResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePassword, changePasswordDto);
-        Console.WriteLine($"whatever Comes Back from ChangePass:{changePassResults}");
+      string changePassResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePassword, changePasswordDto);
+      Console.WriteLine($"whatever Comes Back from ChangePass:{changePassResults}");
 
-        return await Task.FromResult(EdgeAccountState);
-      }
+      return await Task.FromResult(EdgeAccountState);
+    }
 
-      private ChangePasswordDto MapSendActionToChangePasswordDto(ChangePasswordAction aChangePasswordAction)
+    private ChangePasswordDto MapSendActionToChangePasswordDto(ChangePasswordAction aChangePasswordAction)
+    {
+      return new ChangePasswordDto
       {
-        return new ChangePasswordDto
-        {
-          NewPassword = aChangePasswordAction.newPassword
-        };
-      }
+        NewPassword = aChangePasswordAction.NewPassword
+      };
     }
   }
+}
 

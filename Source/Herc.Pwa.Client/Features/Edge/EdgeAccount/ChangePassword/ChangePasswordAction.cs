@@ -1,7 +1,11 @@
-using System.Composition;
+namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
+{
+  using Herc.Pwa.Client.Features.Edge.EdgeAccount;
+  using Herc.Pwa.Shared.Features.Base;
+  using MediatR;
 
-Export interface ChangePasswordAction {
-    string newPassword { get; }
+  public class ChangePasswordAction : BaseRequest, IRequest<EdgeAccountState>
+  {
+    public string NewPassword { get; set; }
   }
-  
-  
+}
