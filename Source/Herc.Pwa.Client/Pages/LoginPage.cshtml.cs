@@ -1,10 +1,7 @@
-﻿namespace Herc.Pwa.Client.Pages.Login
+﻿namespace Herc.Pwa.Client.Pages
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Pages.Edge;
-  using Herc.Pwa.Client.Pages;
-  using Herc.Pwa.Client.Pages.Idology;
 
   public class LoginPageModel : BaseComponent
   {

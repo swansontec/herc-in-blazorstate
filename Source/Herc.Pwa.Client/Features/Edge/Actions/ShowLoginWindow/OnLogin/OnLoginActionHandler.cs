@@ -5,9 +5,8 @@
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Pages.Login;
+  using Herc.Pwa.Client.Pages;
   using MediatR;
-  using Microsoft.JSInterop;
 
   public partial class EdgeState
   {
