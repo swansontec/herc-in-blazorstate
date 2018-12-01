@@ -17,11 +17,16 @@ namespace Herc.Pwa.Client.Pages
 
     protected async Task ChangePassword()
     {
-      Console.WriteLine("passwords a' changing", NewPassword);
-
-      //await Mediator.ChangePassword(new ChangePasswordAction
-
+      Console.WriteLine($"passwords a' changing, {NewPassword}");
+     
+      await Mediator.Send(new ChangePasswordAction
+      {
+        NewPassword = NewPassword
+      }
+      );
+     
     }
+
   }
 }
 
