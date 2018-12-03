@@ -34,13 +34,13 @@
 
     }
 
-    public void passwordShouldBeLongerThan1Char()
+    public void passwordShouldBeLongerThan6Char()
     {
       // Arrange
 
       var changePasswordAction = new ChangePasswordAction
       {
-        NewPassword = ""
+        NewPassword = "fivel"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();

@@ -11,7 +11,9 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
   {
     public ChangePasswordValidator()
     {
-      RuleFor(x => x.NewPassword).NotEmpty();
+      RuleFor(aChangePassowrdAction => aChangePassowrdAction.NewPassword).NotEmpty();
+      RuleFor(aChangePassowrdAction => aChangePassowrdAction.NewPassword).MinimumLength(6);
+
     }
 
   }
