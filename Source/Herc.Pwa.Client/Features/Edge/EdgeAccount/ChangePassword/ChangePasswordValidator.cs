@@ -11,6 +11,8 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
   {
     public ChangePasswordValidator()
     {
+      CascadeMode = CascadeMode.StopOnFirstFailure;
+
       RuleFor(aChangePassowrdAction => aChangePassowrdAction.NewPassword).NotEmpty();
       RuleFor(aChangePassowrdAction => aChangePassowrdAction.NewPassword).MinimumLength(6);
 
