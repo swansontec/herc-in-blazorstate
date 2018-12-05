@@ -13,9 +13,9 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
     {
       CascadeMode = CascadeMode.StopOnFirstFailure;
 
-      RuleFor(aChangePassowrdAction => aChangePassowrdAction.NewPassword).NotEmpty();
-      RuleFor(aChangePassowrdAction => aChangePassowrdAction.NewPassword).MinimumLength(6);
-
+      RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).NotEmpty();
+      RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).MinimumLength(6);
+      RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).Matches(@"^(?!.* )(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}$");
     }
 
   }
