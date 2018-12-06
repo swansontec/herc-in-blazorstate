@@ -16,25 +16,17 @@ namespace Herc.Pwa.Client.Pages
   {
     public const string Route = "/changePassword";
     public string NewPassword { get; set; }
+    public bool DisplayConfirm { get; set; }
+
+    public void ShowConfirm()
+    {
+      Console.WriteLine(@DisplayConfirm);
+      DisplayConfirm = !DisplayConfirm;
+    }
 
     protected async Task ChangePassword()
     {
       Console.WriteLine($"passwords a' changing, {NewPassword}");
-
-      // I attempted to Validate the NewPW before calling Edge ChangePW method,
-      // but didn't seem to work. 
-
-      //var changePassValid = new ChangePasswordValidator();
-      //var tester = new ChangePasswordAction
-      //{
-      //  NewPassword = "balloon"
-
-      //};
-
-      //ValidationResult results = changePassValid.Validate(tester);
-
-
-      //Console.WriteLine(results);
 
       await Mediator.Send(new ChangePasswordAction
       {
