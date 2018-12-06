@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation;
-
+﻿
 namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
 {
+  using FluentValidation;
+  using Herc.Pwa.Shared;
+
   public class ChangePasswordValidator : AbstractValidator<ChangePasswordAction>
 
   {
@@ -14,8 +12,8 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
       CascadeMode = CascadeMode.StopOnFirstFailure;
 
       RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).NotEmpty();
-      RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).MinimumLength(6);
-      RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).Matches(@"^(?!.* )(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}$");
+      RuleFor(aChangePasswordAction => aChangePasswordAction.NewPassword).Matches(RegularExpressions.PasswordValidation)
+                .WithMessage("Requires At Least 1 Capital Letter, 1 Number and 1 Special Character");
     }
 
   }

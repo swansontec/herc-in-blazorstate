@@ -7,5 +7,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword
   public class ChangePasswordAction : BaseRequest, IRequest<EdgeAccountState>
   {
     public string NewPassword { get; set; }
+    public string ConfirmPassword { get; set; }
+
   }
 }

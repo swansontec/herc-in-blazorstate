@@ -17,22 +17,24 @@ namespace Herc.Pwa.Client.Pages
     public const string Route = "/changePassword";
     public string NewPassword { get; set; }
     public bool DisplayConfirm { get; set; }
-
-    public void ShowConfirm()
-    {
-      Console.WriteLine(@DisplayConfirm);
-      DisplayConfirm = !DisplayConfirm;
-    }
+    public ValidationResult ValidationResult { get; set; }
 
     protected async Task ChangePassword()
     {
       Console.WriteLine($"passwords a' changing, {NewPassword}");
 
-      await Mediator.Send(new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction
       {
         NewPassword = NewPassword
+      };
+
+      var validator = new ChangePasswordValidator();
+      ValidationResult = validator.Validate(changePasswordAction);
+      Console.WriteLine(ValidationResult);
+      if (ValidationResult.IsValid)
+      {
+        await Mediator.Send(changePasswordAction);
       }
-      );
 
     }
 

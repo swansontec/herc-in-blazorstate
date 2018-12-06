@@ -1,6 +1,6 @@
 ﻿@inherits ValidationModel
 
-@if (!ValidationResult.IsValid)
+@if (ValidationResult != null && !ValidationResult.IsValid)
 {
   <div id="@Id" class="alert alert-danger">
     <ul>
