@@ -25,8 +25,8 @@ namespace Herc.Pwa.Client.Pages
       };
 
       var validator = new ChangePasswordValidator();
+
       ValidationResult = validator.Validate(changePasswordAction);
-      Console.WriteLine(ValidationResult);
       if (ValidationResult.IsValid)
       {
         await Mediator.Send(changePasswordAction);
