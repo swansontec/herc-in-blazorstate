@@ -56,5 +56,9 @@
 
 
     public static string PasswordValidation => @"^(?!.* )(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}$";
+
+    // Pin Validation, Needs RegEx Buddy Description
+
+    public static string PinValidation => @"[0-9]{4}";
   }
 }
