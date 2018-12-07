@@ -48,7 +48,7 @@
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
-      validationResult.Errors.Count.ShouldBe(2);
+      validationResult.Errors.Count.ShouldBe(1);
       //additional error of "NewPassword" not being in the correct format
 
 
@@ -96,7 +96,7 @@
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
-      validationResult.Errors.Count.ShouldBe(2);
+      validationResult.Errors.Count.ShouldBe(1);
      
     }
 

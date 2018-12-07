@@ -49,8 +49,8 @@
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
-      validationResult.Errors.Count.ShouldBe(2);
-      //additional error of "NewPin" not being in the correct format
+      validationResult.Errors.Count.ShouldBe(1);
+      
 
 
     }
