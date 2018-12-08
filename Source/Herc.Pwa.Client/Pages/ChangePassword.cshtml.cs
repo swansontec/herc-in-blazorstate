@@ -15,8 +15,6 @@ namespace Herc.Pwa.Client.Pages
 
     protected async Task ChangePassword()
     {
-      Console.WriteLine($"passwords a' changing, {NewPassword}");
-      Console.WriteLine($"Confirm Password, {ConfirmPassword}");
 
       var changePasswordAction = new ChangePasswordAction
       {
