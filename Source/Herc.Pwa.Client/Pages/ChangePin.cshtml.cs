@@ -12,6 +12,7 @@ namespace Herc.Pwa.Client.Pages
     public const string Route = "/changePassword";
     public string NewPassword { get; set; }
     public string ConfirmPassword { get; set; }
+    public bool SetPinLogin { get; set; }
     public ValidationResult ValidationResult { get; set; }
 
     public void OnGet()
