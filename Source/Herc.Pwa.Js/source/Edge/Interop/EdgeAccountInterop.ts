@@ -7,7 +7,8 @@ import { EdgeCurrencyWallet } from "../TypeDefinitions/EdgeCurrencyWallet";
 import { EdgeTransaction } from "../TypeDefinitions/EdgeTransaction";
 import { SendDto} from "../Dtos/SendDto";
 import { EdgeSpendInfo } from "../TypeDefinitions/EdgeSpendInfo";
-import { ChangePassowordDto } from "../Dtos/ChangePassowordDto";
+import { ChangePasswordDto } from "../Dtos/ChangePasswordDto";
+import { ChangePinDto } from "../Dtos/ChangePinDto";
 
 const EtheriumWalletType: string = "wallet:ethereum";
 
@@ -104,8 +105,14 @@ export class EdgeAccountInterop {
     return edgeCurrencyWalletInterop.Send(aSendAction);
   }
  
-  public ChangePassword = async(aChangePassowordDto: ChangePassowordDto): Promise<boolean> => {
-     this.EdgeAccount.changePassword(aChangePassowordDto.newPassword);
+  public ChangePassword = async(aChangePasswordDto: ChangePasswordDto): Promise<boolean> => {
+     this.EdgeAccount.changePassword(aChangePasswordDto.newPassword);
      return true;
   }
+
+  public ChangePin = async (aChangePinDto: ChangePinDto): Promise<boolean> => {
+    this.EdgeAccount.changePin(aChangePinDto);
+    return true;
+  }
+
 }

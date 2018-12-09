@@ -29,10 +29,10 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
     {
       ChangePinDto changePinDto = MapSendActionToChangePinDto(aChangePinAction);
 
-      Console.WriteLine("Call the jsinterop to change PW via Edge");
-      //  not sure about this line
-      string changePassResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePin, changePinDto);
-      Console.WriteLine($"whatever Comes Back from ChangePass:{changePassResults}");
+      Console.WriteLine("Check if the Data Exists, NewPIn: {0}, EnablePin Login: {1}",  changePinDto.NewPin, changePinDto.EnableLogin);
+      //not sure about this line
+      string changePinResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePin, changePinDto);
+      Console.WriteLine($"whatever Comes Back from ChangePin: {0}", changePinResults);
 
       return await Task.FromResult(EdgeAccountState);
     }
@@ -41,7 +41,8 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
     {
       return new ChangePinDto
       {
-        NewPin = aChangePinAction.NewPin
+        NewPin = aChangePinAction.NewPin,
+        EnableLogin = aChangePinAction.EnableLogin
       };
     }
   }

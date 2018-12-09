@@ -4,19 +4,35 @@ namespace Herc.Pwa.Client.Pages
   using System.Threading.Tasks;
   using FluentValidation.Results;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Features.Edge.EdgeAccount.
+  using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin;
 
 
   public class ChangePinModel : BaseComponent
   {
-    public const string Route = "/changePassword";
-    public string NewPassword { get; set; }
-    public string ConfirmPassword { get; set; }
-    public bool SetPinLogin { get; set; }
+    public const string Route = "/changePin";
+    public string NewPin { get; set; }
+    public string ConfirmPin { get; set; }
+    public bool EnableLogin { get; set; }
     public ValidationResult ValidationResult { get; set; }
 
-    public void OnGet()
+    protected async Task ChangePin()
     {
+
+      var changePinAction = new ChangePinAction
+      {
+        NewPin = NewPin,
+        ConfirmPin = ConfirmPin,
+        EnableLogin = EnableLogin
+      };
+
+      var validator = new ChangePinValidator();
+
+      ValidationResult = validator.Validate(changePinAction);
+      if (ValidationResult.IsValid)
+      {
+        await Mediator.Send(changePinAction);
+      }
+
     }
   }
 }

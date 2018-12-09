@@ -8,6 +8,8 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
   {
     public string NewPin { get; set; }
     public string ConfirmPin { get; set; }
+    public bool EnableLogin { get; set; }
+
 
   }
 }
