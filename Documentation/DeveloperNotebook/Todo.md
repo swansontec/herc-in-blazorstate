@@ -5,7 +5,7 @@
 > - [ ] Host behind wallet.herc.one.   
 > - [ ] Environment tests for iOS all Browsers.  
 > - [ ] Figure out Change Pin method and what the hashes are that get returned
-> - [ ] Edit build Script to rebuild the build file 
+> - [ ] Edit build Script to rebuild the Distrobution build file 
 
 
 
