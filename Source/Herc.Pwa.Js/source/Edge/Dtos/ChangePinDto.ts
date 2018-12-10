@@ -1,4 +1,4 @@
 ﻿export interface ChangePinDto {
-  pin: string;
+  newPin: string;
   enableLogin: boolean;
 }

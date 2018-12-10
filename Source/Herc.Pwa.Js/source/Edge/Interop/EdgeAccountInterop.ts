@@ -5,7 +5,7 @@ import { BlazorStateName, DotNetActionQualifiedNames } from "../../Constants";
 import { UpdateEdgeAccountAction } from "../Actions/UpdateEdgeAccount";
 import { EdgeCurrencyWallet } from "../TypeDefinitions/EdgeCurrencyWallet";
 import { EdgeTransaction } from "../TypeDefinitions/EdgeTransaction";
-import { SendDto} from "../Dtos/SendDto";
+import { SendDto } from "../Dtos/SendDto";
 import { EdgeSpendInfo } from "../TypeDefinitions/EdgeSpendInfo";
 import { ChangePasswordDto } from "../Dtos/ChangePasswordDto";
 import { ChangePinDto } from "../Dtos/ChangePinDto";
@@ -52,7 +52,7 @@ export class EdgeAccountInterop {
     if (Object.keys(currencyWallets).length === 0)
       console.log('%cNo CurrencyWallets on EdgeAccount', 'color: purple');
     console.log('%cConfigureCurrencyWallets', 'color: purple');
-    
+
     Object.keys(currencyWallets).forEach((key) =>
       this.ConfigureCurrencyWalletInterop(currencyWallets[key]));
   }
@@ -104,14 +104,18 @@ export class EdgeAccountInterop {
     const edgeCurrencyWalletInterop = this.EdgeCurrencyWalletInterops[aSendAction.edgeCurrencyWalletId];
     return edgeCurrencyWalletInterop.Send(aSendAction);
   }
- 
-  public ChangePassword = async(aChangePasswordDto: ChangePasswordDto): Promise<boolean> => {
-     this.EdgeAccount.changePassword(aChangePasswordDto.newPassword);
-     return true;
-  }
 
+  public ChangePassword = async (aChangePasswordDto: ChangePasswordDto): Promise<boolean> => {
+    const whatisthis = await this.EdgeAccount.changePassword(aChangePasswordDto.newPassword);
+    console.log(whatisthis);
+    debugger;
+    return true;
+  }
+  // maybe need to create an object called 'opts'?
   public ChangePin = async (aChangePinDto: ChangePinDto): Promise<boolean> => {
-    this.EdgeAccount.changePin(aChangePinDto);
+    const whatisthis = await this.EdgeAccount.changePin({ pin: aChangePinDto.newPin, enableLogin: aChangePinDto.enableLogin });
+    console.log(whatisthis);
+    debugger;
     return true;
   }
 
