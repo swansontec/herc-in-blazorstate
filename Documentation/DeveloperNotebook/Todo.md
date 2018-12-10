@@ -4,6 +4,9 @@
 > - [ ] Login / Logout || Send / Receive || Change Password || Full Wallet Functionality.  
 > - [ ] Host behind wallet.herc.one.   
 > - [ ] Environment tests for iOS all Browsers.  
+> - [ ] Figure out Change Pin method and what the hashes are that get returned
+> - [ ] Edit build Script to rebuild the build file 
+
 
 
 2. Jan 30, 2019 
