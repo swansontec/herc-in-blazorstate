@@ -1,5 +1,17 @@
-# Benchmarks!
+# The List
+=
 
+  -[ ]  Edit build Script to rebuild the Distrobution build file 
+ 
+  -[ ]  Write responses for successful and unsuccessful PIN/PW changes, redirect to HOME? page    
+ 
+  -[ ]  Remove Check for specialChar in PW verification 
+
+  -[ ]  Remove Check for specialChar in PW verification 
+
+  -[ ]  Build a temp Homepage
+
+# Benchmarks!
  1. Dec 21, 2018
 > - [ ] Login / Logout || Send / Receive || Change Password || Full Wallet Functionality.  
 > - [ ] Host behind wallet.herc.one.   
