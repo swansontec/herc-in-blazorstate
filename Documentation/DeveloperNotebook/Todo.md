@@ -6,9 +6,7 @@
   -[ ]  Write responses for successful and unsuccessful PIN/PW changes, redirect to HOME? page    
  
   -[ ]  Remove Check for specialChar in PW verification 
-
-  -[ ]  Remove Check for specialChar in PW verification 
-
+ 
   -[ ]  Build a temp Homepage
 
 # Benchmarks!
