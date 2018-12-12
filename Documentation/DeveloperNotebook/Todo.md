@@ -5,16 +5,16 @@
  
   -[ ]  Write responses for successful and unsuccessful PIN/PW changes, redirect to HOME? page    
  
-  -[ ]  Remove Check for specialChar in PW verification 
+  -[x]  Remove Check for specialChar in PW verification && extend min PW length to 10 chars
  
   -[ ]  Build a temp Homepage
 
 # Benchmarks!
  1. Dec 21, 2018
-> - [ ] Login / Logout || Send / Receive || Change Password || Full Wallet Functionality.  
+> - [x] Login / Logout || Send / Receive || Change Password || Full Wallet Functionality.  
 > - [ ] Host behind wallet.herc.one.   
 > - [ ] Environment tests for iOS all Browsers.  
-> - [ ] Figure out Change Pin method and what the hashes are that get returned
+> - [x] Figure out Change Pin method and what the hashes are that get returned
 > - [ ] Edit build Script to rebuild the Distrobution build file 
 
 
