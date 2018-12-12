@@ -108,14 +108,14 @@ export class EdgeAccountInterop {
   public ChangePassword = async (aChangePasswordDto: ChangePasswordDto): Promise<boolean> => {
     const whatisthis = await this.EdgeAccount.changePassword(aChangePasswordDto.newPassword);
     console.log(whatisthis);
-    debugger;
+    //debugger;
     return true;
   }
-  // maybe need to create an object called 'opts'?
+
   public ChangePin = async (aChangePinDto: ChangePinDto): Promise<boolean> => {
     const whatisthis = await this.EdgeAccount.changePin({ pin: aChangePinDto.newPin, enableLogin: aChangePinDto.enableLogin });
     console.log(whatisthis);
-    debugger;
+    //debugger;
     return true;
   }
 

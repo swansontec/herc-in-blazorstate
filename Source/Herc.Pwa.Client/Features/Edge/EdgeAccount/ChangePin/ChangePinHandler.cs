@@ -32,7 +32,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
       Console.WriteLine("Check if the Data Exists, NewPIn: {0}, EnablePin Login: {1}",  changePinDto.NewPin, changePinDto.EnableLogin);
       //not sure about this line
       string changePinResults = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeAccountInterop_ChangePin, changePinDto);
-      Console.WriteLine($"whatever Comes Back from ChangePin: {0}", changePinResults);
+      Console.WriteLine($"whatever Comes Back from ChangePin:", changePinResults);
 
       return await Task.FromResult(EdgeAccountState);
     }
