@@ -55,6 +55,6 @@
     //Assert position at the end of the string (or before the line break at the end of the string, if any) «$»
 
 
-    public static string PasswordValidation => @"^(?!.* )(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}$";
+    public static string PasswordValidation => @"^(?!.* )(?=.*\d)(?=.*[A-Z]).{10,}$";
   }
 }
