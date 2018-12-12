@@ -1,21 +1,23 @@
 # The List
 =
 
-  -[ ]  Edit build Script to rebuild the Distrobution build file 
+  -[ ]  Edit build Script to rebuild the Distribution build file 
  
   -[ ]  Write responses for successful and unsuccessful PIN/PW changes, redirect to HOME? page    
  
   -[x]  Remove Check for specialChar in PW verification && extend min PW length to 10 chars
  
-  -[ ]  Build a temp Homepage
+  -[ ]  Build a temp Splash page
+  
+  -[ ] Edit build Script to rebuild the Distrobution build file 
+
+  -[x] Figure out Change Pin method and what the hashes are that get returned
 
 # Benchmarks!
  1. Dec 21, 2018
 > - [x] Login / Logout || Send / Receive || Change Password || Full Wallet Functionality.  
 > - [ ] Host behind wallet.herc.one.   
 > - [ ] Environment tests for iOS all Browsers.  
-> - [x] Figure out Change Pin method and what the hashes are that get returned
-> - [ ] Edit build Script to rebuild the Distrobution build file 
 
 
 
