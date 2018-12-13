@@ -2,6 +2,7 @@
 =
 
   -[ ]  Edit build Script to rebuild the Distribution build file 
+      *  Intitial testing says this is complete, need review. 
  
   -[ ]  Write responses for successful and unsuccessful PIN/PW changes, redirect to HOME? page    
  
@@ -9,8 +10,6 @@
  
   -[ ]  Build a temp Splash page
   
-  -[ ] Edit build Script to rebuild the Distrobution build file 
-
   -[x] Figure out Change Pin method and what the hashes are that get returned
 
 # Benchmarks!
