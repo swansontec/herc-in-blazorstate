@@ -14,8 +14,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
   public class ChangePinHandler : BaseHandler<ChangePinAction, EdgeAccountState>
   {
 
-
-    public ChangePinHandler(
+        public ChangePinHandler(
       IStore aStore,
       IMediator aMediator) : base(aStore)
     {

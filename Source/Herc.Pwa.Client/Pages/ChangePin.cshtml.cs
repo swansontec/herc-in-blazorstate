@@ -31,6 +31,8 @@ namespace Herc.Pwa.Client.Pages
       if (ValidationResult.IsValid)
       {
         await Mediator.Send(changePinAction);
+        // Upon successful resolve of the above function pop the modal here
+        // @showModal = true
         Console.WriteLine("Change the Route to the Home Page.");
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = HomeModel.Route });
       }
