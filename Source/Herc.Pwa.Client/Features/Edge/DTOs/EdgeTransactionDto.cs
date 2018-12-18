@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.DTOs
+﻿namespace Herc.Pwa.Client.Features.Edge.Dtos
 {
   using System;
   using System.Collections.Generic;

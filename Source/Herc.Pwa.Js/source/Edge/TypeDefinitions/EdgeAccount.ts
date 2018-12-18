@@ -38,7 +38,7 @@ export interface EdgeAccount {
   readonly recoveryLogin: boolean,
 
   // Change or create credentials:
-  //changePassword(password: string): Promise<mixed>,
+  changePassword(password: string): Promise<any>,
   changePin(opts: {
     pin?: string, // We keep the existing PIN if unspecified
     enableLogin?: boolean // We default to true if unspecified
