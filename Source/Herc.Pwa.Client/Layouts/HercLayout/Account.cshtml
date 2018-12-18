@@ -1,11 +1,20 @@
 ﻿@inherits BaseComponent
+@using  Herc.Pwa.Client.Pages
 
-<div id="@Id" class="row mt-1">
-  <div class="col-auto d-block">
+<div id="@Id" class="dropdown d-block">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span style="font-size:xx-large" class="oi oi-person" aria-hidden="true"></span>
-  </div>
-  <div class="col d-none d-sm-block">
-    <h6>@EdgeAccountState.Username</h6>
+  </button>
+
+  <h6>@EdgeAccountState.Username</h6>
+  <div class="dropdown-menu dropleft" aria-labelledby="dropdownMenuButton">
+    <NavLink class="nav-link nav-item" href="@LogoutPageModel.Route">
+      <span class="oi oi-account-logout" aria-hidden="true"></span> Logout
+    </NavLink>
+
+    <NavLink class="nav-link nav-item" href="@ChangePasswordModel.Route">
+      <span class="oi oi-bolt" aria-hidden="true"></span> Change Password
+    </NavLink>
   </div>
 </div>
 

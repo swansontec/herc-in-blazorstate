@@ -7,6 +7,7 @@ import { EdgeCurrencyWallet } from "../TypeDefinitions/EdgeCurrencyWallet";
 import { EdgeTransaction } from "../TypeDefinitions/EdgeTransaction";
 import { SendDto} from "../Dtos/SendDto";
 import { EdgeSpendInfo } from "../TypeDefinitions/EdgeSpendInfo";
+import { ChangePassowordDto } from "../Dtos/ChangePassowordDto";
 
 const EtheriumWalletType: string = "wallet:ethereum";
 
@@ -102,14 +103,9 @@ export class EdgeAccountInterop {
     const edgeCurrencyWalletInterop = this.EdgeCurrencyWalletInterops[aSendAction.edgeCurrencyWalletId];
     return edgeCurrencyWalletInterop.Send(aSendAction);
   }
-  //WaitForCurrencyWallet = async (walletId: string): Promise<string> => {
-  //  console.log(`WaitForCurrencyWallet with walletId:${walletId}`);
-  //  //if (!this.EdgeAccount) throw "EdgeAccount required ensure logged in before calling.";
-  //  //const edgeCurrencyWallet = await this.EdgeAccount.waitForCurrencyWallet(walletId);
-  //  //console.log({ EdgeCurrencyWallet: edgeCurrencyWallet });
-  //  //this.EdgeCurrencyWalletInterop = new EdgeCurrencyWalletInterop(edgeCurrencyWallet);
-  //  //this.EdgeCurrencyWalletInterop.Initialize();
-  //  //return JSON.stringify(edgeCurrencyWallet.balances);
-  //  return "";
-  //};
+ 
+  public ChangePassword = async(aChangePassowordDto: ChangePassowordDto): Promise<boolean> => {
+     this.EdgeAccount.changePassword(aChangePassowordDto.newPassword);
+     return true;
+  }
 }

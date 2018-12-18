@@ -8,9 +8,9 @@
 
   public partial class EdgeAccountState
   {
-    public class LougoutHandler : BaseHandler<LogoutAction, EdgeAccountState>
+    public class LogoutHandler : BaseHandler<LogoutAction, EdgeAccountState>
     {
-      public LougoutHandler(IStore aStore) : base(aStore) { }
+      public LogoutHandler(IStore aStore) : base(aStore) { }
 
       public override async Task<EdgeAccountState> Handle(LogoutAction aShowLoginWindowEdgeRequest, CancellationToken aCancellationToken)
       {
