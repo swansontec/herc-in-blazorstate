@@ -1,6 +1,9 @@
 # The List
+- [ ] Hipr Style??
 - [ ] Create PR Template to show what each PR should contain
-- [ ] misc style adjustments
+- [ ] misc style adjustments, account button
+- [ ] add ability to add/remove pin login w/o changing the pin
+
 
 - [ ]  Build a temp Splash page
 
