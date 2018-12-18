@@ -23,3 +23,5 @@ Api Feature
 Blazor Feature
 
 TODO:
+*  Have Unit Tests, Integration Tests occurred? 
+*  Documentation
