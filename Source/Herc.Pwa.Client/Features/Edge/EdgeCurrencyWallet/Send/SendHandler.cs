@@ -6,7 +6,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Features.Edge.DTOs;
+  using Herc.Pwa.Client.Features.Edge.Dtos;
   using MediatR;
   using Microsoft.JSInterop;
 

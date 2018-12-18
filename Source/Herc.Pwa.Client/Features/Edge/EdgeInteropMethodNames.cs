@@ -9,6 +9,7 @@
     public const string EdgeInterop_WaitForCurrencyWallet = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.WaitForCurrencyWallet";
     //public const string EdgeInterop_CreateCurrencyWallet = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.CreateCurrencyWallet";
     public const string EdgeCurrencyWalletInterop_GetEnabledTokens = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.EdgeCurrencyWalletInterop.GetEnabledTokens";
-    public const string EdgeCurrencyWalletInterop_Send ="EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.Send";
+    public const string EdgeCurrencyWalletInterop_Send = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.Send";
+    public const string EdgeAccountInterop_ChangePassword = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.ChangePassword";
   }
 }
