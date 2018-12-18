@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -140,6 +140,13 @@
     } else {
       console.log('service worker is not supported');
     }
+  </script>
+  <script>
+    Blazor.registerFunction('ShowModal', (visibility) => {
+      var modal = document.getElementById("MyModal");
+      modal.style.display = visibility;
+    });
+    return true;
   </script>
 </body>
 </html>

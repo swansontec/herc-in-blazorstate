@@ -11,5 +11,7 @@
     public const string EdgeCurrencyWalletInterop_GetEnabledTokens = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.EdgeCurrencyWalletInterop.GetEnabledTokens";
     public const string EdgeCurrencyWalletInterop_Send = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.Send";
     public const string EdgeAccountInterop_ChangePassword = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.ChangePassword";
+    public const string EdgeAccountInterop_ChangePin = "EdgeInterop.EdgeUiContextInterop.EdgeAccountInterop.ChangePin";
+
   }
 }
