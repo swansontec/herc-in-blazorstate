@@ -1,8 +1,8 @@
 # The List
+- [ ] Create PR Template to show what each PR should contain
+- [ ] misc style adjustments
 
--[ ] misc style adjustments
-
--[ ]  Build a temp Splash page
+- [ ]  Build a temp Splash page
 
 # Completed
 
