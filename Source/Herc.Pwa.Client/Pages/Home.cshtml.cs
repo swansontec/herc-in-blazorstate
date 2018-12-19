@@ -8,12 +8,7 @@
   public class HomeModel : BaseComponent
   {
     public const string Route = "/";
-
-    public bool showModal { get; set; } = false;
-
-    public string TestWordsToShow { get; set; } = "";
-    public void ShowModal() => TestWordsToShow = "Whattya Know It worked!!";
-    public void StopModal() => TestWordsToShow = "";
+    
     protected override async Task OnInitAsync()
     {
       // Are we in the proper state for this page?
