@@ -3,9 +3,11 @@
 - [ ] Create PR Template to show what each PR should contain
 - [ ] misc style adjustments, account button
 - [ ] add ability to add/remove pin login w/o changing the pin
-
-- [ ]  Build a temp Splash page
-
+  
+  ### Implementing Recent Trans List
+  -[ ] Build EdgeTransaction UI Component
+  -[ ] Build EdgeGetTransactions DTO, Action and Handler
+  -[ ] Write unit tests
 
 # Completed
 
