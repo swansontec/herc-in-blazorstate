@@ -34,6 +34,7 @@
       var clone = MemberwiseClone() as EdgeCurrencyWallet;
       clone.Keys = new Dictionary<string, string>(Keys);
       clone.Balances = new Dictionary<string, string>(Balances);
+      //clone.EdgeTransactions = new List<EdgeTransaction>(EdgeTransactions);
       return clone;
     }
   }

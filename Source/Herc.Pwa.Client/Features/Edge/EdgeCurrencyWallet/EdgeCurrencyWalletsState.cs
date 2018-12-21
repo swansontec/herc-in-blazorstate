@@ -1,5 +1,6 @@
 ﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
 {
+  using System;
   using System.Collections.Generic;
   using System.Linq;
   using System.Reflection;
@@ -11,10 +12,10 @@
     {
       EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
     }
-
     protected EdgeCurrencyWalletsState(EdgeCurrencyWalletsState aEdgeCurrencyWalletsState) : this()
     {
-
+      Console.WriteLine("EdgeCurrencyWalletState");
+      
       aEdgeCurrencyWalletsState
         .EdgeCurrencyWallets
         .ToList()
