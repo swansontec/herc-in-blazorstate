@@ -4,15 +4,22 @@
   using System.Collections.Generic;
   using System.Linq;
   using System.Net;
+  using Herc.Pwa.Client.Features.Edge.State;
 
   public class EdgeCurrencyWallet : ICloneable
   {
+
+    public EdgeCurrencyWallet()
+    {
+
+    }
+
     public Dictionary<string, string> Balances { get; set; }
     public string FiatCurrencyCode { get; set; }
     public string Id { get; set; }
     public Dictionary<string, string> Keys { get; set; }
     public string Name { get; set; }
-
+    public List<EdgeTransaction> EdgeTransactions { get; set; }
     private string _SelectedCurrencyCode;
 
     public string SelectedCurrencyCode
@@ -21,6 +28,7 @@
       set => _SelectedCurrencyCode = value;
     }
     public string EncodedId => WebUtility.UrlEncode(Id);
+
     public object Clone()
     {
       var clone = MemberwiseClone() as EdgeCurrencyWallet;

@@ -34,7 +34,7 @@ export class EdgeCurrencyWalletInterop {
     this.DispatchUpdateEdgeCurrencyWallet();
   }
 
-  private ConfigureSubscriptions() {
+  private async ConfigureSubscriptions() {
     this.EdgeCurrencyWallet.watch('balances', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('currencyInfo', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('fiatCurrencyCode', () => this.DispatchUpdateEdgeCurrencyWallet());
@@ -42,6 +42,8 @@ export class EdgeCurrencyWalletInterop {
     this.EdgeCurrencyWallet.watch('keys', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('name', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('type', () => this.DispatchUpdateEdgeCurrencyWallet());
+    this.EdgeCurrencyWallet.on('newTransactions', () => this.DispatchUpdateEdgeCurrencyWallet());
+    this.EdgeCurrencyWallet.on('transactionsChanged', () => this.DispatchUpdateEdgeCurrencyWallet());
   }
 
   getEnabledTokens = (): Promise<string[]> => {
@@ -57,6 +59,7 @@ export class EdgeCurrencyWalletInterop {
       balances: this.EdgeCurrencyWallet.balances,
       fiatCurrencyCode: this.EdgeCurrencyWallet.fiatCurrencyCode,
       name: this.EdgeCurrencyWallet.name,
+      transactions: await this.EdgeCurrencyWallet.getTransactions(),
       enabledTokens
     };
   }
@@ -91,4 +94,5 @@ export class EdgeCurrencyWalletInterop {
 
     return edgeTransaction.txid;
   }
+
 }

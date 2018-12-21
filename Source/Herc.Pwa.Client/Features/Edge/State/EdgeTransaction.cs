@@ -1,8 +1,8 @@
-﻿namespace Herc.Pwa.Client.Features.Edge.Dtos
+﻿namespace Herc.Pwa.Client.Features.Edge.State
 {
   using System.Collections.Generic;
 
-  public class EdgeTransactionDto
+  public class EdgeTransaction
   {
     public int Date { get; set; }
     public string CurrencyCode { get; set; }
@@ -15,6 +15,6 @@
     //metadata?: EdgeMetadata,
     //otherParams: any,
     //public <wallet?: EdgeCurrencyWallet
-  }
+  };
 }
 

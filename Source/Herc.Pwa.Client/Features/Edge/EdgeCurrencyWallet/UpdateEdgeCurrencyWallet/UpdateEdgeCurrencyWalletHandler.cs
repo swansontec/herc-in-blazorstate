@@ -1,16 +1,18 @@
 ﻿
 namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 {
+  using System.Collections.Generic;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
+  using Herc.Pwa.Client.Features.Edge.State;
   using MediatR;
 
   public class UpdateEdgeCurrencyWalletHandler : BaseHandler<UpdateEdgeCurrencyWalletAction, EdgeCurrencyWalletsState>
   {
     public UpdateEdgeCurrencyWalletHandler(
-      IStore aStore, 
+      IStore aStore,
       IMediator aMediator,
       Subscriptions aSubscriptions) : base(aStore)
     {
@@ -41,6 +43,31 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
       edgeCurrencyWallet.Keys = aUpdateEdgeCurrencyWalletAction.Keys;
       edgeCurrencyWallet.Balances = aUpdateEdgeCurrencyWalletAction.Balances;
       edgeCurrencyWallet.Name = aUpdateEdgeCurrencyWalletAction.Name;
+      edgeCurrencyWallet.EdgeTransactions = MapEdgeTransactions(aUpdateEdgeCurrencyWalletAction);
     }
+
+    private List<EdgeTransaction> MapEdgeTransactions(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
+    {
+      var edgeTransactions = new List<EdgeTransaction>();
+      aUpdateEdgeCurrencyWalletAction.EdgeTransactions.ForEach(
+        (aEdgeTransaction) =>
+        {
+          var edgeTransaction = new EdgeTransaction
+          {
+            CurrencyCode = aEdgeTransaction.CurrencyCode,
+            BlockHeight = aEdgeTransaction.BlockHeight,
+            Date = aEdgeTransaction.Date,
+            NativeAmount = aEdgeTransaction.NativeAmount,
+            NetworkFee = aEdgeTransaction.NetworkFee,
+            OurReceiveAddresses = aEdgeTransaction.OurReceiveAddresses,
+            ParentNetworkFee = aEdgeTransaction.ParentNetworkFee,
+            SignedTx = aEdgeTransaction.SignedTx
+          };
+        });
+
+      return edgeTransactions;
+
+    }
+
   }
 }
