@@ -1,7 +1,6 @@
 # The List
-- [ ] Hipr Style??
+- [ ] misc style adjustments, account button, Add user name to dropdown below 460px or so;
 - [ ] Create PR Template to show what each PR should contain
-- [ ] misc style adjustments, account button
 - [ ] add ability to add/remove pin login w/o changing the pin
 
 

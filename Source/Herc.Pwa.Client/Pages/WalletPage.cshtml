@@ -2,7 +2,14 @@
 @inherits WalletPageModel
 
 <div class="text-center">
-  <Wallet EdgeCurrencyWallet="@EdgeCurrencyWallet" />
+  @if(EdgeCurrencyWallet != null)
+  {
+    <Wallet EdgeCurrencyWallet="@EdgeCurrencyWallet" />  
+  }else
+  {
+    <div>No Wallet Yet</div>
+  }
+
 </div>
 <style>
 </style>
