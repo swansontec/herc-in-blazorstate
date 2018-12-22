@@ -22,13 +22,6 @@
         // Route them to Idology Page to verify
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = IdologyModel.Route });
       }
-      //else if (EdgeState.EdgeWalletInfo == null)
-      //{
-      //  const string EtheriumWalletType = "wallet:ethereum";
-      //  // Fetch the acccount information we want.
-      //  Console.WriteLine("Sending GetFirstWalletInfoAction");
-      //  await Mediator.Send(new Features.Edge.GetFirstWalletInfoAction { Type = EtheriumWalletType });
-      //}
     }
   }
 }
