@@ -8,12 +8,7 @@
   public class HomeModel : BaseComponent
   {
     public const string Route = "/";
-
-    public bool showModal { get; set; } = false;
-
-    public string TestWordsToShow { get; set; } = "";
-    public void ShowModal() => TestWordsToShow = "Whattya Know It worked!!";
-    public void StopModal() => TestWordsToShow = "";
+    
     protected override async Task OnInitAsync()
     {
       // Are we in the proper state for this page?
@@ -27,13 +22,6 @@
         // Route them to Idology Page to verify
         await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = IdologyModel.Route });
       }
-      //else if (EdgeState.EdgeWalletInfo == null)
-      //{
-      //  const string EtheriumWalletType = "wallet:ethereum";
-      //  // Fetch the acccount information we want.
-      //  Console.WriteLine("Sending GetFirstWalletInfoAction");
-      //  await Mediator.Send(new Features.Edge.GetFirstWalletInfoAction { Type = EtheriumWalletType });
-      //}
     }
   }
 }

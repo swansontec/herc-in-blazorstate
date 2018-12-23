@@ -24,7 +24,7 @@
 
     public string SelectedCurrencyCode
     {
-      get => _SelectedCurrencyCode ?? Balances.Keys.First();
+      get => _SelectedCurrencyCode ?? Balances?.Keys.FirstOrDefault();
       set => _SelectedCurrencyCode = value;
     }
     public string EncodedId => WebUtility.UrlEncode(Id);
