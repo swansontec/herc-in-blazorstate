@@ -1,12 +1,19 @@
 # The List
-- [ ] misc style adjustments, account button, Add user name to dropdown below 460px or so;
+- [ ] Recent transactions list in wallet
 - [ ] Create PR Template to show what each PR should contain
 - [ ] add ability to add/remove pin login w/o changing the pin
+  
+  ### Implementing Recent Trans List
+  -[ ] Build EdgeTransaction UI Component
+  -[ ] Build EdgeGetTransactions DTO, Action and Handler
+  -[ ] Write unit tests
 
-
-- [ ]  Build a temp Splash page
 
 # Completed
+
+  -[X]  App opens to the wallet, only current functionality
+
+  -[X]  misc style adjustments, account button
 
   -[X]  Edit build Script to rebuild the Distribution build file 
       *  Intitial testing says this is complete, need review. 

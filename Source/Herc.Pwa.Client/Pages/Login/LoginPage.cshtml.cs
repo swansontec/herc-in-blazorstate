@@ -20,7 +20,7 @@
         if (IdologyState.IsValid)
         {
           // Route them to Home Page
-          await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = HomeModel.Route });
+          await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = WalletPageModel.Route });
         }
         else
         {
