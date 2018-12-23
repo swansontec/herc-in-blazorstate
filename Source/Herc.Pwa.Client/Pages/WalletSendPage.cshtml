@@ -8,7 +8,7 @@
     <div class="form-group">
       <label for="CurrencyCode">CurrencyCode</label>
       <select id="CurrencyCode" class="form-control-sm" bind="@CurrencyCode">
-        @foreach (string currencyCode in EdgeCurrencyWallet.Balances.Keys)
+        @foreach (string currencyCode in EdgeCurrencyWallet.Balances?.Keys)
         {
           <option value="@currencyCode">@currencyCode</option>
         }
