@@ -8,7 +8,7 @@
   {
     public string GetFormatedAmount(FormatAmountRequest aFormatAmountRequest)
     {
-      string balance = aFormatAmountRequest.Amount;
+      string balance = aFormatAmountRequest.Amount ?? "0";
       int granularity = aFormatAmountRequest.Granularity;
       int decimalPlacesToDisplay = aFormatAmountRequest.DecimalPlacesToDisplay;
       char decimalSeperator = aFormatAmountRequest.DecimalSeperator;
