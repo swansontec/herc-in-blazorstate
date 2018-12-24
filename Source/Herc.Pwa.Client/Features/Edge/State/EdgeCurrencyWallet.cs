@@ -36,12 +36,24 @@
       clone.Balances = new Dictionary<string, string>(Balances);
 
       clone.EdgeTransactions = new List<EdgeTransaction>(EdgeTransactions.Count);
-      EdgeTransactions.ForEach(transaction =>
-     {
-       clone.EdgeTransactions.Add(transaction);
-       Console.WriteLine(transaction);
 
-     });
+      EdgeTransactions.ForEach((atransaction) =>
+     {
+       var edgeTransaction = new EdgeTransaction
+       {
+         CurrencyCode = atransaction.CurrencyCode,
+         BlockHeight = atransaction.BlockHeight,
+         Date = atransaction.Date,
+         NativeAmount = atransaction.NativeAmount,
+         NetworkFee = atransaction.NetworkFee,
+         OurReceiveAddresses = atransaction.OurReceiveAddresses,
+         ParentNetworkFee = atransaction.ParentNetworkFee,
+         SignedTx = atransaction.SignedTx
+       };
+       Console.WriteLine(edgeTransaction);
+       clone.EdgeTransactions.Add(edgeTransaction);
+      });
+     
       return clone;
     }
   }

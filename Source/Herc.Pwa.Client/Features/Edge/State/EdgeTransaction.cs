@@ -1,6 +1,13 @@
 ﻿namespace Herc.Pwa.Client.Features.Edge.State
 {
+  using System;
   using System.Collections.Generic;
+  using System.Linq;
+
+  static class Extensions
+    {
+    internal static IList<EdgeTransaction> Clone<EdgeTransaction>(this IList<EdgeTransaction> listToClone) where EdgeTransaction : ICloneable => listToClone.Select(aItem => (EdgeTransaction)aItem.Clone()).ToList();
+  }
 
   public class EdgeTransaction
   {
@@ -13,6 +20,9 @@
     public List<string> OurReceiveAddresses { get; set; }
     public string SignedTx { get; set; }
     public string ParentNetworkFee { get; set; }
+
+  
+   
     //metadata?: EdgeMetadata,
     //otherParams: any,
     //public <wallet?: EdgeCurrencyWallet
