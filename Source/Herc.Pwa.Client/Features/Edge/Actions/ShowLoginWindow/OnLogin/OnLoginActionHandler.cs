@@ -5,9 +5,8 @@
   using System.Threading.Tasks;
   using BlazorState;
   using Herc.Pwa.Client.Features.Base;
-  using Herc.Pwa.Client.Pages.Login;
+  using Herc.Pwa.Client.Pages;
   using MediatR;
-  using Microsoft.JSInterop;
 
   public partial class EdgeState
   {
@@ -23,8 +22,7 @@
       public override async Task<EdgeState> Handle(OnLoginAction aOnLoginRequest, CancellationToken aCancellationToken)
       {
         Console.WriteLine($"OnLoginActionHandler");
-        Console.WriteLine($"Redirecting back to Login");
-        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = LoginPageModel.Route });
+        await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = WalletPageModel.Route });
         return EdgeState;
       }
     }
