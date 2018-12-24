@@ -8,7 +8,7 @@
   {
     [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
 
-    public string Balance => EdgeCurrencyWallet.Balances[EdgeCurrencyWallet.SelectedCurrencyCode];
+    public string Balance => EdgeCurrencyWallet.SelectedCurrencyCode != null ? EdgeCurrencyWallet?.Balances[EdgeCurrencyWallet.SelectedCurrencyCode]: null;
 
     public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode;
 
