@@ -53,13 +53,14 @@ export class EdgeCurrencyWalletInterop {
   private GetEdgeCurrencyWalletAction = async (): Promise<UpdateEdgeCurrencyWalletAction> => {
     const currencyInfo: EdgeCurrencyInfo = this.EdgeCurrencyWallet.currencyInfo;
     const enabledTokens: string[] = await this.EdgeCurrencyWallet.getEnabledTokens();
+    const transactions: Array<EdgeTransaction> = await this.EdgeCurrencyWallet.getTransactions();  
     return {
       id: this.EdgeCurrencyWallet.id,
       keys: this.EdgeCurrencyWallet.keys,
       balances: this.EdgeCurrencyWallet.balances,
       fiatCurrencyCode: this.EdgeCurrencyWallet.fiatCurrencyCode,
       name: this.EdgeCurrencyWallet.name,
-      transactions: await this.EdgeCurrencyWallet.getTransactions(),
+      transactions,
       enabledTokens
     };
   }

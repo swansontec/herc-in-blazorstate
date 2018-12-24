@@ -6,11 +6,11 @@
 
   static class Extensions
     {
-    internal static IList<EdgeTransaction> Clone<EdgeTransaction>(this IList<EdgeTransaction> listToClone) where EdgeTransaction : ICloneable => listToClone.Select(aItem => (EdgeTransaction)aItem.Clone()).ToList();
-  }
-
+    internal static IList<EdgeTransaction> NewClone<EdgeTransaction>(this IList<EdgeTransaction> listToClone) where EdgeTransaction : ICloneable => listToClone.Select(aItem => (EdgeTransaction)aItem.Clone()).ToList();
+     }
   public class EdgeTransaction
   {
+
 
     public int Date { get; set; }
     public string CurrencyCode { get; set; }
