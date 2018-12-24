@@ -4,6 +4,7 @@
 
   public class EdgeTransaction
   {
+
     public int Date { get; set; }
     public string CurrencyCode { get; set; }
     public int BlockHeight { get; set; }
