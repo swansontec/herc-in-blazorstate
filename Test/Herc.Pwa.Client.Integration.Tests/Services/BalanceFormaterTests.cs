@@ -32,5 +32,17 @@ namespace Herc.Pwa.Client.Integration.Tests.Services
       balanceFormater.GetFormatedAmount(balanceFormaterRequest).ShouldBe("0.0012");
     }
 
+    public void Should_Handle_Null_Amount()
+    {
+      var balanceFormater = new AmountConverter();
+      var balanceFormaterRequest = new FormatAmountRequest
+      {
+        Amount = null,
+        Granularity = 5,
+        DecimalPlacesToDisplay = 4,
+        DecimalSeperator = '.'
+      };
+      balanceFormater.GetFormatedAmount(balanceFormaterRequest).ShouldBe("0.0000");
+    }
   }
 }
