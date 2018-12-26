@@ -11,7 +11,7 @@
 
     public EdgeCurrencyWallet()
     {
-
+      EdgeTransactions = new List<EdgeTransaction>();
     }
 
     public Dictionary<string, string> Balances { get; set; }
@@ -35,25 +35,13 @@
       clone.Keys = new Dictionary<string, string>(Keys);
       clone.Balances = new Dictionary<string, string>(Balances);
 
-      clone.EdgeTransactions = new List<EdgeTransaction>(EdgeTransactions.Count);
+      clone.EdgeTransactions = new List<EdgeTransaction>();
 
-      EdgeTransactions.ForEach((atransaction) =>
-     {
-       var edgeTransaction = new EdgeTransaction
-       {
-         CurrencyCode = atransaction.CurrencyCode,
-         BlockHeight = atransaction.BlockHeight,
-         Date = atransaction.Date,
-         NativeAmount = atransaction.NativeAmount,
-         NetworkFee = atransaction.NetworkFee,
-         OurReceiveAddresses = atransaction.OurReceiveAddresses,
-         ParentNetworkFee = atransaction.ParentNetworkFee,
-         SignedTx = atransaction.SignedTx
-       };
-       Console.WriteLine(edgeTransaction);
-       clone.EdgeTransactions.Add(edgeTransaction);
+      EdgeTransactions.ForEach((aEdgeTransaction) =>
+      {
+        clone.EdgeTransactions.Add(aEdgeTransaction.Clone() as EdgeTransaction);
       });
-     
+
       return clone;
     }
   }
