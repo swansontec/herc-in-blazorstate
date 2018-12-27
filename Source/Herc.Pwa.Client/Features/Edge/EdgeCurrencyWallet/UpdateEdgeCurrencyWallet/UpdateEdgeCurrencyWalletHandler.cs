@@ -1,6 +1,7 @@
 ﻿
 namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 {
+  using System;
   using System.Collections.Generic;
   using System.Threading;
   using System.Threading.Tasks;
@@ -63,6 +64,9 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
             ParentNetworkFee = aEdgeTransaction.ParentNetworkFee,
             SignedTx = aEdgeTransaction.SignedTx
           };
+          Console.WriteLine(aEdgeTransaction);
+
+          edgeTransactions.Add(edgeTransaction);
         });
 
       return edgeTransactions;
