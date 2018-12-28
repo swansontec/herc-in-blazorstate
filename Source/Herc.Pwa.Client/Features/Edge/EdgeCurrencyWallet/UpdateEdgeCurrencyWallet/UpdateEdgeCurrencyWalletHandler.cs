@@ -54,7 +54,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
     {
       Console.WriteLine($"**************  Am I null? {aUpdateEdgeCurrencyWalletAction.EdgeTransactions == null}");
       Console.WriteLine($"******** Count: {aUpdateEdgeCurrencyWalletAction?.EdgeTransactions?.Count}");
-      
+
       var edgeTransactions = new List<EdgeTransaction>();
       aUpdateEdgeCurrencyWalletAction.EdgeTransactions.ForEach(
         (aEdgeTransaction) =>
@@ -64,7 +64,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
           {
             CurrencyCode = aEdgeTransaction.CurrencyCode,
             BlockHeight = aEdgeTransaction.BlockHeight,
-            //Date = aEdgeTransaction.Date,
+            Date = aEdgeTransaction.Date,
             NativeAmount = aEdgeTransaction.NativeAmount,
             NetworkFee = aEdgeTransaction.NetworkFee,
             OurReceiveAddresses = aEdgeTransaction.OurReceiveAddresses,

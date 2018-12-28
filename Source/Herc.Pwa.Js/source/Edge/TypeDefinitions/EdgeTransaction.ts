@@ -3,7 +3,7 @@ import { EdgeMetadata } from "./EdgeMetadata";
 
 export interface EdgeTransaction {
   txid: string,
-  date: number,
+  date: Date,
   currencyCode: string,
   blockHeight: number,
   nativeAmount: string,

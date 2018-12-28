@@ -6,7 +6,7 @@
 
  public class EdgeTransaction : ICloneable
   {
-    public int Date { get; set; }
+    public DateTime Date { get; set; }
     public string CurrencyCode { get; set; }
     public int BlockHeight { get; set; }
     public string NativeAmount { get; set; }

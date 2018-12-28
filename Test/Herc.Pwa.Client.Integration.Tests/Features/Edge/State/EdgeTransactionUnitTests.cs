@@ -11,7 +11,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State
       // Arrange
       var edgeTransaction = new EdgeTransaction
       {
-        Date = 1,
+        Date = new System.DateTime(),
         CurrencyCode = "Currency Code",
         BlockHeight = 2,
         NativeAmount = "3",
