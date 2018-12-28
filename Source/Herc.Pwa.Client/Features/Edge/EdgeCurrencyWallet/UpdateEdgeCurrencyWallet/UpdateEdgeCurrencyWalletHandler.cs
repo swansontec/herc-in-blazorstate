@@ -59,12 +59,12 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
       aUpdateEdgeCurrencyWalletAction.EdgeTransactions.ForEach(
         (aEdgeTransaction) =>
         {
-          Console.WriteLine($"************ aEdgeTransaction.CurrencyCode: {aEdgeTransaction.CurrencyCode}");
+          Console.WriteLine($"************ aEdgeTransaction.Date: {aEdgeTransaction.Date}");
           var edgeTransaction = new EdgeTransaction
           {
             CurrencyCode = aEdgeTransaction.CurrencyCode,
             BlockHeight = aEdgeTransaction.BlockHeight,
-            Date = aEdgeTransaction.Date,
+            Date = UnixTimeStampToDateTime(unixTimeStamp: aEdgeTransaction.Date),
             NativeAmount = aEdgeTransaction.NativeAmount,
             NetworkFee = aEdgeTransaction.NetworkFee,
             OurReceiveAddresses = aEdgeTransaction.OurReceiveAddresses,
@@ -77,6 +77,13 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
         });
 
       return edgeTransactions;
+    }
+    public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+    {
+      // Unix timestamp is seconds past epoch
+      var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+      dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+      return dtDateTime;
     }
   }
 }

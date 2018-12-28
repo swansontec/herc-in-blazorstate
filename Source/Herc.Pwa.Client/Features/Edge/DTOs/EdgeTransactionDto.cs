@@ -5,7 +5,7 @@
 
   public class EdgeTransactionDto
   {
-    public DateTime Date { get; set; }
+    public float Date { get; set; }
     public string CurrencyCode { get; set; }
     public int BlockHeight { get; set; }
     public string NativeAmount { get; set; }

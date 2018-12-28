@@ -11,7 +11,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State
       // Arrange
       var edgeTransaction = new EdgeTransaction
       {
-        Date = new System.DateTime(),
+        Date = "1234567890", // mock epoch
         CurrencyCode = "Currency Code",
         BlockHeight = 2,
         NativeAmount = "3",
