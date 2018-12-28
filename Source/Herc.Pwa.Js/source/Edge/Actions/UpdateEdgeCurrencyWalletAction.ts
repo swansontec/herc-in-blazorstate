@@ -8,5 +8,5 @@ export interface UpdateEdgeCurrencyWalletAction {
   balances: EdgeBalances;
   enabledTokens: Array<string>;
   name: string | null;
-  transactions: Array<EdgeTransaction>;
+  edgeTransactions: Array<EdgeTransaction>;
 }

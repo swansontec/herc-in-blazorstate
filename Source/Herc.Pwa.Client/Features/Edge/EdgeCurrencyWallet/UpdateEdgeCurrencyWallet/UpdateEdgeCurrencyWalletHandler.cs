@@ -26,6 +26,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     public override async Task<EdgeCurrencyWalletsState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
     {
+      Console.WriteLine("******************* Starting: UpdateEdgeCurrencyWalletHandler");
       MapActionToState(aUpdateEdgeCurrencyWalletAction);
       Subscriptions.ReRenderSubscribers<EdgeCurrencyWalletsState>();
 
@@ -34,6 +35,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     private void MapActionToState(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
+      Console.WriteLine("********************* MapActionToState");
       if (!EdgeCurrencyWalletsState.EdgeCurrencyWallets.ContainsKey(aUpdateEdgeCurrencyWalletAction.Id))
       {
         EdgeCurrencyWalletsState.EdgeCurrencyWallets[aUpdateEdgeCurrencyWalletAction.Id] = new EdgeCurrencyWallet();
@@ -44,20 +46,25 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
       edgeCurrencyWallet.Keys = aUpdateEdgeCurrencyWalletAction.Keys;
       edgeCurrencyWallet.Balances = aUpdateEdgeCurrencyWalletAction.Balances;
       edgeCurrencyWallet.Name = aUpdateEdgeCurrencyWalletAction.Name;
+      Console.WriteLine("********************* About to call MapEdgeTransactions");
       edgeCurrencyWallet.EdgeTransactions = MapEdgeTransactions(aUpdateEdgeCurrencyWalletAction);
     }
 
     private List<EdgeTransaction> MapEdgeTransactions(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
+      Console.WriteLine($"**************  Am I null? {aUpdateEdgeCurrencyWalletAction.EdgeTransactions == null}");
+      Console.WriteLine($"******** Count: {aUpdateEdgeCurrencyWalletAction?.EdgeTransactions?.Count}");
+      
       var edgeTransactions = new List<EdgeTransaction>();
       aUpdateEdgeCurrencyWalletAction.EdgeTransactions.ForEach(
         (aEdgeTransaction) =>
         {
+          Console.WriteLine($"************ aEdgeTransaction.CurrencyCode: {aEdgeTransaction.CurrencyCode}");
           var edgeTransaction = new EdgeTransaction
           {
             CurrencyCode = aEdgeTransaction.CurrencyCode,
             BlockHeight = aEdgeTransaction.BlockHeight,
-            Date = aEdgeTransaction.Date,
+            //Date = aEdgeTransaction.Date,
             NativeAmount = aEdgeTransaction.NativeAmount,
             NetworkFee = aEdgeTransaction.NetworkFee,
             OurReceiveAddresses = aEdgeTransaction.OurReceiveAddresses,
@@ -70,8 +77,6 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
         });
 
       return edgeTransactions;
-
     }
-
   }
 }

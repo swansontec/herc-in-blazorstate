@@ -60,7 +60,7 @@ export class EdgeCurrencyWalletInterop {
       balances: this.EdgeCurrencyWallet.balances,
       fiatCurrencyCode: this.EdgeCurrencyWallet.fiatCurrencyCode,
       name: this.EdgeCurrencyWallet.name,
-      transactions,
+      edgeTransactions: transactions,
       enabledTokens
     };
   }

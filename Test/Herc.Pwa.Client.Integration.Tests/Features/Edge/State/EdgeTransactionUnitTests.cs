@@ -14,7 +14,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State
         Date = 1,
         CurrencyCode = "Currency Code",
         BlockHeight = 2,
-        NativeAmount = 3,
+        NativeAmount = "3",
         NetworkFee = "NetworkFee",
         OurReceiveAddresses = new List<string> { "string1", "string2" },
         SignedTx = "SignedTx",

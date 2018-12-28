@@ -20,6 +20,7 @@ export class EdgeInterop {
   };
 
   InitializeEdge = async (): Promise<boolean> => {
+    console.log("InitializeEdge TypeScript");
     if (!this.EdgeUiContextInterop) {
       const edgeUiContext = await makeEdgeUiContext(this.EdgeUiContextOptions);
       if (!edgeUiContext) throw "Failed to create EdgeUiContext!";
