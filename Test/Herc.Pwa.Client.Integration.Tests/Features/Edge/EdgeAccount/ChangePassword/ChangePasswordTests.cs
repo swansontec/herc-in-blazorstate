@@ -1,9 +1,5 @@
 ﻿namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.EdgeAccount.ChangePassword
-
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Text;
   using FluentValidation;
   using FluentValidation.Results;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePassword;
@@ -38,9 +34,10 @@
     {
       // Arrange
 
-      var changePasswordAction = new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction()
       {
-        NewPassword = "Shor!"
+        NewPassword = "Shor!",
+        ConfirmPassword = "Shor!"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();
@@ -51,7 +48,7 @@
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
-      validationResult.Errors.Count.ShouldBe(2);
+      validationResult.Errors.Count.ShouldBe(1);
       //additional error of "NewPassword" not being in the correct format
 
 
@@ -62,9 +59,10 @@
     {
       // Arrange
 
-      var changePasswordAction = new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction()
       {
-        NewPassword = "should3!NotbeValid"
+        NewPassword = "should3!NotbeValid",
+        ConfirmPassword = "should3!NotbeValid"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();
@@ -80,13 +78,14 @@
 
     }
 
-    public void PasswordShouldContainCapNumSpecChar()
+    public void PasswordShouldNotContainCaps()
     {
       // Arrange
 
-      var changePasswordAction = new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction()
       {
-        NewPassword = "shoulDb3Valid!"
+        NewPassword = "shoulb3valid!",
+        ConfirmPassword = "shoulb3valid!"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();
@@ -96,8 +95,8 @@
       ValidationResult validationResult = changePasswordValidator.Validate(changePasswordAction);
 
       // Assert
-      validationResult.IsValid.ShouldBe(true);
-      validationResult.Errors.Count.ShouldBe(0);
+      validationResult.IsValid.ShouldBe(false);
+      validationResult.Errors.Count.ShouldBe(1);
      
     }
 
@@ -105,9 +104,10 @@
     {
       // Arrange
 
-      var changePasswordAction = new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction()
       {
-        NewPassword = "shoulD not b3Valid!"
+        NewPassword = "shoulD not b3Valid!",
+        ConfirmPassword = "shoulD not b3Valid!"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();
@@ -127,9 +127,10 @@
     {
       // Arrange
 
-      var changePasswordAction = new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction()
       {
-        NewPassword = "ShouldNotBeValidMissingNumber!"
+        NewPassword = "ShouldNotBeValidMissingNumber!",
+        ConfirmPassword = "ShouldNotBeValidMissingNumber!"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();
@@ -148,9 +149,32 @@
     {
       // Arrange
 
-      var changePasswordAction = new ChangePasswordAction
+      var changePasswordAction = new ChangePasswordAction()
       {
-        NewPassword = "NoSp3cialChar"
+        NewPassword = "NoSp3cialChar",
+        ConfirmPassword = "NoSp3cialChar"
+      };
+
+      var changePasswordValidator = new ChangePasswordValidator();
+
+      // Act
+
+      ValidationResult validationResult = changePasswordValidator.Validate(changePasswordAction);
+
+      // Assert
+      validationResult.IsValid.ShouldBe(false);
+      validationResult.Errors.Count.ShouldBe(1);
+
+    }
+
+    public void PasswordShouldNotMatch()
+    {
+      // Arrange
+
+      var changePasswordAction = new ChangePasswordAction()
+      {
+        NewPassword = "Doesn'tMatch1",
+        ConfirmPassword = "NoSp3cialChar"
       };
 
       var changePasswordValidator = new ChangePasswordValidator();

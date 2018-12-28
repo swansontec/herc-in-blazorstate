@@ -29,6 +29,8 @@
     <WebpackInputs Remove="source\edge-login-ui-web.d.ts" />
     <WebpackInputs Remove="source\Edge\Actions\OnLoginAction.ts" />
     <WebpackInputs Remove="source\Edge\Actions\UpdateEdgeAccount.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\ChangePasswordDto.ts" />
+    <WebpackInputs Remove="source\Edge\Dtos\ChangePinDto.ts" />
     <WebpackInputs Remove="source\Edge\Dtos\SendDto.ts" />
     <WebpackInputs Remove="source\Edge\Dtos\UpdateEdgeCurrencyWalletAction.ts" />
     <WebpackInputs Remove="source\Edge\EdgeAccount.ts" />

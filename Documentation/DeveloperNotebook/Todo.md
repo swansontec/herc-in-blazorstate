@@ -21,7 +21,34 @@
 - [ ] Notification responses for successful and unsuccessful PIN/PW changes     
 - [ ] Create PR Template to show what each PR should contain
 - [ ] add ability to add/remove pin login w/o changing the pin
+  
+  ### Implementing Recent Trans List
+  -[ ] Build EdgeTransaction UI Component
+  -[ ] Build EdgeGetTransactions DTO, Action and Handler
+  -[ ] Write unit tests
 
+
+# Completed
+
+  -[X]  App opens to the wallet, only current functionality
+
+  -[X]  misc style adjustments, account button
+
+  -[X]  Edit build Script to rebuild the Distribution build file 
+      *  Intitial testing says this is complete, need review. 
+ 
+  -[X]  Write responses for successful and unsuccessful PIN/PW changes, redirect to HOME? page    
+      * redirect Only, working on notifications
+  -[x]  Remove Check for specialChar in PW verification && extend min PW length to 10 chars
+ 
+  
+  
+  -[x] Figure out Change Pin method and what the hashes are that get returned
+    [see notes](https://herculesone.visualstudio.com/Hercules/_git/HercPwa?path=%2FDocumentation%2FDeveloperNotebook%2FStack%2F2018-12%2F2018-12-11.md&version=GBRoundHouseEdit&_a=contents&line=8&lineStyle=plain&lineEnd=9&lineStartColumn=1&lineEndColumn=1)
+# Benchmarks!
+# The List
+
+-[ ] misc style adjustments
 
 # Completed
 > - [x] Login / Logout || Send / Receive || Change Password || Full Wallet Functionality.  

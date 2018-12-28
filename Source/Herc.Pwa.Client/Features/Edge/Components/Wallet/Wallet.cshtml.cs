@@ -1,6 +1,5 @@
 ﻿namespace Herc.Pwa.Client.Features.Edge.Components.Wallet
 {
-  using System.Net;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Microsoft.AspNetCore.Blazor.Components;
@@ -9,10 +8,10 @@
   {
     [Parameter] protected EdgeCurrencyWallet EdgeCurrencyWallet { get; set; }
 
-    public string Balance => EdgeCurrencyWallet.Balances[EdgeCurrencyWallet.SelectedCurrencyCode];
+    public string Balance => EdgeCurrencyWallet.SelectedCurrencyCode != null ? EdgeCurrencyWallet?.Balances[EdgeCurrencyWallet.SelectedCurrencyCode]: null;
 
     public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode;
 
     public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
   }
-} 
+}

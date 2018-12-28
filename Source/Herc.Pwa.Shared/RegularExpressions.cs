@@ -55,6 +55,10 @@
     //Assert position at the end of the string (or before the line break at the end of the string, if any) «$»
 
 
-    public static string PasswordValidation => @"^(?!.* )(?=.*\d)(?=.*[A-Z]).{10,}$";
+    public static string PasswordValidation => @"^(?!.* )(?=.*\d)(?=.*[A-Z])(?=.*\W).{6,}$";
+
+    // Pin Validation, Needs RegEx Buddy Description
+
+    public static string PinValidation => @"[0-9]{4}";
   }
 }
