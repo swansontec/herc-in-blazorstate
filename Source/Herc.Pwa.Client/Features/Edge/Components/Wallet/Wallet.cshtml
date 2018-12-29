@@ -1,4 +1,5 @@
 ﻿@inherits WalletModel
+
 @using  Herc.Pwa.Client.Pages
 
 <div id="@Id">
@@ -22,7 +23,7 @@
   </ul>
 
   <br />
-  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="6"/>
+  <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="6" />
   <br />
 
   <div class="d-flex flex-column align-items-center">
@@ -34,8 +35,17 @@
       <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
     </NavLink>
   </div>
+  <div class="d-flex flex-column align-items-center">
+    <ul class="nav justify-content-center">
+      @foreach (var edgeTransaction in EdgeCurrencyWallet.EdgeTransactions)
+      {
+        <li class="nav-item">
+          <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
+        </li>
+      }
+    </ul>
+  </div>
 </div>
-
 <style>
   #@Id button {
     border-bottom-color: grey;

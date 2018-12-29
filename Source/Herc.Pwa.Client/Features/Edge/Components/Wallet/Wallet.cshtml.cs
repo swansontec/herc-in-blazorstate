@@ -13,5 +13,7 @@
     public string CurrencyCode => EdgeCurrencyWallet.SelectedCurrencyCode;
 
     public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
+
+
   }
 }
