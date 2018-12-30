@@ -26,7 +26,6 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     public override async Task<EdgeCurrencyWalletsState> Handle(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction, CancellationToken aCancellationToken)
     {
-      Console.WriteLine("******************* Starting: UpdateEdgeCurrencyWalletHandler");
       MapActionToState(aUpdateEdgeCurrencyWalletAction);
       Subscriptions.ReRenderSubscribers<EdgeCurrencyWalletsState>();
 
@@ -35,7 +34,6 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
 
     private void MapActionToState(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
-      Console.WriteLine("********************* MapActionToState");
       if (!EdgeCurrencyWalletsState.EdgeCurrencyWallets.ContainsKey(aUpdateEdgeCurrencyWalletAction.Id))
       {
         EdgeCurrencyWalletsState.EdgeCurrencyWallets[aUpdateEdgeCurrencyWalletAction.Id] = new EdgeCurrencyWallet();

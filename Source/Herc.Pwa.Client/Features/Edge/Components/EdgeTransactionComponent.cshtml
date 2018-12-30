@@ -4,9 +4,16 @@
 
 <div id="@Id">
 
-  <div class="d-flex flex-column align-items-center">
-    <h5>@EdgeTransaction.Date</h5>
-    <h3>@EdgeTransaction.CurrencyCode</h3>
-    
+  <div class="m-1 d-flex flex-row justify-content-around">
+      <h6 class="text m-1">@EdgeTransaction.Date</h6>
+      <h6 class="text m-1">@EdgeTransaction.CurrencyCode</h6>
+   
+      <p class="text-sm-left m-1">@SendOrReceive(EdgeTransaction.NativeAmount)</p>
+      <p class="text-sm-right m-1">@EdgeTransaction.NativeAmount</p>
   </div>
-  </div>
+</div>
+
+<style>
+
+
+</style>

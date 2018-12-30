@@ -9,6 +9,7 @@ namespace Herc.Pwa.Client.Features.Edge.Components
 
     [Parameter] protected EdgeTransaction EdgeTransaction { get; set; }
 
+    public string SendOrReceive(string aTransValueAmount) => aTransValueAmount.Substring(0,1) == "-" ? "Sent" : "Received";
 
   }
 }
