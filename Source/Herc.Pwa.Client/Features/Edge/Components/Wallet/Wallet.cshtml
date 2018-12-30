@@ -1,5 +1,4 @@
 ﻿@inherits WalletModel
-
 @using  Herc.Pwa.Client.Pages
 
 <div id="@Id">
@@ -37,18 +36,15 @@
     </NavLink>
   </div>
   <div id="RecentTransactionList" class="d-flex flex-column align-items-center">
-    <ul class="list-group justify-content-center">
-      @foreach (var edgeTransaction in EdgeCurrencyWallet.EdgeTransactions.FindAll(x=> x.CurrencyCode.Equals(CurrencyCode)))
-      {
-        <li class="list-group-item">
-          <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
-        </li>
-      }
-    </ul>
+
+    @foreach (var edgeTransaction in EdgeCurrencyWallet.EdgeTransactions.FindAll(x => x.CurrencyCode.Equals(CurrencyCode)))
+    {
+      <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
+    }
   </div>
 </div>
 <style>
- 
+
   #@Id button {
     border-bottom-color: grey;
     border-top-width: 0;
