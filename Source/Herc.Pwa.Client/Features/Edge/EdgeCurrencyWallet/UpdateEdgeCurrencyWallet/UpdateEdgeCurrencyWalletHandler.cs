@@ -46,20 +46,16 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
       edgeCurrencyWallet.Keys = aUpdateEdgeCurrencyWalletAction.Keys;
       edgeCurrencyWallet.Balances = aUpdateEdgeCurrencyWalletAction.Balances;
       edgeCurrencyWallet.Name = aUpdateEdgeCurrencyWalletAction.Name;
-      Console.WriteLine("********************* About to call MapEdgeTransactions");
       edgeCurrencyWallet.EdgeTransactions = MapEdgeTransactions(aUpdateEdgeCurrencyWalletAction);
     }
 
     private List<EdgeTransaction> MapEdgeTransactions(UpdateEdgeCurrencyWalletAction aUpdateEdgeCurrencyWalletAction)
     {
-      Console.WriteLine($"**************  Am I null? {aUpdateEdgeCurrencyWalletAction.EdgeTransactions == null}");
-      Console.WriteLine($"******** Count: {aUpdateEdgeCurrencyWalletAction?.EdgeTransactions?.Count}");
 
       var edgeTransactions = new List<EdgeTransaction>();
       aUpdateEdgeCurrencyWalletAction.EdgeTransactions.ForEach(
         (aEdgeTransaction) =>
         {
-          Console.WriteLine($"************ aEdgeTransaction.Date: {aEdgeTransaction.Date}");
           var edgeTransaction = new EdgeTransaction
           {
             CurrencyCode = aEdgeTransaction.CurrencyCode,

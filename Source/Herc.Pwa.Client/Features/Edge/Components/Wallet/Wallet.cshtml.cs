@@ -1,7 +1,9 @@
 ﻿namespace Herc.Pwa.Client.Features.Edge.Components.Wallet
 {
+  using System.Collections.Generic;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
+  using Herc.Pwa.Client.Features.Edge.State;
   using Microsoft.AspNetCore.Blazor.Components;
 
   public class WalletModel : BaseComponent
@@ -14,6 +16,6 @@
 
     public void OnClickHandler(string aCurrencyCode) => EdgeCurrencyWallet.SelectedCurrencyCode = aCurrencyCode;
 
-
+    
   }
 }
