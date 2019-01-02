@@ -35,13 +35,7 @@
       <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Receive
     </NavLink>
   </div>
-  <div id="RecentTransactionList" class="d-flex flex-column align-items-center">
-
-    @foreach (var edgeTransaction in EdgeCurrencyWallet.EdgeTransactions.FindAll(x => x.CurrencyCode.Equals(CurrencyCode)))
-    {
-      <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
-    }
-  </div>
+ 
 </div>
 <style>
 

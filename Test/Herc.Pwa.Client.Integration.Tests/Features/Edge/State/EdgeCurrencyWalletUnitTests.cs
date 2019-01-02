@@ -23,7 +23,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State
         {
           new EdgeTransaction
           {
-            Date = 1,
+            Date = new DateTime(),
             CurrencyCode = "Currency Code",
             BlockHeight = 2,
             NativeAmount = "3",
@@ -35,7 +35,7 @@ namespace Herc.Pwa.Client.Integration.Tests.Features.Edge.State
 
           new EdgeTransaction
             {
-              Date = 4,
+              Date = new DateTime(),
               CurrencyCode = "Currency Code2",
               BlockHeight = 5,
               NativeAmount = "6",
