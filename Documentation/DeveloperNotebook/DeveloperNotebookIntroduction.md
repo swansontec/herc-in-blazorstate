@@ -1,19 +1,3 @@
-# The Developer Notebook!
+##  Welcome
 
-## Template for Daily Notes
-
-# YYYY/MM/DD
-# Month Name (January)
-## Week Number
-
-###  Needs/Issues
-
-### TODO
-
-### Completed
-
-###  Blockers
-
-### Solutions
-
-### Notes
+This is where we are attempting to provide a snapshot of this projects current status as well as the path we took to end up here.
