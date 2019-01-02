@@ -1,7 +1,9 @@
 #  TODO
+- [ ] Add checking Dodcfx compiles to our Definition of Done.
 - [ ] Notification responses for successful and unsuccessful PIN/PW changes     
 - [ ] Create PR Template to show what each PR should contain
 - [ ] add ability to add/remove pin login w/o changing the pin
+
 ## Immediate Needs:
 *  `your wallet needs to have a "Top Up HERC" thing that directs the    user to https://purchase.herc.one/`
 *  Add a link to this somewhere on the Wallet
