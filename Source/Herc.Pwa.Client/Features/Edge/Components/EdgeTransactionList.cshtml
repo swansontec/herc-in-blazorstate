@@ -5,7 +5,7 @@
   <ul>
 
     <li>
-      @foreach (var edgeTransaction in EdgeTransactions.FindAll(x => x.CurrencyCode.Equals(CurrencyCode)))
+      @foreach (var edgeTransaction in EdgeTransactions)
       {
         <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
       }

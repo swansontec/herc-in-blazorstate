@@ -3,12 +3,13 @@ namespace Herc.Pwa.Client.Features.Edge.Components
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.State;
   using Microsoft.AspNetCore.Blazor.Components;
-  using Herc.Pwa.Client.Services;
   using System.Collections.Generic;
+  using System.Linq;
 
   public class EdgeTransactionListModel : BaseComponent
   {
-    public List<EdgeTransaction> EdgeTransactions { get; set; }
-    public string CurrencyCode { get; set; }
+    [Parameter] protected string CurrencyCode { get; set; }
+    public List<EdgeTransaction> EdgeTransactions => EdgeCurrencyWalletsState.SelectedEdgeCurrencyWallet.EdgeTransactions.FindAll(x => x.CurrencyCode == CurrencyCode);
+
   }
 }
