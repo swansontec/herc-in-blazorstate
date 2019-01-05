@@ -11,9 +11,9 @@ namespace Herc.Pwa.Client.Features.Edge.Components
     [Parameter] protected EdgeTransaction EdgeTransaction { get; set; }
     [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 6;
     public string SendOrReceive(string aTransValueAmount) => aTransValueAmount.Substring(0,1) == "-" ? "Sent" : "Received";
+    private int Granularity { get; set; } = 18; // multiplier is 10^18 18 places 
 
     [Inject] public AmountConverter AmountConverter { get; set; }
-    private int Granularity => 18; // multiplier is 10^18 18 places 
     public string DisplayBalance
 
     {

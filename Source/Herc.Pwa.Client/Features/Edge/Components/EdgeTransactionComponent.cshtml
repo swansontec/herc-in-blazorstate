@@ -3,24 +3,37 @@
 @using Herc.Pwa.Client.Features.Edge.State
 
 
-<div id="EdgeTransactionComponent" class="m-1 d-flex table justify-content-center">
+<div id="EdgeTransactionComponent" class="m-1 d-flex">
 
-  <div id="TransactionDate" class="table-data">
+  <div id="TransactionDate" class="align-self-start flex-column">
     <p class="text m-1">@EdgeTransaction.Date.ToShortDateString()</p>
-    <p class="text m-1">@EdgeTransaction.Date.TimeOfDay</p>
+    <p id="TimeOfDay" class="text m-1">@EdgeTransaction.Date.TimeOfDay</p>
   </div>
-  <div id="TransactionData" class="table-data">
+  <div id="TransactionData" class="align-self-center flex-column">
     <p class="text m-1">@SendOrReceive(EdgeTransaction.NativeAmount)</p>
     <p class="text m-1">@EdgeTransaction.CurrencyCode</p>
   </div>
-  <div id="TransactionAmount" class="table-data">
+  <div id="TransactionAmount" class="align-self-end flex-column">
     <p class="text m-1">@DisplayBalance</p>
-    <p class="text-sm m-1">@EdgeTransaction.NativeAmount</p>
+    <p id="SatoshiAmount" class="text-sm m-1">@EdgeTransaction.NativeAmount</p>
   </div>
 </div>
 
 <style>
-  .table-data {
-    width: 20%
+  #EdgeTransactionComponent {
+    
+  }
+  #TransactionDate {
+    text-align: left 
+      
+  }
+  #TransactionAmount {
+    text-align: right
+  }
+  #SatoshiAmount  {
+    font-size: 10px
+  }
+  #TimeOfDay {
+    font-size: 10px
   }
 </style>

@@ -2,15 +2,11 @@
 @using Herc.Pwa.Client.Features.Edge.State
 
 <div id="EdgeTransactionList" class="p-1 d-flex flex-column align-items-center">
-  <ul>
 
-    <li>
       @foreach (var edgeTransaction in EdgeTransactions)
       {
         <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
       }
 
-    </li>
-  </ul>
 
 </div>
