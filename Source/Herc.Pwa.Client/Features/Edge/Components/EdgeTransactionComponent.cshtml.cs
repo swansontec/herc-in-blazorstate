@@ -9,7 +9,7 @@ namespace Herc.Pwa.Client.Features.Edge.Components
   {
 
     [Parameter] protected EdgeTransaction EdgeTransaction { get; set; }
-    [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 6;
+    [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 8;
     public string SendOrReceive(string aTransValueAmount) => aTransValueAmount.Substring(0,1) == "-" ? "Sent" : "Received";
     private int Granularity { get; set; } = 18; // multiplier is 10^18 18 places 
 
