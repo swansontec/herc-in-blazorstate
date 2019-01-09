@@ -2,52 +2,9 @@
 @inherits EdgeTransactionComponentModel
 @using Herc.Pwa.Client.Features.Edge.State
 
-
-<div id="EdgeTransactionComponent" class="d-flex flex-row flex-grow-1 justify-content-between mt-2">
-
-  <div id="TransactionDate">
-    <p class="text m-1">@EdgeTransaction.Date.ToShortDateString()</p>
-    <p id="TimeOfDay" class="text m-1">@EdgeTransaction.Date.TimeOfDay</p>
-  </div>
-  <div id="TransactionData" class="justify-content-center mr-xs-0 ml-xs-0 mr-md-3 ml-md-3">
-    <p class="text m-1">@SendOrReceive(EdgeTransaction.NativeAmount)</p>
-    <p class="text m-1">@EdgeTransaction.CurrencyCode</p>
-  </div>
-  <div id="TransactionAmount">
-    <p class="text m-1">@DisplayBalance</p>
-    <p id="SatoshiAmount" class="text m-1">@EdgeTransaction.NativeAmount</p>
-  </div>
-</div>
-
-<style>
-  #EdgeTransactionComponent {
-    min-width: 280px;
-    
-  }
-  #TransactionDate {
-    /*background-color: blue;*/
-    text-align: left; 
-    min-width: 90px;
-      
-  }
-
-  #TransactionData {
-    min-width: 70px;
-  }
-
-  #TransactionAmount {
-    /*background-color: green;*/
-    text-align: right;
-    min-width: 100px;
-  }
-
-  #TransactionAmount {
-    justify-content: center;
-  }
-  #SatoshiAmount  {
-    font-size: 12px
-  }
-  #TimeOfDay {
-    font-size: 12px
-  }
-</style>
+<tr id="EdgeTransactionComponent">
+  <td><a target="_blank" rel="noopener noreferrer" href="@EthScanUrl">@IsoDateString</a></td>
+  <td><span class="oi oi-data-transfer-download" /></td>
+  <td>@EdgeTransaction.CurrencyCode</td>
+  <td>@TransactionAmount</td>
+</tr>

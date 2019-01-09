@@ -1,12 +1,12 @@
 ﻿@inherits EdgeTransactionListModel
 @using Herc.Pwa.Client.Features.Edge.State
 
-<div id="EdgeTransactionList" class="p-1 d-flex flex-column align-items-center">
-
-      @foreach (var edgeTransaction in EdgeTransactions)
-      {
-        <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
-      }
-
-
-</div>
+<table id="EdgeTransactionList" class="table table-bordered table-striped w-100" >
+  <caption align="top">Recent Transactions</caption>
+  <tbody>
+    @foreach (var edgeTransaction in EdgeTransactions)
+    {
+      <EdgeTransactionComponent EdgeTransaction="edgeTransaction" />
+    }
+  </tbody>
+</table>
