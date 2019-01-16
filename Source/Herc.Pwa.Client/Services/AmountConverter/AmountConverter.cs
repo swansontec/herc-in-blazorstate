@@ -12,13 +12,23 @@
       int granularity = aFormatAmountRequest.Granularity;
       int decimalPlacesToDisplay = aFormatAmountRequest.DecimalPlacesToDisplay;
       char decimalSeperator = aFormatAmountRequest.DecimalSeperator;
+      bool isNegative = balance.Substring(0, 1) == "-";
+      if (isNegative)
+      {
+        balance = balance.Remove(0,1);
+      }
 
       string result = balance.PadLeft(granularity, '0');
       result = result.Insert(result.Length - granularity, decimalSeperator.ToString());
       result = result.Substring(0, result.Length - granularity + decimalPlacesToDisplay);
+
       if (result.First() == decimalSeperator)
       {
         result = $"0{result}";
+      }
+      if (isNegative)
+      {
+        result = $"-{result}";
       }
       return result;
     }
