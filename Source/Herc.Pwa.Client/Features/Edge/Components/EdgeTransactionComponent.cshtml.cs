@@ -11,11 +11,11 @@ namespace Herc.Pwa.Client.Features.Edge.Components
 
     [Parameter] protected EdgeTransaction EdgeTransaction { get; set; }
     [Parameter] protected int DecimalPlacesToDisplay { get; set; } = 6;
-    public string SendOrReceive(string aTransValueAmount) => aTransValueAmount.Substring(0, 1) == "-" ? "Sent" : "Received";
+    
     private int Granularity { get; set; } = 18; // multiplier is 10^18 18 places 
 
     public string IsoDateString => EdgeTransaction.Date.ToString("yyyy-MM-dd' T'HH:mm:ss", CultureInfo.InvariantCulture);
-    public string EthScanUrl => $"https://etherscan.io/tx/TODO";
+    public string EthScanUrl => $"https://etherscan.io/tx/{EdgeTransaction.TxId}";
     [Inject] public AmountConverter AmountConverter { get; set; }
     public string TransactionAmount
     {

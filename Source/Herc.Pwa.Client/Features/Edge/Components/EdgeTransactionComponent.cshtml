@@ -1,10 +1,9 @@
 ﻿
 @inherits EdgeTransactionComponentModel
-@using Herc.Pwa.Client.Features.Edge.State
 
 <tr id="EdgeTransactionComponent">
   <td><a target="_blank" rel="noopener noreferrer" href="@EthScanUrl">@IsoDateString</a></td>
-  <td><span class="oi oi-data-transfer-download" /></td>
+  <td><SendOrReceive IsSend="@EdgeTransaction.IsSend" /></td>
   <td>@EdgeTransaction.CurrencyCode</td>
   <td>@TransactionAmount</td>
 </tr>
