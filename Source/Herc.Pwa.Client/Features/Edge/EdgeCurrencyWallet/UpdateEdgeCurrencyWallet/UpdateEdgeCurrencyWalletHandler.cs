@@ -63,7 +63,8 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.GetEdgeCurrencyWallet
             NetworkFee = aEdgeTransaction.NetworkFee,
             OurReceiveAddresses = aEdgeTransaction.OurReceiveAddresses,
             ParentNetworkFee = aEdgeTransaction.ParentNetworkFee,
-            SignedTx = aEdgeTransaction.SignedTx
+            SignedTx = aEdgeTransaction.SignedTx,
+            TxId = aEdgeTransaction.TxId
           };
           Console.WriteLine(aEdgeTransaction);
 
