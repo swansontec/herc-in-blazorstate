@@ -1,5 +1,5 @@
 ﻿import { EdgeBalances } from "../TypeDefinitions/EdgeBalances";
-
+import { EdgeTransaction } from "../TypeDefinitions/EdgeTransaction";
 
 export interface UpdateEdgeCurrencyWalletAction {
   fiatCurrencyCode: string;
@@ -7,5 +7,6 @@ export interface UpdateEdgeCurrencyWalletAction {
   keys: any;
   balances: EdgeBalances;
   enabledTokens: Array<string>;
-  name: string|null;
+  name: string | null;
+  edgeTransactions: Array<EdgeTransaction>;
 }

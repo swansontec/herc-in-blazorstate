@@ -7,6 +7,7 @@ import { UpdateEdgeCurrencyWalletAction } from '../Actions/UpdateEdgeCurrencyWal
 import { EdgeTransaction } from '../TypeDefinitions/EdgeTransaction';
 import { EdgeSpendInfo } from '../TypeDefinitions/EdgeSpendInfo';
 import { SendDto, FeeOption } from '../Dtos/SendDto';
+import { EdgeGetTransactionsOptions } from '../TypeDefinitions/EdgeGetTransactionsOptions';
 
 export class EdgeCurrencyWalletInterop {
   private EdgeCurrencyWallet: EdgeCurrencyWallet;
@@ -34,7 +35,7 @@ export class EdgeCurrencyWalletInterop {
     this.DispatchUpdateEdgeCurrencyWallet();
   }
 
-  private ConfigureSubscriptions() {
+  private async ConfigureSubscriptions() {
     this.EdgeCurrencyWallet.watch('balances', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('currencyInfo', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('fiatCurrencyCode', () => this.DispatchUpdateEdgeCurrencyWallet());
@@ -42,6 +43,8 @@ export class EdgeCurrencyWalletInterop {
     this.EdgeCurrencyWallet.watch('keys', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('name', () => this.DispatchUpdateEdgeCurrencyWallet());
     this.EdgeCurrencyWallet.watch('type', () => this.DispatchUpdateEdgeCurrencyWallet());
+    this.EdgeCurrencyWallet.on('newTransactions', () => this.DispatchUpdateEdgeCurrencyWallet());
+    this.EdgeCurrencyWallet.on('transactionsChanged', () => this.DispatchUpdateEdgeCurrencyWallet());
   }
 
   getEnabledTokens = (): Promise<string[]> => {
@@ -51,14 +54,30 @@ export class EdgeCurrencyWalletInterop {
   private GetEdgeCurrencyWalletAction = async (): Promise<UpdateEdgeCurrencyWalletAction> => {
     const currencyInfo: EdgeCurrencyInfo = this.EdgeCurrencyWallet.currencyInfo;
     const enabledTokens: string[] = await this.EdgeCurrencyWallet.getEnabledTokens();
+    const transactions: Array<EdgeTransaction> = await this.GetTransactions(enabledTokens);
     return {
       id: this.EdgeCurrencyWallet.id,
       keys: this.EdgeCurrencyWallet.keys,
       balances: this.EdgeCurrencyWallet.balances,
       fiatCurrencyCode: this.EdgeCurrencyWallet.fiatCurrencyCode,
       name: this.EdgeCurrencyWallet.name,
+      edgeTransactions: transactions,
       enabledTokens
     };
+  }
+
+  private GetTransactions = async (enableTokens: string[]): Promise<Array<EdgeTransaction>> => {
+    var allEdgeTransactions: EdgeTransaction[] = [];
+    for (var index = 0; index < enableTokens.length; index++) {
+      const token = enableTokens[index];
+      const edgeGetTransactionsOptions: EdgeGetTransactionsOptions = {
+        startEntries: 100,
+        currencyCode: token
+      };
+      const edgeTransactions = await this.EdgeCurrencyWallet.getTransactions(edgeGetTransactionsOptions);
+      allEdgeTransactions = allEdgeTransactions.concat(edgeTransactions);
+    }
+    return allEdgeTransactions; 
   }
 
   private DispatchUpdateEdgeCurrencyWallet = async (): Promise<void> => {
@@ -91,4 +110,5 @@ export class EdgeCurrencyWalletInterop {
 
     return edgeTransaction.txid;
   }
+
 }
