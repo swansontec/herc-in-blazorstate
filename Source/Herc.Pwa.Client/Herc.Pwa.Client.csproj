@@ -7,6 +7,7 @@
     <Description>BlazorState Sample Client Application</Description>
     <!-- Temporary workaround for a VS build issue -->
     <BlazorRebuildOnFileChange>false</BlazorRebuildOnFileChange>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -139,6 +140,12 @@
   <ItemGroup>
     <None Include="compilerconfig.json" />
     <None Include="wwwroot\TestFrame.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\system.composition.runtime\1.0.31\lib\netstandard1.0\System.Composition.Runtime.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

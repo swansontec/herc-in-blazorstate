@@ -3,10 +3,11 @@
   using System.Collections.Generic;
   using System.Linq;
   using FluentValidation.Results;
+  using Microsoft.AspNetCore.Blazor.Components;
 
   public class ValidationModel : BaseComponent
   {
-    public ValidationResult ValidationResult { get; set; }
+    [Parameter] protected ValidationResult ValidationResult { get; set; }
 
     public IEnumerable<ValidationFailure> OtherErrors => 
       ValidationResult.Errors.Where(aValidationFailure => !aValidationFailure.ErrorMessage.Contains("must not be empty"));
