@@ -1,9 +1,7 @@
-﻿namespace Herc.Pwa.Client.Pages.Idology
+﻿namespace Herc.Pwa.Client.Pages
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Pages;
-  using Herc.Pwa.Client.Pages.Login;
 
   public class IdologyModel : BaseComponent
   {

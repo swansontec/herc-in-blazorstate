@@ -54,9 +54,6 @@
     <Content Update="Pages\LogoutPage.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Pages\HomeSHIT\BlockChain\BlockChain.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Pages\Login\Login.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -120,16 +117,10 @@
     <Content Update="Shared\HercLayout\HercHeader\Search\Search.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Pages\HomeSHIT\Hipr\Hipr.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Pages\Home\Home.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Shared\HercLayout\HercHeader\HercHeader.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\HomeSHIT\Store\Store.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Shared\HercLayout\HercLayout.cshtml">

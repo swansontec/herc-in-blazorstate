@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Pages.Edge
+﻿namespace Herc.Pwa.Client.Pages
 {
   using System;
   using System.Threading.Tasks;

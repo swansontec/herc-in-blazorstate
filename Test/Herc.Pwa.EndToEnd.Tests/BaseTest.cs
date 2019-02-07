@@ -39,8 +39,9 @@ namespace Herc.Pwa.EndToEnd.Tests
         {
           try
           {
-            IWebElement elementToBeDisplayed = WebDriver.FindElement(By.TagName("app"));
-            return elementToBeDisplayed.Displayed && elementToBeDisplayed.Text != "Loading...";
+            IWebElement noLayoutElement = WebDriver.FindElement(By.Id("NoLayout"));
+            IWebElement hercLayoutElement = WebDriver.FindElement(By.Id("HercLayout"));
+            return noLayoutElement.Displayed || hercLayoutElement.Displayed;
           }
           catch (StaleElementReferenceException)
           {
