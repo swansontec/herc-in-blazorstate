@@ -3,7 +3,7 @@
   using System.Collections.Generic;
   using System.Linq;
   using FluentValidation.Results;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
 
   public class ValidationModel : BaseComponent
   {

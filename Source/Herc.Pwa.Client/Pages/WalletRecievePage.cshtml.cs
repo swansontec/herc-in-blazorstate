@@ -6,7 +6,7 @@
   using Herc.Pwa.Client.Features.Clipboard;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Services;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
   using Microsoft.JSInterop;
 
   public class WalletReceivePageModel : BaseComponent

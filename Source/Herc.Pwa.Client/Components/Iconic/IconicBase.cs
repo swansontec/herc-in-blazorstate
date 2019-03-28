@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 
 namespace Herc.Pwa.Client.Components.Iconic
 {

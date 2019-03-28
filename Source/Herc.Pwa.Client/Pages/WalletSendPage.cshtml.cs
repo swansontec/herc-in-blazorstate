@@ -10,7 +10,7 @@
   using Herc.Pwa.Client.Services;
   using Herc.Pwa.Shared;
   using Herc.Pwa.Shared.Enumerations.FeeOption;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
 
   public class WalletSendPageModel : BaseComponent
   {

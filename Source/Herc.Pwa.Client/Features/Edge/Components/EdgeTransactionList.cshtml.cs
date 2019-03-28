@@ -2,7 +2,7 @@ namespace Herc.Pwa.Client.Features.Edge.Components
 {
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.State;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
   using System.Collections.Generic;
   using System.Linq;
 

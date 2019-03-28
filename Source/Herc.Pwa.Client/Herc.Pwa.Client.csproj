@@ -15,137 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="compilerconfig.json" />
-    <Content Remove="wwwroot\TestFrame.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Blazor-State" Version="0.3.2" />
-    <PackageReference Include="Blazor.Extensions.Logging" Version="0.1.9" />
-    <PackageReference Include="BuildWebCompiler" Version="1.12.394" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.7.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.7.0" />
+    <PackageReference Include="Blazor-State" Version="0.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="0.8.0-preview-19104-04" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.8.0-preview-19104-04" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Herc.Pwa.Js\Herc.Pwa.Js.csproj" />
     <ProjectReference Include="..\Herc.Pwa.Shared\Herc.Pwa.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Components\Iconic\HercButtonIcon.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\Iconic\IconicMenu.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Components\Iconic\IconicCog.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercHeader\HamburgerMenu\MenuItems.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercHeader\SideBar.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Assets\AssetsPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\LogoutPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Login\Login.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\RegisterAsset\RegisterAssetPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Settings\SettingsPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\SupplyChain\SupplyChainPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Track\TrackPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Validate\ValidatePage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\WalletRecievePage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Wallet\WalletsPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Wallet\WalletPage.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercHeader\Account\Account2.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercHeader\HercHeader2.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercHeader\HercLogo2.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercHeader\HamburgerMenu\HamburgerMenu2.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Layouts\HercLayout2\HercLayout.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercFooter\HercFooter.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\Account\Avatar.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\HercLogo.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\Account\Account.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\IconBar\HamburgerMenu\HamburgerMenu.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\IconBar\IconBar.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\Search\Search.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Pages\Home\Home.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercHeader\HercHeader.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\HercLayout\HercLayout.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-    <Content Update="Shared\NoLayout.cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Layouts\NoLayout\" />
-    <Folder Include="Styles\bootstrap\" />
-    <Folder Include="wwwroot\javascript\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="compilerconfig.json" />
-    <None Include="wwwroot\TestFrame.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Composition.Runtime">
-      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\system.composition.runtime\1.0.31\lib\netstandard1.0\System.Composition.Runtime.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

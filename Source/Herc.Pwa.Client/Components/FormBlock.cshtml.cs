@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Microsoft.AspNetCore.Blazor.Components;
+using Microsoft.AspNetCore.Components;
 
 namespace Herc.Pwa.Client.Components
 {

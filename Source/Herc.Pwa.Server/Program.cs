@@ -11,16 +11,17 @@
   public class Program
   {
     public static IWebHost BuildWebHost(string[] aArgumentArray) =>
-        WebHost.CreateDefaultBuilder(aArgumentArray)
-                .UseConfiguration(new ConfigurationBuilder()
-              .AddCommandLine(aArgumentArray)
-                    .Build())
-                .UseStartup<Startup>()
-                .Build();
+      WebHost
+        .CreateDefaultBuilder(aArgumentArray)
+        .UseConfiguration(new ConfigurationBuilder()
+          .AddCommandLine(aArgumentArray)
+          .Build())
+        .UseStartup<Startup>()
+        .Build();
 
-    public static void Main(string[] args)
+    public static void Main(string[] aArgumentArray)
     {
-      IWebHost host = BuildWebHost(args);
+      IWebHost host = BuildWebHost(aArgumentArray);
 
       using (IServiceScope scope = host.Services.CreateScope())
       {
@@ -30,10 +31,10 @@
           HercPwaDbContext hercPwaDbContext = services.GetRequiredService<HercPwaDbContext>();
           DbInitializer.Initialize(hercPwaDbContext);
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
           ILogger<Program> logger = services.GetRequiredService<ILogger<Program>>();
-          logger.LogError(ex, "An error occurred creating the DB.");
+          logger.LogError(exception, "An error occurred creating the DB.");
         }
       }
       host.Run();

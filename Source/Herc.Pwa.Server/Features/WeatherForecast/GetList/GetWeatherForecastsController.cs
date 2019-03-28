@@ -9,8 +9,7 @@
   [Route(GetWeatherForecastsRequest.Route)]
   public class WeatherForecastsController : BaseController<GetWeatherForecastsRequest, GetWeatherForecastsResponse>
   {
-    public WeatherForecastsController(IMediator aMediator) : base(aMediator)
-    { }
+    public WeatherForecastsController(IMediator aMediator) : base(aMediator){ }
 
     public async Task<IActionResult> Get(GetWeatherForecastsRequest aRequest) => await Send(aRequest);
   }

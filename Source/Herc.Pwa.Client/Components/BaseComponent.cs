@@ -10,7 +10,7 @@
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Features.Idology;
   using Herc.Pwa.Client.Shared;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
 
   /// <summary>
   /// Makes access to the State a little easier and by inheriting from
@@ -19,7 +19,7 @@
   /// <remarks>
   /// In production one would NOT be required to use BlazorStateDevToolsComponent or BlazorStateComponent
   /// But would be required to properly implement the required interfaces.
-  /// one could conditionally inherit from BlazorComponent or BlazorStateComponent for production build.
+  /// one could conditionally inherit from ComponentBase or BlazorStateComponent for production build.
   /// </remarks>
   public class BaseComponent : BlazorStateDevToolsComponent
   {

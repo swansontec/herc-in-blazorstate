@@ -1,6 +1,6 @@
 ﻿namespace Herc.Pwa.Client.Components.Iconic
 {
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
   public class HercButtonIconModel : BaseComponent
   {
 

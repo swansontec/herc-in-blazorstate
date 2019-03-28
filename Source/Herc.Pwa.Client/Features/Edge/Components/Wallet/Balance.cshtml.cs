@@ -2,7 +2,7 @@
 {
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Services;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
 
   public class BalanceModel : BaseComponent
   {

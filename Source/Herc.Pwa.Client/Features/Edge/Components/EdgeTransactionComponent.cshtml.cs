@@ -4,7 +4,7 @@ namespace Herc.Pwa.Client.Features.Edge.Components
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.State;
   using Herc.Pwa.Client.Services;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
 
   public class EdgeTransactionComponentModel : BaseComponent
   {
