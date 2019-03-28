@@ -1,15 +1,11 @@
 ﻿namespace Herc.Pwa.Server
 {
-  using System.Linq;
-  using System.Net.Mime;
   using System.Reflection;
   using AutoMapper;
   using Herc.Pwa.Server.Data;
   using MediatR;
-  using Microsoft.AspNetCore.Blazor.Server;
   using Microsoft.AspNetCore.Builder;
   using Microsoft.AspNetCore.Hosting;
-  using Microsoft.AspNetCore.ResponseCompression;
   using Microsoft.EntityFrameworkCore;
   using Microsoft.Extensions.Configuration;
   using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +20,6 @@
 
     public IConfiguration Configuration { get; }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder aApplicationBuilder, IHostingEnvironment aHostingEnvironment)
     {
       aApplicationBuilder.UseHttpsRedirection();
@@ -36,12 +31,10 @@
         aApplicationBuilder.UseDeveloperExceptionPage();
       }
 
-      aApplicationBuilder.UseMvc(aRouteBuilder =>
-      {
-        aRouteBuilder.MapRoute(name: "default", template: "{controller}/{action}/{id?}");
-      });
+      aApplicationBuilder.UseMvc();
+      aApplicationBuilder.UseBlazorDualMode<Client.Startup>();
 
-      aApplicationBuilder.UseBlazor<Client.Program>();
+      aApplicationBuilder.UseBlazorDebugging();
     }
 
     public void ConfigureServices(IServiceCollection aServiceCollection)
@@ -65,20 +58,13 @@
       );
 
       aServiceCollection.AddMvc()
-        .AddJsonOptions(aMvcJsonOptions =>
-        {
-          aMvcJsonOptions.SerializerSettings.ContractResolver = new DefaultContractResolver();
-        });
+        .AddNewtonsoftJson(aOptions =>
+           aOptions.SerializerSettings.ContractResolver =
+              new DefaultContractResolver());
 
-      aServiceCollection.AddResponseCompression(aResponseCompressionOptions =>
-      {
-        aResponseCompressionOptions.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-          new[]
-          {
-            MediaTypeNames.Application.Octet,
-            WasmMediaTypeNames.Application.Wasm,
-          });
-      });
+      aServiceCollection.AddRazorComponents<Client.Startup>();
+
+      aServiceCollection.AddResponseCompression();
       aServiceCollection.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
       aServiceCollection.Scan(aTypeSourceSelector => aTypeSourceSelector
         .FromAssemblyOf<Startup>()
