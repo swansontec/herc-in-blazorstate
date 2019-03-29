@@ -4,7 +4,7 @@
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Features.Edge.State;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
 
   public class WalletModel : BaseComponent
   {

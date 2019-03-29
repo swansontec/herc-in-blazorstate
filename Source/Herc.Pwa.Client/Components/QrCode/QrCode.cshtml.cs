@@ -1,7 +1,7 @@
 ﻿namespace Herc.Pwa.Client.Components
 {
   using System.Net;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Microsoft.AspNetCore.Components;
   public class QrCodeModel : BaseComponent
   {
     [Parameter] protected string Text { get; set; }

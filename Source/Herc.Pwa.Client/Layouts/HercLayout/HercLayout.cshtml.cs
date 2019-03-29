@@ -2,9 +2,8 @@
 {
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
-  using Herc.Pwa.Client.Pages.Edge;
-  using Microsoft.AspNetCore.Blazor;
-  using Microsoft.AspNetCore.Blazor.Components;
+  using Herc.Pwa.Client.Pages;
+  using Microsoft.AspNetCore.Components;
 
   public class HercLayoutModel : BaseComponent, IComponent
   {
