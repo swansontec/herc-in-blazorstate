@@ -5,7 +5,8 @@
         {
           "files": [
             "Source/**.csproj"
-          ]
+          ],
+          "src": "../"
         }
       ],
       "dest": "api",
