@@ -102,7 +102,6 @@ export class EdgeCurrencyWalletInterop {
         }
       ]
     }
-    debugger;
     var edgeTransaction: EdgeTransaction = await this.EdgeCurrencyWallet.makeSpend(edgeSpendInfo);
     edgeTransaction = await this.EdgeCurrencyWallet.signTx(edgeTransaction);
     await this.EdgeCurrencyWallet.saveTx(edgeTransaction);
