@@ -83,6 +83,7 @@ export class EdgeCurrencyWalletInterop {
   private DispatchUpdateEdgeCurrencyWallet = async (): Promise<void> => {
     const updateEdgeCurrencyWalletAction: UpdateEdgeCurrencyWalletAction = await this.GetEdgeCurrencyWalletAction();
     const blazorState: BlazorState = window[BlazorStateName] as BlazorState;
+    updateEdgeCurrencyWalletAction.edgeTransactions.forEach((t) => { delete t["amountSatoshi"]});
 
     blazorState.DispatchRequest(
       DotNetActionQualifiedNames.UpdateEdgeCurrencyWalletAction,
