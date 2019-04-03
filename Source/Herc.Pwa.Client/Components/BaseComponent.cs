@@ -23,27 +23,6 @@
   /// </remarks>
   public class BaseComponent : BlazorStateDevToolsComponent
   {
-    static ConcurrentDictionary<string, int> s_InstanceCounts = new ConcurrentDictionary<string, int>();
-    public BaseComponent()
-    {
-      string name = GetType().Name;
-      int count = s_InstanceCounts.AddOrUpdate(name, 1, (aKey, aValue) => aValue + 1);
-
-      Id = $"{name}-{count}";
-    }
-
-
-    ~BaseComponent()
-    {
-      string name = GetType().Name;
-      Console.WriteLine($"Destroying a {name}");
-      s_InstanceCounts[name]--;
-    }
-
-    public string Id { get; }
-
-    public string TestId { get; set; }
-
     [Inject] public ColorPalette ColorPalette { get; set; }
 
     public Guid Guid { get; } = Guid.NewGuid();
@@ -53,12 +32,5 @@
     public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => GetState<EdgeCurrencyWalletsState>();
 
     public IdologyState IdologyState => GetState<IdologyState>();
-
-    private T GetState<T>()
-    {
-      Type stateType = typeof(T);
-      Subscriptions.Add(stateType, this);
-      return Store.GetState<T>();
-    }
   }
 }

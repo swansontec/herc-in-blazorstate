@@ -10,20 +10,16 @@
   {
     public UpdateEdgeAccountHandler(
       IStore aStore, 
-      IMediator aMediator,
-      Subscriptions aSubscriptions) : base(aStore)
+      IMediator aMediator) : base(aStore)
     {
       Mediator = aMediator;
-      Subscriptions = aSubscriptions;
     }
 
     private IMediator Mediator { get; }
-    private Subscriptions Subscriptions { get; }
 
     public override async Task<EdgeAccountState> Handle(UpdateEdgeAccountAction aUpdateEdgeAccountAction, CancellationToken aCancellationToken)
     {
       MapActionToState(aUpdateEdgeAccountAction);
-      Subscriptions.ReRenderSubscribers<EdgeAccountState>();
       return await Task.FromResult(EdgeAccountState);
     }
 

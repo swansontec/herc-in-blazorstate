@@ -6,11 +6,11 @@
   using System.Threading.Tasks;
   using Herc.Pwa.Client.Components;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send;
   using Herc.Pwa.Client.Services;
   using Herc.Pwa.Shared;
   using Herc.Pwa.Shared.Enumerations.FeeOption;
   using Microsoft.AspNetCore.Components;
+  using BlazorState.Features.Routing;
 
   public class WalletSendPageModel : BaseComponent
   {
@@ -54,11 +54,7 @@
         DecimalSeperator = '.',
         Granularity = 18
       };
-      Console.WriteLine($"getNativeAmountRequest.Amount: {getNativeAmountRequest.Amount}");
-      Console.WriteLine($"{AmountConverter == null}");
       string nativeAmount = AmountConverter.GetNativeAmount(getNativeAmountRequest);
-      Console.WriteLine("WTF");
-      Console.WriteLine($"NativeAmount: {nativeAmount}");
       await Mediator.Send(new SendAction
       {
         EdgeCurrencyWalletId = EdgeCurrencyWalletId,
@@ -67,6 +63,8 @@
         CurrencyCode = CurrencyCode,
         Fee = Fee
       });
+
+      await Mediator.Send(new ChangeRouteRequest { NewRoute = WalletPageModel.Route });
     }
 
     public static string Route(string aEdgeCurrencyWalletEncodedId) => $"/wallet/{aEdgeCurrencyWalletEncodedId}/Send";

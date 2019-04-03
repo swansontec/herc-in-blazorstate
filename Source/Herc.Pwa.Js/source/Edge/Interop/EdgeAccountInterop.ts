@@ -4,9 +4,7 @@ import { BlazorState } from "../../BlazorState";
 import { BlazorStateName, DotNetActionQualifiedNames } from "../../Constants";
 import { UpdateEdgeAccountAction } from "../Actions/UpdateEdgeAccount";
 import { EdgeCurrencyWallet } from "../TypeDefinitions/EdgeCurrencyWallet";
-import { EdgeTransaction } from "../TypeDefinitions/EdgeTransaction";
 import { SendDto } from "../Dtos/SendDto";
-import { EdgeSpendInfo } from "../TypeDefinitions/EdgeSpendInfo";
 import { ChangePasswordDto } from "../Dtos/ChangePasswordDto";
 import { ChangePinDto } from "../Dtos/ChangePinDto";
 
@@ -81,13 +79,6 @@ export class EdgeAccountInterop {
     blazorState.DispatchRequest(DotNetActionQualifiedNames.UpdateEdgeAccountAction, updateEdgeCurrencyWalletAction);
   }
 
-
-  //GetFirstWalletInfo = (aType: string): string => {
-
-  //  this.EdgeWalletInfo = this.EdgeAccount.getFirstWalletInfo(aType);
-  //  return JSON.stringify(this.EdgeWalletInfo);
-  //}
-
   private CreateCurrencyWallet = async (aType: string, edgeCreateCurrencyWalletOptions?: EdgeCreateCurrencyWalletOptions): Promise<string> => {
     console.log(`CreateCurrencyWallet with aType:${aType}`);
     const edgeCurrencyWallet = await this.EdgeAccount.createCurrencyWallet(aType, edgeCreateCurrencyWalletOptions);
@@ -102,20 +93,18 @@ export class EdgeAccountInterop {
 
   public Send = async (aSendAction: SendDto): Promise<string> => {
     const edgeCurrencyWalletInterop = this.EdgeCurrencyWalletInterops[aSendAction.edgeCurrencyWalletId];
+
     return edgeCurrencyWalletInterop.Send(aSendAction);
   }
 
   public ChangePassword = async (aChangePasswordDto: ChangePasswordDto): Promise<boolean> => {
-    const whatisthis = await this.EdgeAccount.changePassword(aChangePasswordDto.newPassword);
-    console.log(whatisthis);
-    //debugger;
+    await this.EdgeAccount.changePassword(aChangePasswordDto.newPassword);
+
     return true;
   }
 
   public ChangePin = async (aChangePinDto: ChangePinDto): Promise<boolean> => {
-    const whatisthis = await this.EdgeAccount.changePin({ pin: aChangePinDto.newPin, enableLogin: aChangePinDto.enableLogin });
-    console.log(whatisthis);
-    //debugger;
+    await this.EdgeAccount.changePin({ pin: aChangePinDto.newPin, enableLogin: aChangePinDto.enableLogin });
     return true;
   }
 
