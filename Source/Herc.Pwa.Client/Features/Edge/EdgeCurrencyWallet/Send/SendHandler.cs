@@ -1,5 +1,4 @@
-﻿
-namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send
+﻿namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
 {
   using System;
   using System.Threading;
@@ -12,9 +11,7 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Send
 
   public class SendHandler : BaseHandler<SendAction, EdgeCurrencyWalletsState>
   {
-    public SendHandler(
-      IStore aStore,
-      IMediator aMediator) : base(aStore)
+    public SendHandler(IStore aStore, IMediator aMediator) : base(aStore)
     {
       Mediator = aMediator;
     }
