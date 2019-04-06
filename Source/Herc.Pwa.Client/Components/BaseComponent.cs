@@ -1,14 +1,11 @@
 ﻿namespace Herc.Pwa.Client.Components
 {
   using System;
-  using System.Collections.Concurrent;
-  using BlazorState;
-  using BlazorState.Behaviors.ReduxDevTools;
+  using BlazorState.Pipeline.ReduxDevTools;
   using Herc.Pwa.Client.Features.Application;
   using Herc.Pwa.Client.Features.Edge;
   using Herc.Pwa.Client.Features.Edge.EdgeAccount;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
-  using Herc.Pwa.Client.Features.Idology;
   using Herc.Pwa.Client.Shared;
   using Microsoft.AspNetCore.Components;
 
@@ -30,7 +27,5 @@
     public EdgeState EdgeState => GetState<EdgeState>();
     public EdgeAccountState EdgeAccountState => GetState<EdgeAccountState>();
     public EdgeCurrencyWalletsState EdgeCurrencyWalletsState => GetState<EdgeCurrencyWalletsState>();
-
-    public IdologyState IdologyState => GetState<IdologyState>();
   }
 }

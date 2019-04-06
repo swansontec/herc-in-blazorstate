@@ -14,16 +14,8 @@
       // Are we in the proper state for this page?
       if (EdgeAccountState.LoggedIn)
       {
-        if (IdologyState.IsValid)
-        {
           // Route them to Home Page
           await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = HomeModel.Route });
-        }
-        else
-        {
-          // Route them to Idology Page
-          await Mediator.Send(new BlazorState.Features.Routing.ChangeRouteRequest { NewRoute = IdologyModel.Route });
-        }
       }
       else
       {
