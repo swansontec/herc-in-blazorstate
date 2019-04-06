@@ -15,6 +15,8 @@
       public override async Task<EdgeAccountState> Handle(LogoutAction aShowLoginWindowEdgeRequest, CancellationToken aCancellationToken)
       {
         await JSRuntime.Current.InvokeAsync<bool>(EdgeInteropMethodNames.EdgeAccountInterop_Logout);
+        EdgeAccountState.Initialize();
+        Store.Reset(); // Clear the entire State.
         return EdgeAccountState;
       }
     }

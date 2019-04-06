@@ -1,9 +1,9 @@
 ﻿namespace Herc.Pwa.Client
 {
   using System.Threading.Tasks;
-  using BlazorState.Behaviors.ReduxDevTools;
   using BlazorState.Features.JavaScriptInterop;
   using BlazorState.Features.Routing;
+  using BlazorState.Pipeline.ReduxDevTools;
   using Microsoft.AspNetCore.Components;
 
   public class AppModel : ComponentBase
