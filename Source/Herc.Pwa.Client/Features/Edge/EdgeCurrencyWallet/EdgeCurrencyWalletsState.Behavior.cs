@@ -30,10 +30,7 @@
 
     public override object Clone() => new EdgeCurrencyWalletsState(this);
 
-    protected override void Initialize()
-    {
-      EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
-    }
+    protected override void Initialize() => EdgeCurrencyWallets = new Dictionary<string, EdgeCurrencyWallet>();
   }
 
 }
