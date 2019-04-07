@@ -1,6 +1,5 @@
 ﻿namespace Herc.Pwa.Server.Integration.Tests.Features.WeatherForecast.GetAll
 {
-  using System;
   using System.Threading.Tasks;
   using Herc.Pwa.Shared.Features.WeatherForecast;
   using MediatR;
@@ -12,11 +11,9 @@
 
     public GetAllWeatherForecastsTests(TestFixture aTestFixture)
     {
-      ServiceProvider = aTestFixture.ServiceProvider;
-      Mediator = ServiceProvider.GetService<IMediator>();
+      Mediator = aTestFixture.ServiceProvider.GetService<IMediator>();
     }
 
-    private IServiceProvider ServiceProvider { get; }
     private IMediator Mediator { get; }
 
     public async Task ShouldGetAllWeatherForecasts()
