@@ -1,8 +1,6 @@
 ﻿
 namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet
 {
-  using System;
-  using System.Linq;
   using System.Numerics;
   using BlazorState;
   using FluentValidation;
