@@ -22,7 +22,6 @@
     {
       SendDto sendDto = MapSendActionToSendDto(aSendAction);
 
-      Console.WriteLine("Call the jsinterop to send via Edge");
       string transactionId = await JSRuntime.Current.InvokeAsync<string>(EdgeInteropMethodNames.EdgeCurrencyWalletInterop_Send, sendDto);
       Console.WriteLine($"SendTransactionId:{transactionId}");
 

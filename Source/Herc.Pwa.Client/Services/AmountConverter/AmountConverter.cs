@@ -35,11 +35,8 @@
 
     public string GetNativeAmount(GetNativeAmountRequest aGetNativeAmountRequest)
     {
-      Console.WriteLine("Hello");
       var getNativeAmountRequestValidator = new GetNativeAmountRequestValidator();
-      Console.WriteLine("constructed getNativeAmountRequestValidator");
       getNativeAmountRequestValidator.ValidateAndThrow(aGetNativeAmountRequest);
-      Console.WriteLine("input is valid");
 
       string[] splitAmount = aGetNativeAmountRequest.Amount.Split(aGetNativeAmountRequest.DecimalSeperator);
       string decimalsplit = splitAmount.Length > 1 ? splitAmount[1] : "0";

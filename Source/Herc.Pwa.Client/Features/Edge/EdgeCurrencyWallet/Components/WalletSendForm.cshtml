@@ -1,0 +1,42 @@
+﻿@namespace Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet.Components
+@inherits WalletSendFormModel
+
+<div id="@Id" class="text-center">
+  <Validation ValidationResult="@ValidationResult" />
+  <br />
+  <form onsubmit="@Send">
+    <div class="form-group">
+      <label for="CurrencyCode">CurrencyCode</label>
+      <select id="CurrencyCode" class="form-control-sm" bind="@CurrencyCode">
+        @foreach (string currencyCode in EdgeCurrencyWallet.Balances?.Keys)
+        {
+        <option value="@currencyCode">@currencyCode</option>
+        }
+      </select>
+    </div>
+    <br />
+    <Balance Balance="@Balance" CurrencyCode="@CurrencyCode" DecimalPlacesToDisplay="6" />
+    <br />
+    <div class="form-group">
+      <label for="DestinationAddress">Destination Address</label>
+      <input class="form-control" id="DestinationAddress" bind="@DestinationAddress" placeholder="0x0000000000000000000000000000000000000000" />
+    </div>
+    <div class="form-group">
+      <label for="Amount">Amount(@CurrencyCode)</label>
+      <input class="form-control" id="Amount" type="text" pattern="@Pattern" bind="@Amount" placeholder="0.01234" />
+    </div>
+    <button type="submit" class="btn btn-dark">Send</button>
+  </form>
+
+  <br />
+
+  <div>Gas: @Fee</div>
+</div>
+
+<style>
+  #CurrencyCode {
+    display: inline-block;
+    width: unset;
+  }
+</style>
+
