@@ -12,6 +12,8 @@
     public EdgeCurrencyWallet()
     {
       EdgeTransactions = new List<EdgeTransaction>();
+      Balances = new Dictionary<string, string>();
+      Keys = new Dictionary<string, string>();
     }
 
     public Dictionary<string, string> Balances { get; set; }
