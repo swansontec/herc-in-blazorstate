@@ -9,6 +9,9 @@ trigger:
   include:
   - source/*
 
+# no PR builds
+pr: none
+
 steps:
 - task: DotNetCoreCLI@2
   displayName: Publish The HercPwa.Server project which will be deployed to azure

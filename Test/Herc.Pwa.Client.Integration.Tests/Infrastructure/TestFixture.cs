@@ -8,6 +8,9 @@
   using Microsoft.AspNetCore.Blazor.Hosting;
   using Microsoft.Extensions.DependencyInjection;
   using Herc.Pwa.Client.Services;
+  using Nethereum.Util;
+  using FluentValidation;
+  using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
 
   /// <summary>
   /// A known starting state(baseline) for all tests.
@@ -41,6 +44,9 @@
     {
       aServiceCollection.AddSingleton<AmountConverter>();
       aServiceCollection.AddSingleton(BlazorStateTestServer.CreateClient());
+      aServiceCollection.AddSingleton<AddressUtil>();
+      aServiceCollection.AddScoped(typeof(IValidator<SendAction>), typeof(SendValidator));
+
       aServiceCollection.AddBlazorState(aOptions => aOptions.Assemblies =
         new Assembly[] { typeof(Startup).GetTypeInfo().Assembly });
     }
