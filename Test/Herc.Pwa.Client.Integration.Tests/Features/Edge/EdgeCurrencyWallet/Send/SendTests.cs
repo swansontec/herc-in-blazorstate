@@ -22,6 +22,7 @@
       ServiceProvider = aTestFixture.ServiceProvider;
       Mediator = ServiceProvider.GetService<IMediator>();
       Store = ServiceProvider.GetService<IStore>();
+      SendValidator = ServiceProvider.GetService<IValidator<SendAction>>();
       EdgeCurrencyWalletsState = Store.GetState<EdgeCurrencyWalletsState>();
     }
 
@@ -29,6 +30,7 @@
     private IMediator Mediator { get; }
     private IServiceProvider ServiceProvider { get; }
     private IStore Store { get; }
+    private IValidator<SendAction> SendValidator { get; }
     private EdgeCurrencyWalletsState ValidEdgeCurrencyWalletsState { get; set; }
     private SendAction SendAction { get; set; }
 
@@ -69,11 +71,9 @@
 
       SendAction.CurrencyCode = "";
 
-      var sendValidator = new SendValidator(Store);
-
       // Act
 
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
@@ -91,11 +91,9 @@
 
       SendAction.CurrencyCode = "BAD";
 
-      var sendValidator = new SendValidator(Store);
-
       // Act
 
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
@@ -112,16 +110,15 @@
       // Arrange
 
       SendAction.DestinationAddress = "";
-      
-      var sendValidator = new SendValidator(Store);
 
       // Act
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
-      validationResult.Errors.Count.ShouldBe(1);
-      ValidationFailure validationFailure = validationResult.Errors[0];
+      validationResult.Errors.Count.ShouldBeGreaterThan(0);
+      ValidationFailure validationFailure = validationResult.Errors
+        .First(aValidationFailure => aValidationFailure.ErrorCode == nameof(NotEmptyValidator));
 
       validationFailure.PropertyName.ShouldBe(nameof(SendAction.DestinationAddress));
       validationFailure.ErrorCode.ShouldBe(nameof(NotEmptyValidator));
@@ -134,10 +131,8 @@
 
       SendAction.DestinationAddress = "ThisIsNotValid";
 
-      var sendValidator = new SendValidator(Store);
-
       // Act
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
@@ -154,10 +149,8 @@
       // Arrange
       SendAction.Fee = null;
 
-      var sendValidator = new SendValidator(Store);
-
       // Act
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
@@ -174,11 +167,9 @@
       // Arrange
       SendAction.NativeAmount = "0000";
       
-      var sendValidator = new SendValidator(Store);
-
       // Act
 
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
@@ -195,11 +186,9 @@
       // Arrange
       SendAction.NativeAmount = $"1{HercStartBalance}"; // Greater than Balance
       
-      var sendValidator = new SendValidator(Store);
-
       // Act
 
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
@@ -215,25 +204,21 @@
     {
       // Arrange
 
-      var sendValidator = new SendValidator(Store);
-
       // Act
 
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(true);
     }
 
-    public void WalletDoesNotExist()
+    public void WalletMustExist()
     {
       SendAction.EdgeCurrencyWalletId = "x";
         
-      var sendValidator = new SendValidator(Store);
-
       // Act
 
-      ValidationResult validationResult = sendValidator.Validate(SendAction);
+      ValidationResult validationResult = SendValidator.Validate(SendAction);
 
       // Assert
       validationResult.IsValid.ShouldBe(false);
