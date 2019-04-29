@@ -78,5 +78,5 @@
     </ItemGroup>
   </Target>
 
-  <ProjectExtensions><VisualStudio><UserProperties yarn_1lock__JsonSchema="https://raw.githubusercontent.com/buildkite/pipeline-schema/master/schema.json" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>
