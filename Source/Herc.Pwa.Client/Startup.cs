@@ -6,7 +6,7 @@
   using FluentValidation;
   using Herc.Pwa.Client.Features.Edge.EdgeCurrencyWallet;
   using Herc.Pwa.Client.Services;
-  using Herc.Pwa.Client.Shared;
+  using Herc.Pwa.Client.Components.Shared;
   using Microsoft.AspNetCore.Components.Builder;
   using Microsoft.Extensions.DependencyInjection;
   using Nethereum.Util;
