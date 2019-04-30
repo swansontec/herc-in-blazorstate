@@ -1,4 +1,4 @@
-﻿namespace Herc.Pwa.Client.Components
+﻿namespace Herc.Pwa.Client.Components.QrCode
 {
   using System.Net;
   using Microsoft.AspNetCore.Components;

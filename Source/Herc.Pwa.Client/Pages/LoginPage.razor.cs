@@ -8,7 +8,7 @@
     public const string Route = "Login";
 
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnAfterRenderAsync()
     {
 
       // Are we in the proper state for this page?
@@ -31,15 +31,15 @@
     //    if (IdologyState.IsValid)
     //    {
     //      // Route them to Home Page
-    //      Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = HomeModel.Route});
+    //      Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = HomeModel.Route});
     //    } else
     //    {
     //      // Route them to Idology Page
-    //      Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = IdologyModel.Route});
+    //      Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = IdologyModel.Route});
     //    }
     //  } else
     //  {
-    //    Mediator.Send(new BlazorState.Features.Routing.ChangeRouteAction { NewRoute = EdgeModel.Route });
+    //    Mediator.Send(new BlazorState.Features.Routing.RouteChangeAction { NewRoute = EdgeModel.Route });
     //  }
 
 

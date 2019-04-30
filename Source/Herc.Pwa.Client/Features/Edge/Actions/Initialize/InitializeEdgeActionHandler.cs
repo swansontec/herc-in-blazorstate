@@ -1,6 +1,5 @@
 ﻿namespace Herc.Pwa.Client.Features.Edge
 {
-  using System;
   using System.Threading;
   using System.Threading.Tasks;
   using BlazorState;
@@ -13,8 +12,12 @@
 
     public class InitializeEdgeActionHandler : BaseHandler<InitailizeEdgeAction, EdgeState>
     {
-      public InitializeEdgeActionHandler(IStore aStore) : base(aStore) { }
-        [Inject] IJSRuntime JSRuntime { get;}
+      public InitializeEdgeActionHandler(IStore aStore, IJSRuntime aJSRuntime):base(aStore)
+      {
+        JSRuntime = aJSRuntime;
+      }
+
+      private IJSRuntime JSRuntime { get; }
 
       public override async Task<EdgeState> Handle(InitailizeEdgeAction aInitailizeEdgeRequest, CancellationToken aCancellationToken)
       {

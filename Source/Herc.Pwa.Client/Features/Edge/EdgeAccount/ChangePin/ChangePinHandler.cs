@@ -15,15 +15,12 @@ namespace Herc.Pwa.Client.Features.Edge.EdgeAccount.ChangePin
   public class ChangePinHandler : BaseHandler<ChangePinAction, EdgeAccountState>
   {
 
-    public ChangePinHandler(
-      IStore aStore,
-      IMediator aMediator) : base(aStore)
+    public ChangePinHandler( IStore aStore, IJSRuntime aJSRuntime ) : base(aStore)
     {
-      Mediator = aMediator;
+      JSRuntime = aJSRuntime;
     }
 
-    private IMediator Mediator { get; }
-    [Inject] IJSRuntime JSRuntime { get; }
+    private IJSRuntime JSRuntime { get; }
 
     public override async Task<EdgeAccountState> Handle(ChangePinAction aChangePinAction, CancellationToken aCancellationToken)
     {
